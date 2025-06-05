@@ -15,9 +15,9 @@
         <h1>Start Play</h1>
         <a href="#"></a>
         <nav>
-          <a href="index.php">Home</a>
-          <a href="card.php">Games</a>
-          <a href="videogame.php">Consoles</a>
+          <a href="../index.php">Home</a>
+          <a href="../card.php">Games</a>
+          <a href="../videogame.php">Consoles</a>
         </nav>
         <form class="search-bar">
           <input type="text" placeholder="Pesquisar..." />
