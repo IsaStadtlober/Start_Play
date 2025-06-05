@@ -47,6 +47,8 @@
             </div>
             <!-- Formulário de cadastro -->
              <?php
+                // Incluir a conexao do banco de dados
+                include 'conexao.php';
                 $erros = []; // Array para armazenar mensagens de erro
                 $dados = []; // Array para armazenar os dados do formulário
 
@@ -187,6 +189,7 @@
                         if (!preg_match('/^[a-zA-Z\s]+$/', $senha)) return "A senha deve conter apenas caracteres alfabéticos";
                         if (strlen($senha) < 8) return "A senha deve conter no mínimo 8 caracteres";
                         if ($senha != $confirmarSenha) return "As senhas não são iguais";
+                        
                         return null;
                     }
                     function buscarCep($cep) {
@@ -230,26 +233,42 @@
                     $erros["senha"] = validarSenha($dados["senha"], $dados["confirmar_senha"]);
                     // Se o CEP for válido, busca os dados da API
 
-                    // Se não houver erros, exibe o modal de sucesso
+                    // Se não houver erros, armazenar os dados e exibir o modal de sucesso
                     if (empty(array_filter($erros))) {
-                        echo "
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                // Exibe o modal
-                                var successModal = new bootstrap.Modal(document.getElementById('successModal'));
-                                successModal.show();
-                    
-                                // Redireciona automaticamente após 5 segundos
-                                setTimeout(function () {
-                                    window.location.href = 'index.php';
-                                }, 5000);
-                    
-                                // Cancela o redirecionamento automático se o modal for fechado manualmente
-                                document.getElementById('successModal').addEventListener('hidden.bs.modal', function () {
-                                    window.location.href = 'index.php';
+
+                        //Criptografia de Senhas
+                        $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
+                        $dados['confirmar_senha'] = password_hash($dados['confirmar_senha'], PASSWORD_DEFAULT);
+
+                        //Inserindo os dados no banco de dados
+                        $sql_usuario = "INSERT INTO usuario (nomecompleto, datanascimento,sexo, nomematerno, cpf, email, telefonecelular, telefonefixo, login, senha) 
+                        VALUES ('$dados[nome_completo]', '$dados[data_nascimento]', '$dados[sexo]', '$dados[nome_materno]', '$dados[cpf]', '$dados[email]', '$dados[telefone_celular]', '$dados[telefone_fixo]', '$dados[login]', '$dados[senha]')";
+                        if(mysqli_query($conn, $sql_usuario)){
+                            return null;
+                        }
+                        $sql_endereco = "INSERT INTO endereco (cep, endereco, complemento, numero, uf, cidade, bairro)
+                        VALUES ('$dados[cep]', '$dados[endereco]', '$dados[complemento]', '$dados[numero]', '$dados[uf]', '$dados[cidade]', '$dados[bairro]')";
+                        if(mysqli_query($conn, $sql_endereco)){
+                            // Exibir o modal de sucesso
+                            echo "
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    // Exibe o modal
+                                    var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                                    successModal.show();
+                        
+                                    // Redireciona automaticamente após 5 segundos
+                                    setTimeout(function () {
+                                        window.location.href = 'index.php';
+                                    }, 5000);
+                        
+                                    // Cancela o redirecionamento automático se o modal for fechado manualmente
+                                    document.getElementById('successModal').addEventListener('hidden.bs.modal', function () {
+                                        window.location.href = 'index.php';
+                                    });
                                 });
-                            });
-                        </script>";
+                            </script>";
+                        }
                     }
                 }
              ?>
@@ -273,9 +292,9 @@
                         <label for="sexo" class="form-label">Sexo:</label>
                         <select id="sexo" name="sexo" class="form-select" required>
                             <option value="s"<?php echo htmlspecialchars($dados['sexo'] ?? '') ?> name = "s">Selecione</option>
-                            <option value="masculino" <?php echo htmlspecialchars($dados['sexo'] ?? '')?>  name = "masculino">Masculino</option>
-                            <option value="feminino" <?php echo htmlspecialchars($dados['sexo'] ?? '')?> name = "feminino">Feminino</option>
-                            <option value="outro" <?php echo htmlspecialchars($dados['sexo'] ?? '')?> name = "outro">Outro</option>
+                            <option value="M" <?php echo htmlspecialchars($dados['sexo'] ?? '')?>  name = "M">Masculino</option>
+                            <option value="F" <?php echo htmlspecialchars($dados['sexo'] ?? '')?> name = "F">Feminino</option>
+                            <option value="O" <?php echo htmlspecialchars($dados['sexo'] ?? '')?> name = "O">Outro</option>
                         </select>
                         <p style="color: red;"><?php echo $erros["sexo"] ?? ""; ?></p>
                     </div>
