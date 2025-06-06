@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
   <header class="p-5">
           <img src="../img/logo-pp2.png" alt="Logo">
@@ -25,13 +26,14 @@
       <p class="text-center">Visualize, edite ou exclua usuários do sistema.</p>
   </div>
   <div class="d-flex justify-content-center mt-4 mb-4">
-    <form class="d-flex w-50" style="max-width:400px;">
-      <label for="search" class="visually-hidden">Consultar</label>
-      <input id="search" class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Pesquisar" name="search" value="" autocomplete="off">
-      <button class="btn btn-outline-success" type="submit">Consultar</button>
-    </form>
+    <nav class = "navbar navbar-light bg-light w-100 d-flex justify-content-center">
+      <form class="d-flex w-50" style="max-width:400px;" method="POST" action="consulta.php">
+        <label for="search" class="visually-hidden">Consultar</label>
+        <input id="search" class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Pesquisar" name="pesquisar" value="" autocomplete="off">
+        <button class="btn btn-outline-success" type="submit">Consultar</button>
+      </form>
+    </nav>
   </div>
-
   <div class="container d-flex flex-column align-items-center mt-5">
       <table class="table table-bordered table-striped">
         <thead class="table-dark">
@@ -43,38 +45,38 @@
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr>
-            <td>Maria Eduarda de Almeida</td>
-            <td>MaduEd</td>
-            <td>Qwertyui</td>
-            <td>
-              <button type="button" class="btn btn-info text-light">
-                  <i class="bi bi-eye"></i> Visualizar
-              </button>
-              <button type="button" class="btn btn-primary">
-                  <i class="bi bi-pencil"></i> Editar
-              </button>
-              <button type="button" class="btn btn-danger">
-                  <i class="bi bi-trash"></i> Excluir
-              </button>
-            </td>
-          </tr>
-          <tr>
-              <td>Kauã de Almeida dos Santos</td>
-              <td>KakaAl</td>
-              <td>asdfghjk</td>
-              <td>
-                  <button type="button" class="btn btn-info text-light">
-                  <i class="bi bi-eye"></i> Visualizar
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                      <i class="bi bi-pencil"></i> Editar
-                  </button>
-                  <button type="button" class="btn btn-danger">
-                      <i class="bi bi-trash"></i> Excluir
-                  </button>
-              </td>
-          </tr>
+            <?php 
+              $pesquisar = $_POST['pesquisar'] ?? '';
+
+              include 'conexao.php';
+
+              $sql = "SELECT * FROM usuario WHERE nomecompleto LIKE '%$pesquisar%'";
+
+              $dados = mysqli_query($conn, $sql);
+
+              while($linha = mysqli_fetch_assoc($dados)){
+                $nome = $linha['nomecompleto'];
+                $login = $linha['login'];
+                $senha = $linha['senha'];
+
+                echo  "<tr>
+                  <td>$nome</td>
+                  <td>$login</td>
+                  <td>$senha</td>
+                  <td>
+                    <button type='button' class='btn btn-info text-light'>
+                        <i class='bi bi-eye'></i> Visualizar
+                    </button>
+                    <button type='button' class='btn btn-primary'>
+                        <i class='bi bi-pencil'></i> Editar
+                    </button>
+                    <button type='button' class='btn btn-danger'>
+                        <i class='bi bi-trash'></i> Excluir
+                    </button>
+                  </td>
+                </tr>";
+              }
+            ?>          
         </tbody>
       </table>
       <div class="w-100 d-flex justify-content-start mb-2">
