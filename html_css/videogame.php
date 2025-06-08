@@ -1,3 +1,14 @@
+<?php
+    session_start(); // Inicia a sessão para acessar as variáveis de usuário
+
+    // Verifica se o usuário está logado
+    if (!isset($_SESSION["usuario_logado"])) {
+        echo '<p style="color:red;">Você precisa estar logado para acessar esta página.</p>';
+        echo '<a href="index.php">Clique aqui para voltar para a tela inicial</a>';
+        exit(); // Finaliza o script
+    }
+    // Se o usuário estiver logado, exibe o conteúdo
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
