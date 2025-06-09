@@ -12,11 +12,11 @@
         echo "Erro na conexão";
     }
 
-    //Função para data ser exibida no formato brasileiro no CRUD
+    /*Função para data ser exibida no formato brasileiro no CRUD
     function formatodata($data){
         $data = explode('-', $data);
         $data = $data[2].'/'.$data[1].'/'.$data[0];
         return $data;
         // Exemplo: 2023-10-01 será exibido como 01/10/2023
-    }
+    }*/
 ?>

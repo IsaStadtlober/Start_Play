@@ -1,3 +1,11 @@
+<?php
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluir_usuario'])){
+    include 'conexao.php';
+    $nome = mysqli_real_escape_string($conn, $_POST['excluir_usuario']);
+    $sql = "DELETE FROM usuario WHERE nomecompleto = '$nome'";
+    mysqli_query($conn, $sql);
+  }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -70,9 +78,12 @@
                     <button type='button' class='btn btn-primary'>
                         <i class='bi bi-pencil'></i> Editar
                     </button>
-                    <button type='button' class='btn btn-danger'>
-                        <i class='bi bi-trash'></i> Excluir
-                    </button>
+                    <form method='POST' action='consulta.php' class='d-inline'>
+                      <input type='hidden' name='excluir_usuario' value='$nome'>
+                      <button type='submit' class='btn btn-danger' onclick='return confirm(\"Tem certeza que deseja excluir este usuário?\")'>
+                          <i class='bi bi-trash'></i> Excluir
+                      </button>
+                    </form>
                   </td>
                 </tr>";
               }
@@ -80,13 +91,12 @@
         </tbody>
       </table>
       <div class="w-100 d-flex justify-content-start mb-2">
-      <button class="btn btn-success">
+      <button class="btn btn-success" href="cadastro.php">
+      <a href="cadastro.php" class="text-decoration-none text-white">
           <i class="bi bi-person-plus"></i> Incluir novo usuário
       </button>
   </div>
-  </div>
-
-
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>

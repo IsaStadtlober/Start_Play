@@ -1,3 +1,77 @@
+<?php
+session_start();
+include 'conexao.php';
+
+$erro = [];
+$dados = [];
+$login_efetuado = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Se o usuário já está logado e tentou enviar o formulário de login novamente
+    if (isset($_SESSION['usuario_logado'])) {
+        $email = $_SESSION['usuario_logado'];
+        $sql = "SELECT nomecompleto FROM usuario WHERE email = '$email'";
+        $result = mysqli_query($conn, $sql);
+        $linha = mysqli_fetch_assoc($result);
+        $nome = $linha['nomecompleto'];
+
+        echo '
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              document.getElementById("successModalLabel").innerText = "Você já está logado!";
+              document.getElementById("successModalMsg").innerHTML = "Bem-vindo(a) de volta' . ($nome ? ', <b>' . htmlspecialchars($nome) . '</b>' : '') . '!";
+              var successModal = new bootstrap.Modal(document.getElementById("successModal"));
+              successModal.show();
+            });
+          </script>
+        ';
+    } else {
+        // Processamento normal do login
+        $email = $_POST['email'];
+        $senha = $_POST['password'];
+        $confirmar_senha = $_POST['confirm_password'];
+
+        $sql = "SELECT * FROM usuario WHERE email = '$email'";
+        $result = mysqli_query($conn, $sql);
+        if ($result && mysqli_num_rows($result)> 0){
+            $linha = mysqli_fetch_assoc($result);
+            if(md5($senha) == $linha['senha']){
+                $_SESSION['usuario_logado'] = $email;
+                $nome = $linha['nomecompleto'];
+                $login_efetuado = true;
+                echo '
+                  <script>
+                      document.addEventListener("DOMContentLoaded", function () {
+                      document.getElementById("successModalLabel").innerText = "Login efetuado com sucesso!";
+                      document.getElementById("successModalMsg").innerHTML = "Bem-vindo(a), <b>' . htmlspecialchars($nome) . '</b>!";
+                      var successModal = new bootstrap.Modal(document.getElementById("successModal"));
+                      successModal.show();
+                      setTimeout(function() {
+                        window.location.href = "index.php";
+                      }, 2000);
+                    });
+                </script>
+                ';
+            }else{
+                $erro["password"] = "Senha incorreta";
+                $erro["confirm_password"] = "As senhas não conferem";
+            }
+        }else{
+            $erro["email"] = "E-mail não cadastrado";
+        }
+        if (!empty($erro)) {
+            echo '
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
+                    loginModal.show();
+                });
+            </script>
+            ';
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -270,68 +344,53 @@
               <p class="text-center fs-6">Complete com os seus dados para efetuar o login.</p>
               <div class="modal-body">
                   <!-- Formulário de Login -->
-                  <?php 
-                    $erro = [];
-                    $dados = [];
+                  <?php
+                    /* validação do login
+                    session_start();
+                    include 'conexao.php';
+                    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                      $email = $_POST['email'];
+                      $senha = $_POST['password'];
+                      $confirmar_senha = $_POST['confirm_password'];
 
-                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                      $dados = [
-                        "email" => $_POST["email"],
-                        "password" => $_POST["password"],
-                        "confirm_password" => $_POST["confirm_password"]
-                      ];
-                      function email($email) {
-                        if ($email != "emailficticostarplay@gmail.com") {
-                          return "Esse e-mail não está cadastrado";
+                      //consulta no banco de dados para verificar se o usuário existe
+                      $sql = "SELECT * FROM usuario WHERE email = '$email'";
+                      $result = mysqli_query($conn, $sql);
+                      if ($result && mysqli_num_rows($result)> 0){
+                        $linha = mysqli_fetch_assoc($result);
+                        //verifica a senha
+                        if(md5($senha) == $linha['senha']){
+                          $_SESSION['usuario_logado'] = $email; // Armazena o usuário na sessão
+                          echo '
+                            <div id="modal-login" style="display: block;">
+                              <div class="modal-content">
+                                <span class="close" onclick="document.getElementById(\'modal-login\').style.display=\'none\'">&times;</span>
+                                <h2>Login bem-sucedido!</h2>
+                                <p>Bem-vindo, ' . htmlspecialchars($email) . '!</p>
+                                <button onclick="location.href=\'index.php\'">Continuar</button>
+                              </div>
+                            </div>';
+                            exit();
+                        }else {
+                          echo '
+                              <script>
+                                  document.addEventListener("DOMContentLoaded", function () {
+                                  var loginModal = new bootstrap.Modal(document.getElementById("loginModal));
+                                  loginModal.show();
+                                });
+                              </script>';
                         }
-                        return null; 
+                      }else{
+                        echo '
+                            <script>
+                              document.addEventListener("DOMContentLoaded", function () {
+                              var loginModal = new bootstrap.Modal(document.getElementById("loginModal));   
+                              loginModal.show();
+                              }); 
+                          </script>';
                       }
-                      function senha($password) {
-                        if ($password != "abcdefgh") {
-                            return "Senha incorreta";
-                        }
-                        return null;
-                      }
-                    
-                      function confirmarSenha($password, $confirm_password) {
-                          if ($confirm_password != $password) {
-                              return "As senhas não são iguais";
-                          }
-                          return null;
-                      }
-
-                      $erro["email"] = email($dados["email"]);
-                      $erro["password"] = senha($dados["password"]);
-                      $erro["confirm_password"] = confirmarSenha($dados["password"], $dados["confirm_password"]);
-
-
-                      if (!empty(array_filter($erro))) {
-                        // Reabre o modal se houver erros
-                        echo "
-                        <script>
-                          document.addEventListener('DOMContentLoaded', function () {
-                            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-                            loginModal.show();
-                          });
-                        </script>";
-                      }
-                      else {
-                        // Exibe o modal de sucesso
-                        echo "
-                        <script>
-                          document.addEventListener('DOMContentLoaded', function () {
-                            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
-                            successModal.show();
-                    
-                            // Redireciona após 3 segundos
-                            setTimeout(function () {
-                              window.location.href = 'index.php';
-                            }, 3000);
-                          });
-                        </script>";
-                      }
-                    }
-                   ?>
+                    }*/
+                  ?>
                   <form action="" method="POST" id="login-form">
                     <div class="mb-3">
                         <label for="email" class="form-label">E-mail:</label>
@@ -404,7 +463,7 @@
             <div class="modal-body text-center">
               <img src="img/favicon.ico" alt="Ícone de Sucesso" style="max-width: 40px; margin-bottom: 20px;">
               <h2 class="modal-title fs-3 text-success" id="successModalLabel">Login efetuado com sucesso!</h2>
-              <p class="fs-6 mt-3">Bem-vindo(a) de volta! Você será redirecionado em breve.</p>
+              <p class="fs-6 mt-3" id="successModalMsg">Bem-vindo(a) de volta! Você será redirecionado em breve.</p>
               <div class="d-flex justify-content-center mt-4">
                 <button type="button" class="btn btn-outline-success w-50" data-bs-dismiss="modal">Fechar</button>
               </div>
@@ -429,7 +488,7 @@
           const password = document.getElementById("password").value;
           const confirmPassword = document.getElementById("confirm_password").value;
 
-          // Simula a validação do formulário
+          /* Simula a validação do formulário
           if (email === "emailficticostarplay@gmail.com" && password === "abcdfghi" && password === confirmPassword) {
             console.log("Validação bem-sucedida!");
 
@@ -438,7 +497,7 @@
           } else {
             console.log("Erro na validação. Verifique os dados.");
             alert("Erro na validação. Verifique os dados.");
-          }
+          }*/
         });
       });
     </script>
