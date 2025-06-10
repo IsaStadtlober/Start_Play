@@ -129,11 +129,17 @@
                     <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                    <button type="submit" class="btn btn-success mt-3 d-flex align-items-center gap-2">
+                        <i class="bi bi-save"></i> Salvar Alterações
+                    </button>
                     <?php if($origem == 'crud'): ?>
-                        <a href="consulta.php" class="btn btn-secondary">Cancelar</a>
+                        <a href="consulta.php" class="btn btn-secondary mt-3 d-flex align-items-center gap-2">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
                     <?php else: ?>
-                        <a href="../perfil.php" class="btn btn-secondary">Cancelar</a>
+                        <a href="../perfil.php" class="btn btn-secondary mt-3 d-flex align-items-center gap-2">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
                     <?php endif; ?>
                 </div>
             </form>
