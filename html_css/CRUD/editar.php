@@ -73,12 +73,18 @@
     <meta charset="UTF-8">
     <title>Editar Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../formulario.css">
 </head>
-<body>
+<body id="cadastro">
 <div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-    <div class="card shadow-lg p-4" style="max-width: 600px; width: 100%; border-radius: 18px;">
-        <div class="card-body">
-            <h2 class="card-title text-center mb-4">Editar Usuário</h2>
+    <div style="max-width: 600px; width: 100%; border-radius: 18px;">
+            <div>
+                <div style="max-width: 450px; width: 100%;">
+                <div class="rounded-circle bg-opacity-25 d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 90px; height: 90px; font-size: 4rem;">
+                <i class="bi bi-pencil-square text-dark"></i>
+            </div>
+            <h2 class="card-title text-center mb-5">Editar Usuário</h2>
             <form method="POST">
                 <input type="hidden" name="id_usuario" value="<?php echo $id; ?>">
                 <input type="hidden" name="origem" value="<?php echo htmlspecialchars($origem); ?>">
@@ -123,11 +129,17 @@
                     <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                    <button type="submit" class="btn btn-success mt-3 d-flex align-items-center gap-2">
+                        <i class="bi bi-save"></i> Salvar Alterações
+                    </button>
                     <?php if($origem == 'crud'): ?>
-                        <a href="consulta.php" class="btn btn-secondary">Cancelar</a>
+                        <a href="consulta.php" class="btn btn-secondary mt-3 d-flex align-items-center gap-2">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
                     <?php else: ?>
-                        <a href="../perfil.php" class="btn btn-secondary">Cancelar</a>
+                        <a href="../perfil.php" class="btn btn-secondary mt-3 d-flex align-items-center gap-2">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
                     <?php endif; ?>
                 </div>
             </form>
