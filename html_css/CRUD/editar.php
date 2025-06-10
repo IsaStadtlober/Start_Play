@@ -20,7 +20,7 @@
     }
 
     // Detecta origem (crud ou perfil)
-    $origem = isset($_POST['origem']) ? $_POST['origem'] : (isset($_POST['origem']) ? $_POST['origem'] : 'perfil');
+    $origem = isset($_GET['origem']) ? $_GET['origem'] : (isset($_POST['origem']) ? $_POST['origem'] : 'perfil');
 
     // busca dados do usuário
     $sql = "SELECT * FROM usuario WHERE id_usuario = $id";
@@ -124,11 +124,7 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-success">Salvar Alterações</button>
-                    <?php if($origem == 'crud'): ?>
-                        <a href="consulta.php" class="btn btn-secondary">Cancelar</a>
-                    <?php else: ?>
-                        <a href="../perfil.php" class="btn btn-secondary">Cancelar</a>
-                    <?php endif; ?>
+                    <a href="consulta.php" class="btn btn-secondary">Cancelar</a>
                 </div>
             </form>
         </div>

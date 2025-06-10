@@ -123,7 +123,7 @@
                    title="Logout">
                     <i class="bi bi-box-arrow-right"></i> Logout
                 </a>
-                <a href="CRUD/editar.php?id=<?php echo htmlspecialchars($usuario['id_usuario']); ?>&origem=perfil" 
+                <a href="" id=<?php echo htmlspecialchars($usuario['id_usuario']); ?>&origem=perfil" 
                    class="btn btn-outline-dark d-flex align-items-center gap-2" 
                    title="Editar Perfil">
                     <i class="bi bi-pencil-square"></i> Editar

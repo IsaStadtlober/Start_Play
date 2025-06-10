@@ -84,7 +84,7 @@
   <!-- php para excluir usuário -->
   <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluir_usuario'])){
-      include 'conexao.php';
+      include '../conexao.php';
       $nome = mysqli_real_escape_string($conn, $_POST['excluir_usuario']);
       $sql = "DELETE FROM usuario WHERE nomecompleto = '$nome'";
       mysqli_query($conn, $sql);
