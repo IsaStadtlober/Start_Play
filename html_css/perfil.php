@@ -34,7 +34,7 @@
             </div>
             <h2 class="fw-bold mb-1">Meu Perfil</h2>
         </div>
-        <div class="mb-4 ps-2" style="margin-left:auto; margin-right:auto; max-width: 95%; text-align: left;">
+        <div class="mb-3 ps-2" style="margin-left:auto; margin-right:auto; max-width: 95%; text-align: left;">
             <p class="mb-2"><span class="fw-semibold text-secondary">Nome:</span> <?php echo htmlspecialchars($usuario['nomecompleto']); ?></p>
             <p class="mb-2"><span class="fw-semibold text-secondary">E-mail:</span> <?php echo htmlspecialchars($usuario['email']); ?></p>
             <p class="mb-2"><span class="fw-semibold text-secondary">Login:</span> <?php echo htmlspecialchars($usuario['login']); ?></p>
@@ -45,7 +45,7 @@
             <p class="mb-2"><span class="fw-semibold text-secondary">Telefone Celular:</span> <?php echo htmlspecialchars($usuario['telefonecelular']); ?></p>
             <p class="mb-2"><span class="fw-semibold text-secondary">Telefone Fixo:</span> <?php echo htmlspecialchars($usuario['telefonefixo']); ?></p>
         </div>
-        <div class="d-flex justify-content-center gap-2 flex-wrap mt-2">
+        <div class="d-flex justify-content-center gap-2 flex-wrap mt-1 mb-2">
             <a href="logout.php"
                class="btn btn-outline-danger d-flex align-items-center gap-2"
                title="Logout">
