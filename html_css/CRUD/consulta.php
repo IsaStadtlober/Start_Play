@@ -23,35 +23,16 @@
         <meta charset="UTF-8">
         <title>Acesso Restrito</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                background:rgb(255, 255, 255);
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .card {
-                max-width: 400px;
-                margin: auto;
-                border-radius: 18px;
-                box-shadow: 0 8px 32px 0 rgba(31,38,135,0.15);
-            }
-            .icon-alert {
-                font-size: 3rem;
-                color: #e94560;
-            }
-        </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     </head>
-    <body>
-        <div class="card p-4 text-center">
-            <div class="icon-alert mb-3">
-                <i class="bi bi-shield-lock-fill"></i>
+    <body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="text-center">
+            <div class="mb-3">
+                <i class="bi bi-shield-lock-fill text-danger" style="font-size: 3rem;"></i>
             </div>
-            <h2 class="text-danger mb-3">Acesso restrito!</h2>
-            <p class="mb-4">Você não tem permissão para acessar esta página.</p>
-            <a href="../index.php" class="btn btn-primary">Voltar para Home</a>
+            <h2 class="text-danger mb-3">ACESSO RESTRITO</h2>
+            <p class="mb-4">Você não tem permissão para acessar esta página.<br> Retorne para o home.</p>
+            <a href="../index.php" class="btn btn-primary w-50">Voltar</a>
         </div>
     </body>
     </html>
