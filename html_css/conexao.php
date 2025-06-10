@@ -3,7 +3,7 @@
     $host = 'localhost';
     $user = 'root';
     $password = '';
-    $database = 'startplay';
+    $database = 'starplay';
     $conn = mysqli_connect($host, $user, $password, $database);
     // Verifica se a conexão foi bem-sucedida
     if ($conn){

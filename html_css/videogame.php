@@ -3,8 +3,7 @@
 
     // Verifica se o usuário está logado
     if (!isset($_SESSION["usuario_logado"])) {
-        echo '<p style="color:red;">Você precisa estar logado para acessar esta página.</p>';
-        echo '<a href="index.php">Clique aqui para voltar para a tela inicial</a>';
+       header("Location: nao_log.php"); // Redireciona para a página de acesso negado;
         exit(); // Finaliza o script
     }
     // Se o usuário estiver logado, exibe o conteúdo
@@ -30,12 +29,13 @@
             <a href="card.php">Games</a>
             <a href="videogame.php">Consoles</a>
         </nav>
-        <form class="search-bar">
-          <input type="text" placeholder="Pesquisar..." />
-          <button type="submit" aria-label="Pesquisar"></button>
-      </form>
       <div class="auth-buttons">
-        <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
+        <a href="perfil.php">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+        </a>
         <button onclick="location.href='cadastro.php'">Cadastro</button>
     </div>
     </header>
@@ -208,83 +208,20 @@
               <p class="text-center fs-6">Complete com os seus dados para efetuar o login.</p>
               <div class="modal-body">
                   <!-- Formulário de Login -->
-                  <?php 
-                    $erro = [];
-                    $dados = [];
-
-                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                      $dados = [
-                        "email" => $_POST["email"],
-                        "password" => $_POST["password"],
-                        "confirm_password" => $_POST["confirm_password"]
-                      ];
-                      function email($email) {
-                        if ($email != "emailficticostarplay@gmail.com") {
-                          return "Esse e-mail não está cadastrado";
-                        }
-                        return null; 
-                      }
-                      function senha($password) {
-                        if ($password != "abcdefgh") {
-                            return "Senha incorreta";
-                        }
-                        return null;
-                      }
-                    
-                      function confirmarSenha($password, $confirm_password) {
-                          if ($confirm_password != $password) {
-                              return "As senhas não são iguais";
-                          }
-                          return null;
-                      }
-
-                      $erro["email"] = email($dados["email"]);
-                      $erro["password"] = senha($dados["password"]);
-                      $erro["confirm_password"] = confirmarSenha($dados["password"], $dados["confirm_password"]);
-
-
-                      if (!empty(array_filter($erro))) {
-                        // Reabre o modal se houver erros
-                        echo "
-                        <script>
-                          document.addEventListener('DOMContentLoaded', function () {
-                            var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-                            loginModal.show();
-                          });
-                        </script>";
-                      }
-                      else {
-                        // Exibe o modal de sucesso
-                        echo "
-                        <script>
-                          document.addEventListener('DOMContentLoaded', function () {
-                            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
-                            successModal.show();
-                    
-                            // Redireciona após 3 segundos
-                            setTimeout(function () {
-                              window.location.href = 'index.php';
-                            }, 3000);
-                          });
-                        </script>";
-                      }
-                    }
-                   ?>
-                  <form action="" method="POST" id="login-form">
                     <div class="mb-3">
                         <label for="email" class="form-label">E-mail:</label>
-                        <input type="email" id="email" name="email" class="form-control" value="<?php echo htmlspecialchars($dados["email"] ?? '')?>" placeholder="Digite seu e-mail" required>
-                        <p style="color: red;"><?php echo $erro["email"] ?? ""; ?></p>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Digite seu e-mail" required>
+                        <p style="color: red;"></p>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Senha:</label>
-                        <input type="password" id="password" name="password" class="form-control" value="<?php echo htmlspecialchars($dados["password"] ?? '') ?>" placeholder="Digite sua senha" required>
-                        <p style="color: red;"><?php echo $erro["password"] ?? ""; ?></p>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Digite sua senha" required>
+                        <p style="color: red;"></p>
                     </div>
                     <div class="mb-3">
                         <label for="confirm-password" class="form-label">Confirmar Senha:</label>
-                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" value="<?php echo htmlspecialchars($dados['confirm_password'] ?? '') ?>" placeholder="Confirme sua senha" required>
-                        <p style="color: red;"><?php echo $erro["confirm_password"] ?? ""; ?></p>
+                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirme sua senha" required>
+                        <p style="color: red;"></p>
                     </div>
                     <div class="form-actions mt-4 d-flex justify-content-between">
                         <button type="reset" class="btn btn-outline-secondary w-50"style="margin-right: 20px;">Limpar</button>
@@ -303,7 +240,7 @@
     </div>
 
 
-    <!-- Modal 2: Segundo Fator de Autenticação
+    <!-- Modal 2: Segundo Fator de Autenticação-->
     <div class="modal fade" id="secondFactorModal" tabindex="-1" aria-labelledby="secondFactorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content p-4 py-1">
@@ -331,15 +268,15 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
-    <!-- Modal de Login Efetuado -->
+    <!-- Modal de Login Efetuado
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content p-4 py-1">
-            <!-- Botão de Fechar no canto superior direito -->
+            <-- Botão de Fechar no canto superior direito 
             <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            <!-- Conteúdo do Modal -->
+            <-- Conteúdo do Modal 
             <div class="modal-body text-center">
               <img src="img/favicon.ico" alt="Ícone de Sucesso" style="max-width: 40px; margin-bottom: 20px;">
               <h2 class="modal-title fs-3 text-success" id="successModalLabel">Login efetuado com sucesso!</h2>
@@ -350,7 +287,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

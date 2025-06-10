@@ -92,14 +92,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <a href="card.php">Games</a>
           <a href="videogame.php">Consoles</a>
         </nav>
-        <form class="search-bar">
-          <input type="text" placeholder="Pesquisar..." />
-          <button type="submit" aria-label="Pesquisar"></button>
-      </form>
       <div class="auth-buttons">
-        <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
-        <button onclick="location.href='cadastro.php'">Cadastro</button>
-    </div>
+        <?php if (isset($_SESSION['usuario_logado'])): ?>
+          <a href="perfil.php">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+          </a>
+        <?php else: ?>
+          <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
+          <button onclick="location.href='cadastro.php'">Cadastro</button>
+        <?php endif; ?>
+      </div>
     </header>
 
     <main>

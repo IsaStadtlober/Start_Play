@@ -34,7 +34,7 @@
       <p class="text-center">Visualize, edite ou exclua usuários do sistema.</p>
   </div>
   <div class="d-flex justify-content-center mt-4 mb-4">
-    <nav class = "navbar navbar-light bg-light w-100 d-flex justify-content-center">
+    <nav class = "navbar w-100 d-flex justify-content-center">
       <form class="d-flex w-50" style="max-width:400px;" method="POST" action="consulta.php">
         <label for="search" class="visually-hidden">Consultar</label>
         <input id="search" class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Pesquisar" name="pesquisar" value="" autocomplete="off">
@@ -92,7 +92,7 @@
       </table>
       <div class="w-100 d-flex justify-content-start mb-2">
       <button class="btn btn-success" href="cadastro.php">
-      <a href="cadastro.php" class="text-decoration-none text-white">
+      <a href="../cadastro.php" class="text-decoration-none text-white">
           <i class="bi bi-person-plus"></i> Incluir novo usuário
       </button>
   </div>
