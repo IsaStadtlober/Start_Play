@@ -21,10 +21,6 @@
             <a href="card.php">Games</a>
             <a href="videogame.php">Consoles</a>
         </nav>
-        <form class="search-bar">
-          <input type="text" placeholder="Pesquisar..." />
-          <button type="submit" aria-label="Pesquisar"></button>
-      </form>
       <div class="auth-buttons">
         <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
         <button onclick="location.href='cadastro.php'">Cadastro</button>
@@ -239,8 +235,8 @@
                         // Criptografar a senha de confirmação
                         $dados['confirmar_senha'] = md5($dados['confirmar_senha']);
                         //Inserir usuario
-                        $sql_usuario = "INSERT INTO usuario (nomecompleto, datanascimento, sexo, nomematerno, cpf, email, telefonecelular, telefonefixo, login, senha) 
-                        VALUES ('{$dados['nome_completo']}', '{$dados['data_nascimento']}', '{$dados['sexo']}', '{$dados['nome_materno']}', '{$dados['cpf']}', '{$dados['email']}', '{$dados['telefone_celular']}', '{$dados['telefone_fixo']}', '{$dados['login']}', '{$dados['senha']}')";
+                        $sql_usuario = "INSERT INTO usuario (nomecompleto, datanascimento, sexo, nomematerno, cpf, email, telefonecelular, telefonefixo, login, senha, tipo_perfil) 
+                        VALUES ('{$dados['nome_completo']}', '{$dados['data_nascimento']}', '{$dados['sexo']}', '{$dados['nome_materno']}', '{$dados['cpf']}', '{$dados['email']}', '{$dados['telefone_celular']}', '{$dados['telefone_fixo']}', '{$dados['login']}', '{$dados['senha']}', 1)";
                         if(mysqli_query($conn, $sql_usuario)){
                             //Recupera o id do usuario inserido    
                             $id_usuario = mysqli_insert_id($conn);

@@ -91,6 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <a href="index.php">Home</a>
           <a href="card.php">Games</a>
           <a href="videogame.php">Consoles</a>
+          <a href="CRUD/consulta.php">Usuários</a>
         </nav>
       <div class="auth-buttons">
         <?php if (isset($_SESSION['usuario_logado'])): ?>

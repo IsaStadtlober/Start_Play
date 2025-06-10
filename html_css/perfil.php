@@ -1,20 +1,20 @@
 <?php
-session_start();
-include 'conexao.php';
+    session_start();
+    include 'conexao.php';
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['usuario_logado'])) {
-    header("Location: index.php");
-    exit();
-}
+    // Verifica se o usuário está logado
+    if (!isset($_SESSION['usuario_logado'])) {
+        header("Location: index.php");
+        exit();
+    }
 
-// Busca o e-mail da sessão
-$email = $_SESSION['usuario_logado'];
+    // Busca o e-mail da sessão
+    $email = $_SESSION['usuario_logado'];
 
-// Consulta o banco para pegar o nome e o e-mail
-$sql = "SELECT nomecompleto, email FROM usuario WHERE email = '$email'";
-$result = mysqli_query($conn, $sql);
-$usuario = mysqli_fetch_assoc($result);
+    // Consulta o banco para pegar o nome e o e-mail
+    $sql = "SELECT nomecompleto, email FROM usuario WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
+    $usuario = mysqli_fetch_assoc($result);
 
 ?>
 <!DOCTYPE html>
