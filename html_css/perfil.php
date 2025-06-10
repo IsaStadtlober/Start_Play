@@ -26,25 +26,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="formulario.css">
 </head>
-<body id="cadastro" class="bg-light min-vh-100 d-flex align-items-center justify-content-center">
+<body id="cadastro" class="bg-light min-vh-100 d-flex align-items-center justify-content-center mt-3 mb-3">
     <div class="card shadow px-3 py-4" style="max-width: 450px; width: 100%;">
         <div class="text-center mb-4">
             <div class="rounded-circle bg-opacity-25 d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 100px; height: 100px; font-size: 5rem;">
                 <i class="bi bi-person-circle text-dark"></i>
             </div>
-            <h2 class="profile-title mb-3">Meu Perfil</h2>
-            <div class="profile-info text-start">
-                <p><span class="profile-label">Nome:</span> <?php echo htmlspecialchars($usuario['nomecompleto']); ?></p>
-                <p><span class="profile-label">E-mail:</span> <?php echo htmlspecialchars($usuario['email']); ?></p>
-                <p><span class="profile-label">Login:</span> <?php echo htmlspecialchars($usuario['login']); ?></p>
-                <p><span class="profile-label">Data de Nascimento:</span> <?php echo htmlspecialchars($usuario['datanascimento']); ?></p>
-                <p><span class="profile-label">Sexo:</span> <?php echo htmlspecialchars($usuario['sexo']); ?></p>
-                <p><span class="profile-label">Nome da Mãe:</span> <?php echo htmlspecialchars($usuario['nomematerno']); ?></p>
-                <p><span class="profile-label">CPF:</span> <?php echo htmlspecialchars($usuario['cpf']); ?></p>
-                <p><span class="profile-label">Celular:</span> <?php echo htmlspecialchars($usuario['telefonecelular']); ?></p>
-                <p><span class="profile-label">Telefone Fixo:</span> <?php echo htmlspecialchars($usuario['telefonefixo']); ?></p>
+            <h2 class="profile-title mb-4">Meu Perfil</h2>
+            <div class="profile-info mx-auto" style="max-width: 350px; text-align: left;">
+                <p><span class="fw-semibold text-secondary">Nome:</span> <?php echo htmlspecialchars($usuario['nomecompleto']); ?></p>
+                <p><span class="fw-semibold text-secondary">E-mail:</span> <?php echo htmlspecialchars($usuario['email']); ?></p>
+                <p><span class="fw-semibold text-secondary">Login:</span> <?php echo htmlspecialchars($usuario['login']); ?></p>
+                <p><span class="fw-semibold text-secondary">Data de Nascimento:</span> <?php echo htmlspecialchars($usuario['datanascimento']); ?></p>
+                <p><span class="fw-semibold text-secondary">Sexo:</span> <?php echo htmlspecialchars($usuario['sexo']); ?></p>
+                <p><span class="fw-semibold text-secondary">Nome da Mãe:</span> <?php echo htmlspecialchars($usuario['nomematerno']); ?></p>
+                <p><span class="fw-semibold text-secondary">CPF:</span> <?php echo htmlspecialchars($usuario['cpf']); ?></p>
+                <p><span class="fw-semibold text-secondary">Celular:</span> <?php echo htmlspecialchars($usuario['telefonecelular']); ?></p>
+                <p><span class="fw-semibold text-secondary">Telefone Fixo:</span> <?php echo htmlspecialchars($usuario['telefonefixo']); ?></p>
             </div>
-            <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
+            <div class="d-flex justify-content-center gap-2 flex-wrap mt-4">
                 <a href="logout.php"
                    class="btn btn-outline-danger d-flex align-items-center gap-2"
                    title="Logout">
@@ -56,7 +56,7 @@
                     <i class="bi bi-pencil-square"></i> Editar
                 </a>
                 <a href="index.php" 
-                   class="btn btn-outline-secondary d-flex align-items-center gap-2" 
+                   class="btn btn-outline-primary d-flex align-items-center gap-2" 
                    title="Voltar para a Tela Inicial">
                     <i class="bi bi-house-door"></i> Início
                 </a>
