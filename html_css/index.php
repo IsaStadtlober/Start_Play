@@ -5,9 +5,16 @@ include 'conexao.php';
 $erro = [];
 $dados = [];
 $login_efetuado = false;
+$mensagem_sucesso = '';
+$mensagem_erro = '';
+$erro_mudar = [
+    "email" => "",
+    "nova_senha" => "",
+    "confirmar_nova_senha" => ""
+];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Se o usuário já está logado e tentou enviar o formulário de login novamente
+// LOGIN
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_POST['password'])) {
     if (isset($_SESSION['usuario_logado'])) {
         $email = $_SESSION['usuario_logado'];
         $sql = "SELECT nomecompleto FROM usuario WHERE email = '$email'";
@@ -26,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </script>
         ';
     } else {
-        // Processamento normal do login
         $email = $_POST['email'];
         $senha = $_POST['password'];
         $confirmar_senha = $_POST['confirm_password'];
@@ -71,6 +77,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+// MUDAR SENHA
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
+    $email = trim($_POST['email']);
+    $nova_senha = $_POST['nova_senha'];
+    $confirmar_nova_senha = $_POST['confirmar_nova_senha'];
+
+    if (empty($email)) {
+        $erro_mudar["email"] = "Informe o e-mail.";
+    }
+    if (empty($nova_senha)) {
+        $erro_mudar["nova_senha"] = "Informe a nova senha.";
+    }
+    if (empty($confirmar_nova_senha)) {
+        $erro_mudar["confirmar_nova_senha"] = "Confirme a nova senha.";
+    }
+    if ($nova_senha !== $confirmar_nova_senha) {
+        $erro_mudar["confirmar_nova_senha"] = "As senhas não coincidem.";
+    }
+
+    if (empty($erro_mudar["email"]) && empty($erro_mudar["nova_senha"]) && empty($erro_mudar["confirmar_nova_senha"])) {
+        $sql = "SELECT * FROM usuario WHERE email = '$email'";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $senha_md5 = md5($nova_senha);
+            $sql_update = "UPDATE usuario SET senha = '$senha_md5' WHERE email = '$email'";
+            if (mysqli_query($conn, $sql_update)) {
+                $mensagem_sucesso = "Senha alterada com sucesso!";
+            } else {
+                $erro_mudar["nova_senha"] = "Erro ao atualizar a senha.";
+            }
+        } else {
+            $erro_mudar["email"] = "E-mail não cadastrado.";
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -79,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <title>Start Play</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="index">
@@ -423,116 +466,100 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
               <div class="modal-footer">
                   <p class="mb-1 fs-6">Não tem uma conta? <a href="cadastro.php" class="text-primary">Cadastre-se aqui.</a></p>
-                  <p class="mb-1 fs-6">Esqueceu a Senha? <a href="#" class="text-primary">Mudar aqui.</a></p>
+                  <p class="mb-1 fs-6">Esqueceu a Senha? <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#mudarSenhaModal">Mudar aqui.</a></p>
               </div>
           </div>
       </div>
     </div>
 
-    <!--
-    <div class="modal fade" id="secondFactorModal" tabindex="-1" aria-labelledby="secondFactorModalLabel" aria-hidden="true">
+    <!-- Modal de Mudar Senha -->
+    <div class="modal fade" id="mudarSenhaModal" tabindex="-1" aria-labelledby="mudarSenhaModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4 py-1">
-          
           <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
-          
           <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
             <img src="img/logo-pp2.png" alt="Logo Startplay" style="max-width: 40px; margin-right: 10px;">
             <h1 class="fs-5 mb-0">StartPlay</h1>
           </div>
-          
-          <h2 class="modal-title fs-3 text-center mt-3" id="secondFactorModalLabel">Segundo Fator de <br> Autenticação</h2>
-          <p class="text-center fs-6 mb-3">Responda à pergunta de segurança para continuar.</p>
+          <h2 class="modal-title fs-4 text-center mt-3" id="mudarSenhaModalLabel">Mudar Senha</h2>
+          <p class="text-center fs-6">Digite seu e-mail e a nova senha.</p>
           <div class="modal-body">
-            
-            <form action="processar_2fa.php" method="POST" id="second-factor-form">
+            <form action="" method="POST" id="mudar-senha-form">
               <div class="mb-3">
-                <label for="security-answer" class="form-label">Qual o nome da sua mãe?</label>
-                <input type="text" id="security-answer" name="security-answer" class="form-control" placeholder="Digite a resposta" required>
+                <label for="email_mudar" class="form-label">E-mail:</label>
+                <input type="email" id="email_mudar" name="email" class="form-control" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
+                <p style="color: red; margin-bottom:0;"><?php echo $erro_mudar["email"] ?? ""; ?></p>
               </div>
-              <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-outline-primary w-75 mt-3">Enviar</button>
+              <div class="mb-3">
+                <label for="nova_senha" class="form-label">Nova Senha:</label>
+                <input type="password" id="nova_senha" name="nova_senha" class="form-control" required>
+                <p style="color: red; margin-bottom:0;"><?php echo $erro_mudar["nova_senha"] ?? ""; ?></p>
+              </div>
+              <div class="mb-3">
+                <label for="confirmar_nova_senha" class="form-label">Confirmar Nova Senha:</label>
+                <input type="password" id="confirmar_nova_senha" name="confirmar_nova_senha" class="form-control" required>
+                <p style="color: red; margin-bottom:0;"><?php echo $erro_mudar["confirmar_nova_senha"] ?? ""; ?></p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="reset" class="btn btn-outline-secondary w-50 me-2">Limpar</button>
+                <button type="submit" class="btn btn-outline-primary w-50">Alterar Senha</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
-    <!-- Modal de Login Efetuado -->
-      <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content p-4 py-1">
-            <!-- Botão de Fechar no canto superior direito -->
-            <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            <!-- Conteúdo do Modal -->
-            <div class="modal-body text-center">
-              <img src="img/favicon.ico" alt="Ícone de Sucesso" style="max-width: 40px; margin-bottom: 20px;">
-              <h2 class="modal-title fs-3 text-success" id="successModalLabel">Login efetuado com sucesso!</h2>
-              <p class="fs-6 mt-3" id="successModalMsg">Bem-vindo(a) de volta! Você será redirecionado em breve.</p>
-              <div class="d-flex justify-content-center mt-4">
-                <button type="button" class="btn btn-outline-success w-50" data-bs-dismiss="modal">Fechar</button>
-              </div>
+    <!-- Modal Sucesso Senha -->
+    <div class="modal fade" id="modalSucessoSenha" tabindex="-1" aria-labelledby="modalSucessoSenhaLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4 py-1">
+          <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          <div class="modal-body text-center">
+            <h2 class="modal-title fs-3 text-success" id="modalSucessoSenhaLabel">Sucesso!</h2>
+            <p class="fs-6 mt-3"><?php echo $mensagem_sucesso; ?></p>
+            <div class="d-flex justify-content-center mt-4">
+              <a href="index.php" class="btn btn-outline-success w-50" data-bs-dismiss="modal">OK</a>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Modal de Login Efetuado -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4 py-1">
+          <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          <div class="modal-body text-center">
+            <img src="img/favicon.ico" alt="Ícone de Sucesso" style="max-width: 40px; margin-bottom: 20px;">
+            <h2 class="modal-title fs-3 text-success" id="successModalLabel">Login efetuado com sucesso!</h2>
+            <p class="fs-6 mt-3" id="successModalMsg">Bem-vindo(a) de volta! Você será redirecionado em breve.</p>
+            <div class="d-flex justify-content-center mt-4">
+              <button type="button" class="btn btn-outline-success w-50" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const loginForm = document.getElementById("login-form");
-        const secondFactorModal = new bootstrap.Modal(document.getElementById("secondFactorModal"));
-
-        // Intercepta o envio do formulário de login
-        loginForm.addEventListener("submit", function (event) {
-          event.preventDefault(); // Impede o envio padrão do formulário
-
-          // Coleta os dados do formulário
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-          const confirmPassword = document.getElementById("confirm_password").value;
-
-          /* Simula a validação do formulário
-          if (email === "emailficticostarplay@gmail.com" && password === "abcdfghi" && password === confirmPassword) {
-            console.log("Validação bem-sucedida!");
-
-            // Abre o modal de segundo fator de autenticação
-            secondFactorModal.show();
-          } else {
-            console.log("Erro na validação. Verifique os dados.");
-            alert("Erro na validação. Verifique os dados.");
-          }*/
+      // Reabrir modal de mudar senha se houver erro
+      <?php if (!empty($erro_mudar["email"]) || !empty($erro_mudar["nova_senha"]) || !empty($erro_mudar["confirmar_nova_senha"])): ?>
+        document.addEventListener("DOMContentLoaded", function () {
+          var modal = new bootstrap.Modal(document.getElementById('mudarSenhaModal'));
+          modal.show();
         });
-      });
-    </script>
+      <?php endif; ?>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const loginForm = document.getElementById("login-form");
-        const limparBtn = document.querySelector('button[type="reset"]'); // Seleciona o botão de reset
-
-        // Adiciona funcionalidade ao botão de limpar
-        limparBtn.addEventListener("click", function (event) {
-          event.preventDefault(); // Impede o comportamento padrão do botão
-
-          // Redefine os campos do formulário
-          loginForm.reset();
-
-          // Remove as mensagens de erro, se existirem
-          const errorMessages = document.querySelectorAll("p[style='color: red;']");
-          errorMessages.forEach((message) => {
-            message.textContent = ""; // Limpa o texto das mensagens de erro
-          });
-
-          // Opcional: Remove os valores dos campos preenchidos dinamicamente pelo PHP
-          const inputs = loginForm.querySelectorAll("input");
-          inputs.forEach((input) => {
-            input.value = ""; // Limpa os valores dos campos
+      // Exibir modal de sucesso ao alterar senha
+      <?php if ($mensagem_sucesso): ?>
+        document.addEventListener("DOMContentLoaded", function () {
+          var modal = new bootstrap.Modal(document.getElementById('modalSucessoSenha'));
+          modal.show();
         });
-      });
-    });
+      <?php endif; ?>
     </script>
 </body>
 </html>

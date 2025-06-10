@@ -2,6 +2,13 @@
     include '../conexao.php';
     session_start();
 
+    // Busca o tipo_perfil do usuário logado
+    $email_logado = $_SESSION['usuario_logado'];
+    $sqlPerfil = "SELECT tipo_perfil FROM usuario WHERE email = '$email_logado'";
+    $resultPerfil = mysqli_query($conn, $sqlPerfil);
+    $perfil = mysqli_fetch_assoc($resultPerfil);
+    $tipo_perfil = $perfil ? $perfil['tipo_perfil'] : 1; // 1 = comum, 2 = master
+
     // Aceita o id_usuario via GET ou POST
     if (isset($_GET['id'])) {
         $id = intval($_GET['id']);
@@ -11,6 +18,10 @@
         echo "Usuário não encontrado.";
         exit();
     }
+
+    // Detecta origem (crud ou perfil)
+    $origem = isset($_POST['origem']) ? $_POST['origem'] : (isset($_POST['origem']) ? $_POST['origem'] : 'perfil');
+
     // busca dados do usuário
     $sql = "SELECT * FROM usuario WHERE id_usuario = $id";
     $result = mysqli_query($conn, $sql);
@@ -33,8 +44,6 @@
         $telefonefixo = mysqli_real_escape_string($conn, $_POST['telefonefixo']);
         $login = mysqli_real_escape_string($conn, $_POST['login']);
 
-        //adiciona outros campos conforme necessário
-
         $sql = 
         "UPDATE usuario SET 
         nomecompleto = '$nome', 
@@ -48,7 +57,13 @@
         login = '$login' 
         WHERE id_usuario = $id";
         mysqli_query($conn, $sql);
-        header("Location: consulta.php");
+
+        // Redireciona conforme a origem
+        if ($origem == 'crud') {
+            header("Location: consulta.php");
+        } else {
+            header("Location: ../perfil.php");
+        }
         exit();
     }
 ?>
@@ -65,6 +80,8 @@
         <div class="card-body">
             <h2 class="card-title text-center mb-4">Editar Usuário</h2>
             <form method="POST">
+                <input type="hidden" name="id_usuario" value="<?php echo $id; ?>">
+                <input type="hidden" name="origem" value="<?php echo htmlspecialchars($origem); ?>">
                 <div class="mb-3">
                     <label for="nomecompleto" class="form-label">Nome Completo</label>
                     <input type="text" class="form-control" id="nomecompleto" name="nomecompleto" value="<?php echo htmlspecialchars($usuario['nomecompleto']); ?>" required>
@@ -107,47 +124,51 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-success">Salvar Alterações</button>
-                    <a href="consulta.php" class="btn btn-secondary">Cancelar</a>
+                    <?php if($origem == 'crud'): ?>
+                        <a href="consulta.php" class="btn btn-secondary">Cancelar</a>
+                    <?php else: ?>
+                        <a href="../perfil.php" class="btn btn-secondary">Cancelar</a>
+                    <?php endif; ?>
                 </div>
             </form>
         </div>
     </div>
 </div>
-    <script src="https://unpkg.com/imask"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Máscara para Telefone Fixo: (+xx)(xx)xxxx-xxxx
-            const telefoneFixoInput = document.getElementById("telefone_fixo");
-            if (telefoneFixoInput) {
-                IMask(telefoneFixoInput, {
-                    mask: "(+00)(00)0000-0000",
-                });
-            }
+<script src="https://unpkg.com/imask"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Máscara para Telefone Fixo: (+xx)(xx)xxxx-xxxx
+        const telefoneFixoInput = document.getElementById("telefone_fixo");
+        if (telefoneFixoInput) {
+            IMask(telefoneFixoInput, {
+                mask: "(+00)(00)0000-0000",
+            });
+        }
 
-            // Máscara para Telefone Celular: (+xx)(xx)xxxxx-xxxx
-            const telefoneCelularInput = document.getElementById("telefone_celular");
-            if (telefoneCelularInput) {
-                IMask(telefoneCelularInput, {
-                    mask: "(+00)(00)00000-0000",
-                });
-            }
+        // Máscara para Telefone Celular: (+xx)(xx)xxxxx-xxxx
+        const telefoneCelularInput = document.getElementById("telefone_celular");
+        if (telefoneCelularInput) {
+            IMask(telefoneCelularInput, {
+                mask: "(+00)(00)00000-0000",
+            });
+        }
 
-            // Máscara para CPF: xxx.xxx.xxx-xx
-            const cpfInput = document.getElementById("cpf");
-            if (cpfInput) {
-                IMask(cpfInput, {
-                    mask: "000.000.000-00",
-                });
-            }
+        // Máscara para CPF: xxx.xxx.xxx-xx
+        const cpfInput = document.getElementById("cpf");
+        if (cpfInput) {
+            IMask(cpfInput, {
+                mask: "000.000.000-00",
+            });
+        }
 
-            // Máscara para CEP: xxxxx-xxx
-            const cepInput = document.getElementById("cep");
-            if (cepInput) {
-                IMask(cepInput, {
-                    mask: "00000-000",
-                });
-            }
-        });
-    </script>
+        // Máscara para CEP: xxxxx-xxx
+        const cepInput = document.getElementById("cep");
+        if (cepInput) {
+            IMask(cepInput, {
+                mask: "00000-000",
+            });
+        }
+    });
+</script>
 </body>
 </html>
