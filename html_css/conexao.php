@@ -9,7 +9,7 @@
     if ($conn){
        /*echo "Conexão bem-sucedida!";*/
     } else {
-        echo "Erro na conexão";
+        echo "Erro ao conectar ao banco de dados: " . mysqli_connect_error();
     }
 
     /*Função para data ser exibida no formato brasileiro no CRUD
