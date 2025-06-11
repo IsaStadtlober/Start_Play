@@ -32,7 +32,7 @@
             <div class="rounded-circle bg-opacity-25 d-flex align-items-center justify-content-center mx-auto mb-2" style="width: 100px; height: 100px; font-size: 5rem;">
                 <i class="bi bi-person-circle text-dark"></i>
             </div>
-            <h2 class="profile-title mb-4">Meu Perfil</h2>
+            <h2 class="profile-title mb-5">Meu Perfil</h2>
             <div class="profile-info mx-auto" style="max-width: 350px; text-align: left;">
                 <p><span class="fw-semibold text-secondary">Nome:</span> <?php echo htmlspecialchars($usuario['nomecompleto']); ?></p>
                 <p><span class="fw-semibold text-secondary">E-mail:</span> <?php echo htmlspecialchars($usuario['email']); ?></p>
@@ -44,7 +44,7 @@
                 <p><span class="fw-semibold text-secondary">Celular:</span> <?php echo htmlspecialchars($usuario['telefonecelular']); ?></p>
                 <p><span class="fw-semibold text-secondary">Telefone Fixo:</span> <?php echo htmlspecialchars($usuario['telefonefixo']); ?></p>
             </div>
-            <div class="d-flex justify-content-center gap-2 flex-wrap mt-4">
+            <div class="d-flex justify-content-center gap-2 flex-wrap mt-5">
                 <a href="logout.php"
                    class="btn btn-outline-danger d-flex align-items-center gap-2"
                    title="Logout">
