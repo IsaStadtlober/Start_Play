@@ -107,7 +107,7 @@
 
               while($linha = mysqli_fetch_assoc($dados)){
                 $nome = $linha['nomecompleto'];
-                $data = $linha['datanascimento'];
+                $data = date('d/m/Y', strtotime($linha['datanascimento']));
                 $sexo = $linha['sexo'];
                 $nomematerno = $linha['nomematerno'];
                 $cpf = $linha['cpf'];

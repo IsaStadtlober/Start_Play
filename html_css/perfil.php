@@ -37,7 +37,11 @@
                 <p><span class="fw-semibold text-secondary">Nome:</span> <?php echo htmlspecialchars($usuario['nomecompleto']); ?></p>
                 <p><span class="fw-semibold text-secondary">E-mail:</span> <?php echo htmlspecialchars($usuario['email']); ?></p>
                 <p><span class="fw-semibold text-secondary">Login:</span> <?php echo htmlspecialchars($usuario['login']); ?></p>
-                <p><span class="fw-semibold text-secondary">Data de Nascimento:</span> <?php echo htmlspecialchars($usuario['datanascimento']); ?></p>
+                <p><span class="fw-semibold text-secondary">Data de Nascimento:</span> 
+                    <?php 
+                        echo date('d/m/Y', strtotime($usuario['datanascimento'])); 
+                    ?>
+                </p>
                 <p><span class="fw-semibold text-secondary">Sexo:</span> <?php echo htmlspecialchars($usuario['sexo']); ?></p>
                 <p><span class="fw-semibold text-secondary">Nome da Mãe:</span> <?php echo htmlspecialchars($usuario['nomematerno']); ?></p>
                 <p><span class="fw-semibold text-secondary">CPF:</span> <?php echo htmlspecialchars($usuario['cpf']); ?></p>
@@ -50,7 +54,7 @@
                    title="Logout">
                     <i class="bi bi-box-arrow-right"></i> Logout
                 </a>
-                <a href="CRUD/editar.php?id=<?php echo htmlspecialchars($usuario['id_usuario']); ?>&origem=perfil" 
+                <a href="editar_perfil.php"
                    class="btn btn-outline-dark d-flex align-items-center gap-2" 
                    title="Editar Perfil">
                     <i class="bi bi-pencil-square"></i> Editar

@@ -2,6 +2,16 @@
 session_start();
 include 'conexao.php';
 
+$tipo_perfil = null;
+if (isset($_SESSION['usuario_logado'])) {
+    $email = $_SESSION['usuario_logado'];
+    $sql_tipo = "SELECT tipo_perfil FROM usuario WHERE email = '$email'";
+    $result_tipo = mysqli_query($conn, $sql_tipo);
+    if ($result_tipo && $row_tipo = mysqli_fetch_assoc($result_tipo)) {
+        $tipo_perfil = $row_tipo['tipo_perfil'];
+    }
+}
+
 $erro = [];
 $dados = [];
 $login_efetuado = false;
@@ -134,7 +144,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
           <a href="index.php">Home</a>
           <a href="card.php">Games</a>
           <a href="videogame.php">Consoles</a>
-          <a href="CRUD/consulta.php">Usuários</a>
+          <?php if ($tipo_perfil == 2): ?>
+            <a href="CRUD/consulta.php">Usuários</a>
+          <?php endif; ?>
         </nav>
         <div class="auth-buttons">
           <?php if (isset($_SESSION['usuario_logado'])): ?>

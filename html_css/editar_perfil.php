@@ -1,33 +1,20 @@
 <?php 
-    include '../conexao.php';
+    include 'conexao.php';
     session_start();
 
     // Busca o tipo_perfil do usuário logado
     $email_logado = $_SESSION['usuario_logado'];
-    $sqlPerfil = "SELECT tipo_perfil FROM usuario WHERE email = '$email_logado'";
+    $sqlPerfil = "SELECT * FROM usuario WHERE email = '$email_logado'";
     $resultPerfil = mysqli_query($conn, $sqlPerfil);
-    $perfil = mysqli_fetch_assoc($resultPerfil);
-    $tipo_perfil = $perfil ? $perfil['tipo_perfil'] : 1; // 1 = comum, 2 = master
-
-    // Aceita o id_usuario via GET ou POST
-    if (isset($_GET['id'])) {
-        $id = intval($_GET['id']);
-    } elseif (isset($_POST['id_usuario'])) {
-        $id = intval($_POST['id_usuario']);
-    } else {
-        echo "Usuário não encontrado.";
-        exit();
-    }
-
-    // busca dados do usuário
-    $sql = "SELECT * FROM usuario WHERE id_usuario = $id";
-    $result = mysqli_query($conn, $sql);
-    $usuario = mysqli_fetch_assoc($result);
+    $usuario = mysqli_fetch_assoc($resultPerfil);
 
     if (!$usuario) {
         echo "Usuário não encontrado.";
         exit();
     }
+
+    $tipo_perfil = $usuario['tipo_perfil'] ?? 1; // 1 = comum, 2 = master
+    $id = $usuario['id_usuario'];
 
     // atualiza dados se o form for enviado
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -52,7 +39,7 @@
         telefonecelular = '$telefonecelular', 
         telefonefixo = '$telefonefixo', 
         login = '$login' 
-        WHERE id_usuario = $id";
+        WHERE id_usuario = '$id'";
         mysqli_query($conn, $sql);
     }
 ?>
@@ -63,7 +50,7 @@
     <title>Editar Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../formulario.css">
+    <link rel="stylesheet" href="formulario.css">
 </head>
 <body id="cadastro">
 <div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
@@ -121,7 +108,7 @@
                     <button type="submit" class="btn btn-outline-success mt-3 d-flex align-items-center gap-2">
                         <i class="bi bi-save"></i> Salvar Alterações
                     </button>
-                    <a href="consulta.php" class="btn btn-outline-secondary mt-3 d-flex align-items-center gap-2">
+                    <a href="perfil.php" class="btn btn-outline-secondary mt-3 d-flex align-items-center gap-2">
                         <i class="bi bi-x-circle"></i> Cancelar
                     </a>
                 </div>
@@ -150,7 +137,7 @@
         var modal = new bootstrap.Modal(document.getElementById('modalSucesso'));
         modal.show();
         setTimeout(function() {
-            window.location.href = "consulta.php";
+            window.location.href = "perfil.php";
         }, 4000); // 4 segundos
     });
 </script>

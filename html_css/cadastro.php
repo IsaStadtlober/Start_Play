@@ -76,7 +76,15 @@
                         if (!preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]+$/', $nome)) return "O nome deve conter apenas caracteres alfabéticos.";
                         return null;
                     }
-
+                    function validarData($data_nascimento){
+                        if(empty($data_nascimento)) return "A data de nascimento é obrigatório.";
+                        $data = DateTime::createFromFormat('Y-m-d', $data_nascimento);
+                        $hoje = new DateTime();
+                        $idade = $hoje->diff($data)->y;
+                        if ($idade < 18) return "Você deve ter pelo menos 18 anos para se cadastrar.";
+                        if ($idade > 100) return "Idade máxima permitida é 100 anos.";
+                        return null;
+                    }
                     function validarSexo($sexo) {
                         if ($sexo == "s") return "O campo sexo é obrigatório.";
                         return null;
@@ -215,6 +223,7 @@
 
                     // Validando os campos e armazenando mensagens de erro
                     $erros["nome_completo"] = validarNome($dados["nome_completo"]);
+                    $erros["data_nascimento"] = validarData($dados["data_nascimento"]);
                     $erros["sexo"] = validarSexo($dados["sexo"]);
                     $erros["nome_materno"] = validarNomeMaterno($dados["nome_materno"]);
                     $erros["cpf"] = validarCpf($dados["cpf"]);
@@ -282,7 +291,12 @@
                 <section class="row">
                     <div class="col-md-6 mb-3">
                         <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
-                        <input type="date" id="data_nascimento" name="data_nascimento" class="form-control" value="<?php echo htmlspecialchars($dados["data_nascimento"] ?? '')?>" required>
+                        <?php
+                            $hoje = date('Y-m-d');
+                        ?>
+                        <input type="date" id="data_nascimento" name="data_nascimento" class="form-control"
+                               value="<?php echo htmlspecialchars($dados["data_nascimento"] ?? '')?>"
+                               min="1900-01-01" max="<?php echo $hoje; ?>" required>
                         <p style="color: red;"><?php echo $erros["data_nascimento"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-6 mb-3">
