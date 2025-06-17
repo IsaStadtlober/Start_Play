@@ -117,6 +117,13 @@
                 $login = $linha['login'];
                 $senha = $linha['senha'];
                 $email = $linha['email'];
+                $cep = $linha['cep'];
+                $logradouro = $linha['logradouro'];
+                $numero = $linha['numero'];
+                $bairro = $linha['bairro'];
+                $cidade = $linha['cidade'];
+                $estado = $linha['uf'];
+
                 $id = $linha['id_usuario']; // Certifique-se que existe o campo id
 
                 echo  "<tr>
@@ -157,6 +164,12 @@
                             <p><strong>Login:</strong> " . htmlspecialchars($login) . "</p>
                             <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
                             <p><strong>Senha:</strong> " . htmlspecialchars($senha) . ' (Criptografia MD5)'. "</p>
+                            <p><strong>CEP:</strong> " . htmlspecialchars($cep) . "</p>
+                            <p><strong>Logradouro:</strong> " . htmlspecialchars($logradouro) . "</p>
+                            <p><strong>Número:</strong> " . htmlspecialchars($numero) . "</p>
+                            <p><strong>Bairro:</strong> " . htmlspecialchars($bairro) . "</p>
+                            <p><strong>Cidade:</strong> " . htmlspecialchars($cidade) . "</p>
+                            <p><strong>Estado:</strong> " . htmlspecialchars($estado) . "</p>
                             
                           </div>
                           <div class='modal-footer'>
@@ -171,12 +184,14 @@
             ?>          
         </tbody>
       </table>
-      <div class="w-100 d-flex justify-content-start mb-2">
-      <button class="btn btn-success" href="cadastro.php">
-      <a href="../cadastro.php" class="text-decoration-none text-white">
-          <i class="bi bi-person-plus"></i> Incluir novo usuário
-      </button>
-  </div>
+      <div class="w-100 d-flex justify-content-between mb-2">
+          <a href="../cadastro.php" class="btn btn-success text-decoration-none text-white">
+              <i class="bi bi-person-plus"></i> Incluir novo usuário
+          </a>
+          <a href="../log.php" class="btn btn-secondary text-decoration-none text-white">
+              <i class="bi bi-journal-text"></i> Tela de LOG
+          </a>
+      </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>

@@ -38,7 +38,6 @@
                     </svg>
                 </button>
             </form>
-            <button onclick="location.href='cadastro.php'">Cadastro</button>
         </div>
     </header>
     <main>

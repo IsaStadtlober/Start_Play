@@ -244,40 +244,32 @@
                         // Criptografar a senha de confirmação
                         $dados['confirmar_senha'] = md5($dados['confirmar_senha']);
                         //Inserir usuario
-                        $sql_usuario = "INSERT INTO usuario (nomecompleto, datanascimento, sexo, nomematerno, cpf, email, telefonecelular, telefonefixo, login, senha, tipo_perfil) 
-                        VALUES ('{$dados['nome_completo']}', '{$dados['data_nascimento']}', '{$dados['sexo']}', '{$dados['nome_materno']}', '{$dados['cpf']}', '{$dados['email']}', '{$dados['telefone_celular']}', '{$dados['telefone_fixo']}', '{$dados['login']}', '{$dados['senha']}', 1)";
+                        $sql_usuario = "INSERT INTO usuario (nomecompleto, datanascimento, sexo, nomematerno, cpf, email, telefonecelular, telefonefixo, login, senha, cep, logradouro, complemento, numero, uf, cidade, bairro, tipo_perfil) 
+                        VALUES 
+                        ('{$dados['nome_completo']}', '{$dados['data_nascimento']}', '{$dados['sexo']}', '{$dados['nome_materno']}', '{$dados['cpf']}', '{$dados['email']}', '{$dados['telefone_celular']}', '{$dados['telefone_fixo']}', '{$dados['login']}', '{$dados['senha']}',
+                        '{$dados['cep']}', '{$dados['endereco']}', '{$dados['complemento']}', '{$dados['numero']}', '{$dados['uf']}', '{$dados['cidade']}', '{$dados['bairro']}', 1)";
                         if(mysqli_query($conn, $sql_usuario)){
-                            //Recupera o id do usuario inserido    
-                            $id_usuario = mysqli_insert_id($conn);
-
-                            // Inserir endereço
-                            $sql_endereco = "INSERT INTO endereco (cep, logradouro, complemento, numero, uf, cidade, bairro)
-                            VALUES ('{$dados['cep']}', '{$dados['endereco']}', '{$dados['complemento']}', '{$dados['numero']}', '{$dados['uf']}', '{$dados['cidade']}', '{$dados['bairro']}')";
-                            if(mysqli_query($conn, $sql_endereco)){
-                                // Exibir o modal de sucesso
-                                echo "
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function () {
-                                        // Exibe o modal
-                                        var successModal = new bootstrap.Modal(document.getElementById('successModal'));
-                                        successModal.show();
+                            echo "
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    // Exibe o modal
+                                    var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                                    successModal.show();
+                                // Redireciona automaticamente após 5 segundos
+                                    setTimeout(function () {
+                                        window.location.href = 'index.php';
+                                    }, 5000);
                             
-                                        // Redireciona automaticamente após 5 segundos
-                                        setTimeout(function () {
-                                            window.location.href = 'index.php';
-                                        }, 5000);
-                            
-                                        // Cancela o redirecionamento automático se o modal for fechado manualmente
-                                        document.getElementById('successModal').addEventListener('hidden.bs.modal', function () {
-                                            window.location.href = 'index.php';
-                                        });
+                                    // Cancela o redirecionamento automático se o modal for fechado manualmente
+                                    document.getElementById('successModal').addEventListener('hidden.bs.modal', function () {
+                                        window.location.href = 'index.php';
                                     });
-                                </script>";
-                            }
+                                });
+                            </script>";
                         }
                     }
                 }
-             ?>
+            ?>
             <form action="" method="POST" id="cadastro-form">
                 <!-- Nome Completo -->
                 <section class="mb-4">

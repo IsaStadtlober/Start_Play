@@ -51,10 +51,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
         $result = mysqli_query($conn, $sql);
         if ($result && mysqli_num_rows($result)> 0){
             $linha = mysqli_fetch_assoc($result);
+            $login = $linha['login'];
+            $nome = $linha['nomecompleto'];
+            $cpf = $linha['cpf'];
             if(md5($senha) == $linha['senha']){
                 $_SESSION['usuario_logado'] = $email;
-                $nome = $linha['nomecompleto'];
                 $login_efetuado = true;
+
+                // REGISTRA LOG DE SUCESSO
+                $sql_log = "INSERT INTO log_autenticacao (login, nome, cpf, statususuario) VALUES ('$login', '$nome', '$cpf', 1)";
+                mysqli_query($conn, $sql_log);
+
                 echo '
                   <script>
                       document.addEventListener("DOMContentLoaded", function () {
@@ -71,9 +78,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
             }else{
                 $erro["password"] = "Senha incorreta";
                 $erro["confirm_password"] = "As senhas não conferem";
+
+                // REGISTRA LOG DE FALHA
+                $sql_log = "INSERT INTO log_autenticacao (login, nome, cpf, statususuario) VALUES ('$login', '$nome', '$cpf', 0)";
+                mysqli_query($conn, $sql_log);
             }
         }else{
             $erro["email"] = "E-mail não cadastrado";
+
+            // REGISTRA LOG DE FALHA COM DADOS VAZIOS
+            $login = $email;
+            $nome = '';
+            $cpf = '';
+            $sql_log = "INSERT INTO log_autenticacao (login, nome, cpf, statususuario) VALUES ('$login', '$nome', '$cpf', 0)";
+            mysqli_query($conn, $sql_log);
         }
         if (!empty($erro)) {
             echo '
