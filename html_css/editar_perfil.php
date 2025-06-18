@@ -27,9 +27,16 @@
         $telefonecelular = mysqli_real_escape_string($conn, $_POST['telefonecelular']);
         $telefonefixo = mysqli_real_escape_string($conn, $_POST['telefonefixo']);
         $login = mysqli_real_escape_string($conn, $_POST['login']);
+        $cep = mysqli_real_escape_string($conn, $_POST['cep']);
+        $logradouro = mysqli_real_escape_string($conn, $_POST['logradouro']);
+        $numero = mysqli_real_escape_string($conn, $_POST['numero']);
+        $complemento = mysqli_real_escape_string($conn, $_POST['complemento']);
+        $bairro = mysqli_real_escape_string($conn, $_POST['bairro']);
+        $cidade = mysqli_real_escape_string($conn, $_POST['cidade']);
+        $uf = mysqli_real_escape_string($conn, $_POST['uf']);
 
-        $sql = 
-        "UPDATE usuario SET 
+        $sql = "
+        UPDATE usuario SET 
         nomecompleto = '$nome', 
         datanascimento = '$datanascimento', 
         sexo = '$sexo', 
@@ -38,7 +45,14 @@
         email = '$email', 
         telefonecelular = '$telefonecelular', 
         telefonefixo = '$telefonefixo', 
-        login = '$login' 
+        login = '$login', 
+        cep = '$cep', 
+        logradouro = '$logradouro', 
+        numero = '$numero', 
+        complemento = '$complemento', 
+        bairro = '$bairro', 
+        cidade = '$cidade', 
+        uf = '$uf' 
         WHERE id_usuario = '$id'";
         mysqli_query($conn, $sql);
     }
@@ -104,6 +118,68 @@
                     <label for="email" class="form-label">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($usuario['email']); ?>" required>
                 </div>
+                <section class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="endereco" class="form-label">Endereço:</label>
+                        <input type="text" id="endereco" name="endereco" class="form-control" value="<?php echo htmlspecialchars($usuario['logradouro']); ?>" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="cep" class="form-label">CEP:</label>
+                        <input type="text" id="cep" name="cep" class="form-control" maxlength="9" value="<?php echo htmlspecialchars($usuario['cep']); ?>" oninput="buscarCep()" placeholder="00000-000" required>
+                        </p>
+                    </div>
+                </section>
+                <section class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="numero" class="form-label">Número:</label>
+                        <input type="text" id="numero" name="numero" class="form-control" value="<?php echo htmlspecialchars($usuario['numero']); ?>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="uf" class="form-label">UF:</label>
+                        <select id="uf" name="uf" class="form-select" required>
+                            <option value="AC"<?php if($usuario['uf'] == 'AC') echo 'selected'; ?>>AC</option>
+                            <option value="AL"<?php if($usuario['uf'] == 'AL') echo 'selected'; ?>>AL</option>
+                            <option value="AP"<?php if($usuario['uf'] == 'AP') echo 'selected'; ?>>AP</option>
+                            <option value="AM"<?php if($usuario['uf'] == 'AM') echo 'selected'; ?>>AM</option>
+                            <option value="BA"<?php if($usuario['uf'] == 'BA') echo 'selected'; ?>>BA</option>
+                            <option value="CE"<?php if($usuario['uf'] == 'CE') echo 'selected'; ?>>CE</option>
+                            <option value="DF"<?php if($usuario['uf'] == 'DF') echo 'selected'; ?>>DF</option>
+                            <option value="ES"<?php if($usuario['uf'] == 'ES') echo 'selected'; ?>>ES</option>
+                            <option value="GO"<?php if($usuario['uf'] == 'GO') echo 'selected'; ?>>GO</option>
+                            <option value="MA"<?php if($usuario['uf'] == 'MA') echo 'selected'; ?>>MA</option>
+                            <option value="MT"<?php if($usuario['uf'] == 'MT') echo 'selected'; ?>>MT</option>
+                            <option value="MS"<?php if($usuario['uf'] == 'MS') echo 'selected';?>>MS</option>
+                            <option value="MG"<?php if($usuario['uf'] == 'MG') echo 'selected'; ?>>MG</option>
+                            <option value="PA"<?php if($usuario['uf'] == 'PA') echo 'selected'; ?>>PA</option>
+                            <option value="PB"<?php if($usuario['uf'] == 'PB') echo 'selected'; ?>>PB</option>
+                            <option value="PR"<?php if($usuario['uf'] == 'PR') echo 'selected'; ?>>PR</option>
+                            <option value="PE"<?php if($usuario['uf'] == 'PE') echo 'selected'; ?>>PE</option>
+                            <option value="PI"<?php if($usuario['uf'] == 'PI') echo 'selected'; ?>>PI</option>
+                            <option value="RJ"<?php if($usuario['uf'] == 'RJ') echo 'selected'; ?>>RJ</option>
+                            <option value="RN"<?php if($dados['uf'] == 'RN') echo 'selected'; ?>>RN</option>
+                            <option value="RS"<?php if($usuario['uf'] == 'RS') echo 'selected'; ?>>RS</option>
+                            <option value="RO"<?php if($usuario['uf'] == 'RO') echo 'selected'; ?>>RO</option>
+                            <option value="RR"<?php if($usuario['uf'] == 'RR') echo 'selected'; ?>>RR</option>
+                            <option value="SC"<?php if($usuario['uf'] == 'SC') echo 'selected'; ?>>SC</option>
+                            <option value="SP"<?php if($usuario['uf'] == 'SP') echo 'selected'; ?>>SP</option>
+                            <option value="SE"<?php if($usuario['uf'] == 'SE') echo 'selected'; ?>>SE</option>
+                            <option value="TO"<?php if($usuario['uf'] == 'TO') echo 'selected'; ?>>TO</option>
+                        </select>
+                    </div>
+                </section>
+                <div class="mb-3">
+                    <label for="complemento" class="form-label">Complemento</label>
+                    <input type="text" class="form-control" id="complemento" name="complemento" value="<?php echo htmlspecialchars($usuario['complemento']); ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" name="bairro" value="<?php echo htmlspecialchars($usuario['bairro']); ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="cidade" name="cidade" value="<?php echo htmlspecialchars($usuario['cidade']); ?>" required>
+                </div>
+
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-outline-success mt-3 d-flex align-items-center gap-2">
                         <i class="bi bi-save"></i> Salvar Alterações
@@ -145,6 +221,38 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
+<script src="js/viacep.js"></script>
+<script>
+        let timeout = null; // Variável para controlar o tempo de espera antes da requisição
+
+        function buscarCep() {
+            clearTimeout(timeout); // Limpa o timeout anterior para evitar múltiplas chamadas
+
+            timeout = setTimeout(async () => {
+                let cep = document.getElementById("cep").value.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+                if (cep.length === 8) { // Confirma que o CEP tem 8 números
+                    try {
+                        let response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                        if (!response.ok) throw new Error("Erro na requisição");
+
+                        let data = await response.json();
+
+                        if (!data.erro) {
+                            document.getElementById("cidade").value = data.localidade || "";
+                            document.getElementById("bairro").value = data.bairro || "";
+                            document.getElementById("uf").value = data.uf || "";
+                            document.getElementById("endereco").value = data.logradouro || "";
+                        } else {
+                            console.warn("CEP não encontrado.");
+                        }
+                    } catch (error) {
+                        console.error("Erro ao buscar CEP:", error);
+                    }
+                }
+            }, 100); // Aguarda 500ms antes de fazer a requisição para evitar chamadas excessivas
+        }
+</script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Máscara para Telefone Fixo: (+xx)(xx)xxxx-xxxx
