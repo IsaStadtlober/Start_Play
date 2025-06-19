@@ -1,5 +1,5 @@
 <?php 
-    include '../conexao.php';
+    include '../conexao/conexao.php';
     session_start();
 
     // Busca o tipo_perfil do usuário logado
@@ -41,7 +41,7 @@
         $telefonefixo = mysqli_real_escape_string($conn, $_POST['telefonefixo']);
         $login = mysqli_real_escape_string($conn, $_POST['login']);
         $cep = mysqli_real_escape_string($conn, $_POST['cep']);
-        $endereco = mysqli_real_escape_string($conn, $_POST['logradouro']);
+        $endereco = mysqli_real_escape_string($conn, $_POST['endereco']);
         $numero = mysqli_real_escape_string($conn, $_POST['numero']);
         $complemento = mysqli_real_escape_string($conn, $_POST['complemento']);
         $bairro = mysqli_real_escape_string($conn, $_POST['bairro']);
@@ -74,6 +74,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>Editar Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">

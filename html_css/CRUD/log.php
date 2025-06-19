@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  include 'conexao.php';
+  include '../conexao/conexao.php';
   // Verifica se o usuário está logado
   if(!isset($_SESSION['usuario_logado'])){
     header("Location: index.php");
@@ -45,16 +45,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title>Tela de LOG</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
   <header class="p-5">
-          <img src="img/logo-pp2.png" alt="Logo">
+          <img src="../img/logo-pp2.png" alt="Logo">
           <h1>Start Play</h1>
           <nav>
             <a href="index.php">Home</a>
@@ -89,7 +89,7 @@
             <?php 
               $pesquisar = $_POST['pesquisar'] ?? '';
 
-              include 'conexao.php';
+              include '../conexao/conexao.php';
 
               $sql = "SELECT * FROM log_autenticacao WHERE nome LIKE '%$pesquisar%'";
 
@@ -105,11 +105,14 @@
 
                 $status_texto = ($stts == 1) ? 'Sucesso' : 'Falha';
 
+                // Formata a data para o padrão brasileiro
+                $data_formatada = date('d/m/Y H:i', strtotime($data));
+
                 echo  "<tr>
                   <td>$login</td>
                   <td>$nome</td>
                   <td>$cpf</td>
-                  <td>$data</td>
+                  <td>$data_formatada</td>
                   <td>$status_texto</td>
                 </tr>";
               }
@@ -117,7 +120,7 @@
         </tbody>
       </table>
       <div class="w-100 d-flex justify-content-between mb-2">
-          <a href="CRUD/consulta.php" class="btn btn-success text-decoration-none text-white">
+          <a href="consulta.php" class="btn btn-success text-decoration-none text-white">
               <i class="bi bi-arrow-left"></i> Voltar
           </a>
       </div>

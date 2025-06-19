@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include 'conexao.php';
+    include 'conexao/conexao.php';
 
     // Verifica se o usuário está logado
     if (!isset($_SESSION['usuario_logado'])) {

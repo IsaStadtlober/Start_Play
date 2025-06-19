@@ -238,7 +238,7 @@
 
                     // Se não houver erros, armazenar os dados e exibir o modal de sucesso
                     if (empty(array_filter($erros))) {
-                        include 'conexao.php';
+                        include 'conexao/conexao.php';
                         //Criptografia de Senhas
                         $dados['senha'] = md5($dados['senha']);
                         // Criptografar a senha de confirmação
@@ -361,7 +361,46 @@
                 </section>
 
                 <!-- Número e UF -->
-                
+                <section class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="numero" class="form-label">Número:</label>
+                        <input type="text" id="numero" name="numero" class="form-control" value="<?php echo htmlspecialchars($dados['numero'] ?? '') ?>" placeholder="Nº" required>
+                        <p style="color: red;"><?php echo $erros["numero"] ?? ""; ?></p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="uf" class="form-label">UF:</label>
+                        <select id="uf" name="uf" class="form-select" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                </section>
 
                 <!-- Cidade e Bairro -->
                 <section class="row">

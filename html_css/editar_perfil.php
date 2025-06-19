@@ -1,5 +1,5 @@
 <?php 
-    include 'conexao.php';
+    include 'conexao/conexao.php';
     session_start();
 
     // Busca o tipo_perfil do usuário logado

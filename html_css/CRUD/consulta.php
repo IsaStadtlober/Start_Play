@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  include '../conexao.php';
+  include '../conexao/conexao.php';
   // Verifica se o usuário está logado
   if(!isset($_SESSION['usuario_logado'])){
     header("Location: ../index.php");
@@ -46,8 +46,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <title>Tela de LOG</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -65,7 +65,7 @@
   <!-- php para excluir usuário -->
   <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluir_usuario'])){
-      include '../conexao.php';
+      include '../conexao/conexao.php';
       $nome = mysqli_real_escape_string($conn, $_POST['excluir_usuario']);
       $sql = "DELETE FROM usuario WHERE nomecompleto = '$nome'";
       mysqli_query($conn, $sql);
@@ -99,7 +99,7 @@
             <?php 
               $pesquisar = $_POST['pesquisar'] ?? '';
 
-              include '../conexao.php';
+              include '../conexao/conexao.php';
 
               $sql = "SELECT * FROM usuario WHERE nomecompleto LIKE '%$pesquisar%'";
 
@@ -140,10 +140,11 @@
                     </a>
                     <form method='POST' action='consulta.php' class='d-inline'>
                       <input type='hidden' name='excluir_usuario' value='$nome'>
-                      <button type='submit' class='btn btn-danger' onclick='return confirm(\"Tem certeza que deseja excluir este usuário?\")'>
-                          <i class='bi bi-trash'></i> Excluir
+                      <button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#confirmDeleteModal' onclick='setUsuarioNome(\"" . addslashes($nome) . "\")'>
+                        <i class='bi bi-trash'></i>Excluir
                       </button>
                     </form>
+                    
                     
                     <!-- Modal Visualizar -->
                     <div class='modal fade' id='modalVisualizar$id' tabindex='-1' aria-labelledby='modalVisualizarLabel$id' aria-hidden='true'>
@@ -188,11 +189,37 @@
           <a href="../cadastro.php" class="btn btn-success text-decoration-none text-white">
               <i class="bi bi-person-plus"></i> Incluir novo usuário
           </a>
-          <a href="../log.php" class="btn btn-secondary text-decoration-none text-white">
+          <a href="log.php" class="btn btn-secondary text-decoration-none text-white">
               <i class="bi bi-journal-text"></i> Tela de LOG
           </a>
       </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4 py-1">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      <form method="POST" action="">
+        <div class="modal-body text-center">
+          <img src="../img/favicon.ico" alt="Ícone do site" style="max-width: 40px; margin-bottom: 20px;">
+          <h2 class="modal-title fs-3 text-danger" id="confirmDeleteModalLabel">Confirmar exclusão</h2>
+          <p class="fs-6 mt-3">Tem certeza que deseja excluir este usuário? Esta ação não poderá ser desfeita.</p>
+          <input type="hidden" name="excluir_usuario" id="excluir_usuario_modal">
+          <div class="d-flex justify-content-center gap-2 mt-4">
+            <button type="button" class="btn btn-outline-secondary w-50" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-danger w-50">Sim, excluir</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function setUsuarioNome(nome) {
+  document.getElementById('excluir_usuario_modal').value = nome;
+}
+</script>
 </body>
 </html>
