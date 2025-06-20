@@ -121,7 +121,7 @@
                 <section class="row">
                     <div class="col-md-8 mb-3">
                         <label for="endereco" class="form-label">Endereço:</label>
-                        <input type="text" id="endereco" name="endereco" class="form-control" value="<?php echo htmlspecialchars($usuario['logradouro']); ?>" required>
+                        <input type="text" id="logradouro" name="logradouro" class="form-control" value="<?php echo htmlspecialchars($usuario['logradouro']); ?>" required>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="cep" class="form-label">CEP:</label>
