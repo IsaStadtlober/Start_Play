@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
             $login = $linha['login'];
             $nome = $linha['nomecompleto'];
             $cpf = $linha['cpf'];
-            if(md5($senha) == $linha['senha']){
+            if(md5($senha) == $linha['senha'] && $senha == $confirmar_senha){
                 $_SESSION['usuario_logado'] = $email;
                 $login_efetuado = true;
 
@@ -75,10 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email']) && isset($_PO
                     });
                 </script>
                 ';
-            }else{
+            }elseif(md5($senha) != $linha['senha']){
                 $erro["password"] = "Senha incorreta";
+              }elseif($senha != $confirmar_senha){
                 $erro["confirm_password"] = "As senhas não conferem";
-
+                
                 // REGISTRA LOG DE FALHA
                 $sql_log = "INSERT INTO log_autenticacao (login, nome, cpf, statususuario) VALUES ('$login', '$nome', '$cpf', 0)";
                 mysqli_query($conn, $sql_log);
@@ -425,53 +426,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
               <p class="text-center fs-6">Complete com os seus dados para efetuar o login.</p>
               <div class="modal-body">
                   <!-- Formulário de Login -->
-                  <?php
-                    /* validação do login
-                    session_start();
-                    include 'conexao.php';
-                    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-                      $email = $_POST['email'];
-                      $senha = $_POST['password'];
-                      $confirmar_senha = $_POST['confirm_password'];
-
-                      //consulta no banco de dados para verificar se o usuário existe
-                      $sql = "SELECT * FROM usuario WHERE email = '$email'";
-                      $result = mysqli_query($conn, $sql);
-                      if ($result && mysqli_num_rows($result)> 0){
-                        $linha = mysqli_fetch_assoc($result);
-                        //verifica a senha
-                        if(md5($senha) == $linha['senha']){
-                          $_SESSION['usuario_logado'] = $email; // Armazena o usuário na sessão
-                          echo '
-                            <div id="modal-login" style="display: block;">
-                              <div class="modal-content">
-                                <span class="close" onclick="document.getElementById(\'modal-login\').style.display=\'none\'">&times;</span>
-                                <h2>Login bem-sucedido!</h2>
-                                <p>Bem-vindo, ' . htmlspecialchars($email) . '!</p>
-                                <button onclick="location.href=\'index.php\'">Continuar</button>
-                              </div>
-                            </div>';
-                            exit();
-                        }else {
-                          echo '
-                              <script>
-                                  document.addEventListener("DOMContentLoaded", function () {
-                                  var loginModal = new bootstrap.Modal(document.getElementById("loginModal));
-                                  loginModal.show();
-                                });
-                              </script>';
-                        }
-                      }else{
-                        echo '
-                            <script>
-                              document.addEventListener("DOMContentLoaded", function () {
-                              var loginModal = new bootstrap.Modal(document.getElementById("loginModal));   
-                              loginModal.show();
-                              }); 
-                          </script>';
-                      }
-                    }*/
-                  ?>
                   <form action="" method="POST" id="login-form">
                     <div class="mb-3">
                         <label for="email" class="form-label">E-mail:</label>
