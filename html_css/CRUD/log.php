@@ -57,9 +57,9 @@
           <img src="../img/logo-pp2.png" alt="Logo">
           <h1>Start Play</h1>
           <nav>
-            <a href="index.php">Home</a>
-            <a href="card.php">Games</a>
-            <a href="videogame.php">Consoles</a>
+            <a href="../index.php">Home</a>
+            <a href="../card.php">Games</a>
+            <a href="../videogame.php">Consoles</a>
           </nav>
   </header>
   <div class="container mt-5">
