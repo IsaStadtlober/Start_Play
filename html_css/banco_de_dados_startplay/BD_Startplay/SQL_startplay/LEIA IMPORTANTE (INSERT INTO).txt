@@ -1,0 +1,10 @@
+Foi identificado um comportamento inesperado durante a exportação do banco de dados, especificamente com a senha do usuário master/administrador.
+Quando os dados são exportados usando INSERT INTO, o hash MD5 original da senha do administrador está sendo recodificado com MD5 novamente. Isso significa que, ao importar esses dados, o sistema tenta criptografar a senha (que já é um MD5) em cima do MD5 já existente, resultando em uma "dupla criptografia" (MD5 de MD5).
+Essa situação impede que a autenticação do usuário master/administrador funcione corretamente, pois o hash gerado no login não corresponde ao valor armazenado. Para que a senha master/administrador funcione após a importação dos dados, é necessário executar o INSERT INTO dela separadamente, após a importação do restante do banco de dados. Este ponto é crucial para a compreensão do processo de importação/exportação e sua relação com a integridade da senha administrativa.
+
+INSERT INTO A SEGUIR:
+
+-- Adicionando o usuario master
+INSERT INTO usuario (nomecompleto, datanascimento, sexo, nomematerno, cpf, email, telefonecelular, telefonefixo, login, senha, cep, logradouro, numero, complemento, bairro, cidade, uf, tipo_perfil)
+VALUES ('Administrador StarPlay', 20080522, 'M', '**********', '**********', 'startplay@gmail.com', '**********', '**********', 'StartP', md5('startplay'), '**********', '**********', '**', '**********', '**********', '**********', '**', 2);
+
