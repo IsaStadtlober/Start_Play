@@ -6,11 +6,27 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <title>Cadastro Starplay</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="formulario.css">
 </head>
-<?php include 'templates/header.php'; ?>
 <body id="cadastro">
+
+    <!-- Cabeçalho -->
+    <header>
+        <img src="img/logo-pp2.png" alt="Logo">
+        <h1>Start Play</h1>
+        <a href="#"></a>
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="card.php">Games</a>
+            <a href="videogame.php">Consoles</a>
+        </nav>
+      <div class="auth-buttons">
+        <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
+        <button onclick="location.href='cadastro.php'">Cadastro</button>
+    </div>
+    </header>
+
     <main>
         <!-- Formulário -->
         <section class="container">
@@ -26,226 +42,214 @@
                 </div>
             </div>
             <!-- Formulário de cadastro -->
-            <?php
-            $erros = []; // Array para armazenar mensagens de erro
-            $dados = []; // Array para armazenar os dados do formulário
+             <?php
+                $erros = []; // Array para armazenar mensagens de erro
+                $dados = []; // Array para armazenar os dados do formulário
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // Coleta os dados do formulário
-                $dados = [
-                    "nome_completo" => $_POST["nome_completo"],
-                    "data_nascimento" => $_POST["data_nascimento"],
-                    "sexo" => $_POST["sexo"],
-                    "nome_materno" => $_POST["nome_materno"],
-                    "cpf" => $_POST["cpf"],
-                    "email" => $_POST["email"],
-                    "telefone_celular" => $_POST["telefone_celular"],
-                    "telefone_fixo" => $_POST["telefone_fixo"],
-                    "endereco" => $_POST["endereco"],
-                    "cep" => $_POST["cep"],
-                    "complemento" => $_POST["complemento"],
-                    "numero" => $_POST["numero"],
-                    "uf" => $_POST["uf"],
-                    "cidade" => $_POST["cidade"],
-                    "bairro" => $_POST["bairro"],
-                    "login" => $_POST["login"],
-                    "senha" => $_POST["senha"],
-                    "confirmar_senha" => $_POST["confirmar_senha"]
-                ];
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    // Coleta os dados do formulário
+                    $dados = [
+                        "nome_completo" => $_POST["nome_completo"],
+                        "data_nascimento" => $_POST["data_nascimento"],
+                        "sexo" => $_POST["sexo"],
+                        "nome_materno" => $_POST["nome_materno"],
+                        "cpf" => $_POST["cpf"],
+                        "email" => $_POST["email"],
+                        "telefone_celular" => $_POST["telefone_celular"],
+                        "telefone_fixo" => $_POST["telefone_fixo"],
+                        "endereco" => $_POST["endereco"],
+                        "cep" => $_POST["cep"],
+                        "complemento" => $_POST["complemento"],
+                        "numero" => $_POST["numero"],
+                        "uf" => $_POST["uf"],
+                        "cidade" => $_POST["cidade"],
+                        "bairro" => $_POST["bairro"],
+                        "login" => $_POST["login"],
+                        "senha" => $_POST["senha"],
+                        "confirmar_senha" => $_POST["confirmar_senha"]
+                    ];
 
-                //Funções de validação
-                function validarNome($nome)
-                {
-                    if (empty($nome) && empty($nomeMaterno)) return "O nome é obrigatório.";
-                    if (strlen($nome) < 15 || strlen($nome) > 80) return "O nome deve conter entre 15 e 80 caracteres.";
-                    if (!preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]+$/', $nome)) return "O nome deve conter apenas caracteres alfabéticos.";
-                    return null;
-                }
-                function validarData($data_nascimento)
-                {
-                    if (empty($data_nascimento)) return "A data de nascimento é obrigatório.";
-                    $data = DateTime::createFromFormat('Y-m-d', $data_nascimento);
-                    $hoje = new DateTime();
-                    $idade = $hoje->diff($data)->y;
-                    if ($idade < 18) return "Você deve ter pelo menos 18 anos para se cadastrar.";
-                    if ($idade > 100) return "Idade máxima permitida é 100 anos.";
-                    return null;
-                }
-                function validarSexo($sexo)
-                {
-                    if ($sexo == "s") return "O campo sexo é obrigatório.";
-                    return null;
-                }
-
-                function validarNomeMaterno($nomeMaterno)
-                {
-                    if (empty($nomeMaterno)) return "O nome materno é obrigatório.";
-                    if (strlen($nomeMaterno) < 15 || strlen($nomeMaterno) > 80) return "O nome materno deve conter entre 15 e 80 caracteres.";
-                    if (!preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]+$/', $nomeMaterno)) return "O nome materno deve conter apenas caracteres alfabéticos.";
-                    return null;
-                }
-
-                function validarCpf($cpf)
-                {
-                    if (!preg_match('/^(?:[0-9]{3}\.){2}(?:[0-9]{3}\-)(?:[0-9]{2})$/', $cpf)) {
-                        return "CPF inválido. Utilize o formato de digitação xxx.xxx.xxx-xx";
+                    //Funções de validação
+                    function validarNome($nome) {
+                        if(empty($nome) && empty($nomeMaterno)) return "O nome é obrigatório.";
+                        if (strlen($nome) < 15 || strlen($nome) > 80) return "O nome deve conter entre 15 e 80 caracteres.";
+                        if (!preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]+$/', $nome)) return "O nome deve conter apenas caracteres alfabéticos.";
+                        return null;
                     }
-                    if ($cpf == "000.000.000-00" || $cpf == "111.111.111-11" || $cpf == "222.222.222-22" || $cpf == "333.333.333-33" || $cpf == "444.444.444-44" || $cpf == "555.555.555-55" || $cpf == "666.666.666-66" || $cpf == "777.777.777-77" || $cpf == "888.888.888-88" || $cpf == "999.999.999-99") {
-                        return "CPF inválido, CPF com números repetidos.";
+                    function validarData($data_nascimento){
+                        if(empty($data_nascimento)) return "A data de nascimento é obrigatório.";
+                        $data = DateTime::createFromFormat('Y-m-d', $data_nascimento);
+                        $hoje = new DateTime();
+                        $idade = $hoje->diff($data)->y;
+                        if ($idade < 18) return "Você deve ter pelo menos 18 anos para se cadastrar.";
+                        if ($idade > 100) return "Idade máxima permitida é 100 anos.";
+                        return null;
                     }
-                    $cpf = preg_replace('/[\.\-]/', '', $cpf);
-
-                    //Primeiro dígito verificador
-                    $soma = 0;
-                    $soma += $cpf[0] * 10;
-                    $soma += $cpf[1] * 9;
-                    $soma += $cpf[2] * 8;
-                    $soma += $cpf[3] * 7;
-                    $soma += $cpf[4] * 6;
-                    $soma += $cpf[5] * 5;
-                    $soma += $cpf[6] * 4;
-                    $soma += $cpf[7] * 3;
-                    $soma += $cpf[8] * 2;
-                    $soma = ($soma * 10) % 11;
-                    if ($soma == 10 || $soma == 11) {
-                        $soma = 0;
-                    }
-                    if ($soma != $cpf[9]) {
-                        return "CPF inválido, de acordo com o Primeiro dígito verificador";
+                    function validarSexo($sexo) {
+                        if ($sexo == "s") return "O campo sexo é obrigatório.";
+                        return null;
                     }
 
-                    //Segundo dígito verificador
-                    $soma = 0;
-                    $soma += $cpf[0] * 11;
-                    $soma += $cpf[1] * 10;
-                    $soma += $cpf[2] * 9;
-                    $soma += $cpf[3] * 8;
-                    $soma += $cpf[4] * 7;
-                    $soma += $cpf[5] * 6;
-                    $soma += $cpf[6] * 5;
-                    $soma += $cpf[7] * 4;
-                    $soma += $cpf[8] * 3;
-                    $soma += $cpf[9] * 2;
-                    $soma = ($soma * 10) % 11;
-                    if ($soma == 10 || $soma == 11) {
-                        return "CPF inválido, de acordo com o Segundo dígito verificador";
+                    function validarNomeMaterno($nomeMaterno) {
+                        if(empty($nomeMaterno)) return "O nome materno é obrigatório.";
+                        if (strlen($nomeMaterno) < 15 || strlen($nomeMaterno) > 80) return "O nome materno deve conter entre 15 e 80 caracteres.";
+                        if (!preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]+$/', $nomeMaterno)) return "O nome materno deve conter apenas caracteres alfabéticos.";
+                        return null;
                     }
-                    return null;
-                }
 
-                function validarEmail($email)
-                {
-                    if (empty($email)) return "O e-mail é obrigatório.";
-                    if (!preg_match('/^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook|yahoo)\.com$/', $email)) return "E-mail inválido.";
-                    return null;
-                }
-
-                function validarCelular($celular)
-                {
-                    if (empty($celular)) return "O campo celular é obrigatório.";
-                    if (!preg_match('/\(\+\d{2}\)\(\d{2}\)\d{5}-\d{4}$/', $celular)) return "O número de celular não está em um formato válido. Use o formato (+xx)(xx)xxxxx-xxxx.";
-                    return null;
-                }
-
-                function validarFixo($telefone)
-                {
-                    if (empty($telefone)) return "O campo telefone é obrigatório.";
-                    if (!preg_match('/\(\+\d{2}\)\(\d{2}\)\d{4}-\d{4}$/', $telefone)) return "O número de telefone não está em um formato válido. Use o formato (+xx)(xx)xxxx-xxxx.";
-                    return null;
-                }
-
-                function validarEndereco($endereco)
-                {
-                    if (empty($endereco)) return "Este campo é obrigatório";
-                    return null;
-                }
-
-                function validarCep($cep)
-                {
-                    if (empty($cep)) return "O CEP é obrigatório.";
-                    if (!preg_match('/^\d{5}-\d{3}$/', $cep)) return "O CEP deve estar no formato xxxxx-xxx.";
-                }
-
-
-                function validarNumero($numero)
-                {
-                    if (empty($numero)) return "Este campo é obrigatório";
-                    if (!preg_match('/^[0-9]+$/', $numero)) return "Este campo deve apenas conter caracteres numéricos.";
-                    return null;
-                }
-
-                function validarLogin($login)
-                {
-                    if (empty($login)) return "O login é obrigatório.";
-                    if (!preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]+$/', $login)) return "O login só pode conter apenas caracteres alfabéticos";
-                    if (strlen($login) < 6 || strlen($login) > 6) return "O login deve conter exatamente 6 caracteres";
-                    return null;
-                }
-                function validarSenha($senha, $confirmarSenha)
-                {
-                    if (empty($senha)) return "A senha é obrigatória.";
-                    if (!preg_match('/^[a-zA-Z\s]+$/', $senha)) return "A senha deve conter apenas caracteres alfabéticos";
-                    if (strlen($senha) < 8) return "A senha deve conter no mínimo 8 caracteres";
-                    if ($senha != $confirmarSenha) return "As senhas não são iguais";
-
-                    return null;
-                }
-                function buscarCep($cep)
-                {
-                    $cep = preg_replace('/\D/', '', $cep); // Remove caracteres não numéricos
-                    $url = "https://viacep.com.br/ws/{$cep}/json/";
-
-                    // Usando cURL para buscar os dados
-                    $ch = curl_init($url);
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                    $response = curl_exec($ch);
-                    curl_close($ch);
-
-                    if ($response) {
-                        $dados = json_decode($response, true);
-                        if (!isset($dados['erro'])) {
-                            return [
-                                "cidade" => $dados["localidade"],
-                                "bairro" => $dados["bairro"],
-                                "uf" => $dados["uf"],
-                                "endereco" => $dados["logradouro"]
-                            ];
-                        } else {
-                            return ["erro" => "CEP não encontrado."];
+                    function validarCpf($cpf) {
+                        if (!preg_match('/^(?:[0-9]{3}\.){2}(?:[0-9]{3}\-)(?:[0-9]{2})$/', $cpf)){
+                            return "CPF inválido. Utilize o formato de digitação xxx.xxx.xxx-xx";
                         }
+                        if ($cpf == "000.000.000-00" || $cpf == "111.111.111-11" || $cpf == "222.222.222-22" || $cpf == "333.333.333-33" || $cpf == "444.444.444-44" || $cpf == "555.555.555-55" || $cpf == "666.666.666-66" || $cpf == "777.777.777-77" || $cpf == "888.888.888-88" || $cpf == "999.999.999-99") {
+                            return "CPF inválido, CPF com números repetidos.";
+                        }
+                        $cpf = preg_replace('/[\.\-]/', '', $cpf);
+                    
+                        //Primeiro dígito verificador
+                        $soma = 0;
+                        $soma += $cpf[0] * 10;
+                        $soma += $cpf[1] * 9;
+                        $soma += $cpf[2] * 8;
+                        $soma += $cpf[3] * 7;
+                        $soma += $cpf[4] * 6;
+                        $soma += $cpf[5] * 5;
+                        $soma += $cpf[6] * 4;
+                        $soma += $cpf[7] * 3;
+                        $soma += $cpf[8] * 2;
+                        $soma = ($soma * 10) % 11;
+                        if ($soma == 10 || $soma == 11) {
+                            $soma = 0;
+                        }
+                        if ($soma != $cpf[9]) {
+                            return "CPF inválido, de acordo com o Primeiro dígito verificador";
+                        }
+
+                        //Segundo dígito verificador
+                        $soma = 0;
+                        $soma += $cpf[0] * 11;
+                        $soma += $cpf[1] * 10;
+                        $soma += $cpf[2] * 9;
+                        $soma += $cpf[3] * 8;
+                        $soma += $cpf[4] * 7;
+                        $soma += $cpf[5] * 6;
+                        $soma += $cpf[6] * 5;
+                        $soma += $cpf[7] * 4;
+                        $soma += $cpf[8] * 3;
+                        $soma += $cpf[9] * 2;
+                        $soma = ($soma * 10) % 11;
+                        if ($soma == 10 || $soma == 11) {
+                            return "CPF inválido, de acordo com o Segundo dígito verificador";
+                        }
+                        return null;
                     }
-                    return ["erro" => "Erro ao acessar a API ViaCEP."];
-                }
 
-                // Validando os campos e armazenando mensagens de erro
-                $erros["nome_completo"] = validarNome($dados["nome_completo"]);
-                $erros["data_nascimento"] = validarData($dados["data_nascimento"]);
-                $erros["sexo"] = validarSexo($dados["sexo"]);
-                $erros["nome_materno"] = validarNomeMaterno($dados["nome_materno"]);
-                $erros["cpf"] = validarCpf($dados["cpf"]);
-                $erros["email"] = validarEmail($dados["email"]);
-                $erros["telefone_celular"] = validarCelular($dados["telefone_celular"]);
-                $erros["telefone_fixo"] = validarFixo($dados["telefone_fixo"]);
-                $erros["cep"] = validarCep($dados["cep"]);
-                $erros["numero"] = validarNumero($dados["numero"]);
-                $erros["login"] = validarLogin($dados["login"]);
-                $erros["senha"] = validarSenha($dados["senha"], $dados["confirmar_senha"]);
-                // Se o CEP for válido, busca os dados da API
+                    function validarEmail($email) {
+                        if (empty($email)) return "O e-mail é obrigatório.";
+                        if (!preg_match('/^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook|yahoo)\.com$/', $email)) return "E-mail inválido.";
+                        return null;
+                    }
 
-                // Se não houver erros, armazenar os dados e exibir o modal de sucesso
-                if (empty(array_filter($erros))) {
-                    include 'conexao/conexao.php';
-                    //Criptografia de Senhas
-                    $dados['senha'] = md5($dados['senha']);
-                    // Criptografar a senha de confirmação
-                    $dados['confirmar_senha'] = md5($dados['confirmar_senha']);
-                    //Inserir usuario
-                    $sql_usuario = "INSERT INTO usuario (nomecompleto, datanascimento, sexo, nomematerno, cpf, email, telefonecelular, telefonefixo, login, senha, cep, logradouro, complemento, numero, uf, cidade, bairro, tipo_perfil) 
+                    function validarCelular($celular) {
+                        if (empty($celular)) return "O campo celular é obrigatório.";
+                        if (!preg_match('/\(\+\d{2}\)\(\d{2}\)\d{5}-\d{4}$/', $celular)) return "O número de celular não está em um formato válido. Use o formato (+xx)(xx)xxxxx-xxxx.";
+                        return null;
+                    }
+
+                    function validarFixo($telefone) {
+                        if (empty($telefone)) return "O campo telefone é obrigatório.";
+                        if (!preg_match('/\(\+\d{2}\)\(\d{2}\)\d{4}-\d{4}$/', $telefone)) return "O número de telefone não está em um formato válido. Use o formato (+xx)(xx)xxxx-xxxx.";
+                        return null;
+                    }
+
+                    function validarEndereco($endereco){
+                        if(empty($endereco)) return "Este campo é obrigatório";
+                        return null;
+                    }
+
+                    function validarCep($cep) {
+                        if (empty($cep)) return "O CEP é obrigatório.";
+                        if (!preg_match('/^\d{5}-\d{3}$/', $cep)) return "O CEP deve estar no formato xxxxx-xxx.";
+
+                    }
+
+
+                    function validarNumero($numero){
+                        if(empty($numero)) return "Este campo é obrigatório";
+                        if(!preg_match('/^[0-9]+$/', $numero)) return "Este campo deve apenas conter caracteres numéricos.";
+                        return null;
+                    }
+                     
+                    function validarLogin($login){
+                        if (empty($login)) return "O login é obrigatório.";
+                        if (!preg_match('/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]+$/', $login)) return "O login só pode conter apenas caracteres alfabéticos";
+                        if (strlen($login) < 6 || strlen($login) > 6) return "O login deve conter exatamente 6 caracteres";
+                        return null;
+                    }
+                    function validarSenha($senha,$confirmarSenha){
+                        if (empty($senha)) return "A senha é obrigatória.";
+                        if (!preg_match('/^[a-zA-Z\s]+$/', $senha)) return "A senha deve conter apenas caracteres alfabéticos";
+                        if (strlen($senha) < 8) return "A senha deve conter no mínimo 8 caracteres";
+                        if ($senha != $confirmarSenha) return "As senhas não são iguais";
+                        
+                        return null;
+                    }
+                    function buscarCep($cep) {
+                        $cep = preg_replace('/\D/', '', $cep); // Remove caracteres não numéricos
+                        $url = "https://viacep.com.br/ws/{$cep}/json/";
+                    
+                        // Usando cURL para buscar os dados
+                        $ch = curl_init($url);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $response = curl_exec($ch);
+                        curl_close($ch);
+                    
+                        if ($response) {
+                            $dados = json_decode($response, true);
+                            if (!isset($dados['erro'])) {
+                                return [
+                                    "cidade" => $dados["localidade"],
+                                    "bairro" => $dados["bairro"],
+                                    "uf" => $dados["uf"],
+                                    "endereco" => $dados["logradouro"]
+                                ];
+                            } else {
+                                return ["erro" => "CEP não encontrado."];
+                            }
+                        }
+                        return ["erro" => "Erro ao acessar a API ViaCEP."];
+                        
+                    }
+
+                    // Validando os campos e armazenando mensagens de erro
+                    $erros["nome_completo"] = validarNome($dados["nome_completo"]);
+                    $erros["data_nascimento"] = validarData($dados["data_nascimento"]);
+                    $erros["sexo"] = validarSexo($dados["sexo"]);
+                    $erros["nome_materno"] = validarNomeMaterno($dados["nome_materno"]);
+                    $erros["cpf"] = validarCpf($dados["cpf"]);
+                    $erros["email"] = validarEmail($dados["email"]);
+                    $erros["telefone_celular"] = validarCelular($dados["telefone_celular"]);
+                    $erros["telefone_fixo"] = validarFixo($dados["telefone_fixo"]);
+                    $erros["cep"] = validarCep($dados["cep"]);
+                    $erros["numero"] = validarNumero($dados["numero"]);
+                    $erros["login"] = validarLogin($dados["login"]);
+                    $erros["senha"] = validarSenha($dados["senha"], $dados["confirmar_senha"]);
+                    // Se o CEP for válido, busca os dados da API
+
+                    // Se não houver erros, armazenar os dados e exibir o modal de sucesso
+                    if (empty(array_filter($erros))) {
+                        include 'conexao/conexao.php';
+                        //Criptografia de Senhas
+                        $dados['senha'] = md5($dados['senha']);
+                        // Criptografar a senha de confirmação
+                        $dados['confirmar_senha'] = md5($dados['confirmar_senha']);
+                        //Inserir usuario
+                        $sql_usuario = "INSERT INTO usuario (nomecompleto, datanascimento, sexo, nomematerno, cpf, email, telefonecelular, telefonefixo, login, senha, cep, logradouro, complemento, numero, uf, cidade, bairro, tipo_perfil) 
                         VALUES 
                         ('{$dados['nome_completo']}', '{$dados['data_nascimento']}', '{$dados['sexo']}', '{$dados['nome_materno']}', '{$dados['cpf']}', '{$dados['email']}', '{$dados['telefone_celular']}', '{$dados['telefone_fixo']}', '{$dados['login']}', '{$dados['senha']}',
                         '{$dados['cep']}', '{$dados['endereco']}', '{$dados['complemento']}', '{$dados['numero']}', '{$dados['uf']}', '{$dados['cidade']}', '{$dados['bairro']}', 1)";
-                    if (mysqli_query($conn, $sql_usuario)) {
-                        echo "
+                        if(mysqli_query($conn, $sql_usuario)){
+                            echo "
                             <script>
                                 document.addEventListener('DOMContentLoaded', function () {
                                     // Exibe o modal
@@ -262,38 +266,38 @@
                                     });
                                 });
                             </script>";
+                        }
                     }
                 }
-            }
             ?>
             <form action="" method="POST" id="cadastro-form">
                 <!-- Nome Completo -->
                 <section class="mb-4">
                     <label for="nome_completo" class="form-label">Nome Completo:</label>
                     <p class="form-text">O campo deve ter no mínimo 15 e no máximo 80 caracteres alfabéticos.</p>
-                    <input type="text" id="nome_completo" name="nome_completo" class="form-control" value="<?php echo htmlspecialchars($dados["nome_completo"] ?? '') ?>" placeholder="Digite seu nome completo" required>
+                    <input type="text" id="nome_completo" name="nome_completo" class="form-control" value="<?php echo htmlspecialchars($dados["nome_completo"] ?? '')?>" placeholder="Digite seu nome completo" required>
                     <p style="color: red;"><?php echo $erros["nome_completo"] ?? ""; ?></p>
                 </section>
-
+                
                 <!-- Data de Nascimento e Sexo -->
                 <section class="row">
                     <div class="col-md-6 mb-3">
                         <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
                         <?php
-                        $hoje = date('Y-m-d');
+                            $hoje = date('Y-m-d');
                         ?>
                         <input type="date" id="data_nascimento" name="data_nascimento" class="form-control"
-                            value="<?php echo htmlspecialchars($dados["data_nascimento"] ?? '') ?>"
-                            min="1900-01-01" max="<?php echo $hoje; ?>" required>
+                               value="<?php echo htmlspecialchars($dados["data_nascimento"] ?? '')?>"
+                               min="1900-01-01" max="<?php echo $hoje; ?>" required>
                         <p style="color: red;"><?php echo $erros["data_nascimento"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="sexo" class="form-label">Sexo:</label>
                         <select id="sexo" name="sexo" class="form-select" required>
-                            <option value="s" <?php echo htmlspecialchars($dados['sexo'] ?? '') ?> name="s">Selecione</option>
-                            <option value="M" <?php echo htmlspecialchars($dados['sexo'] ?? '') ?> name="M">Masculino</option>
-                            <option value="F" <?php echo htmlspecialchars($dados['sexo'] ?? '') ?> name="F">Feminino</option>
-                            <option value="O" <?php echo htmlspecialchars($dados['sexo'] ?? '') ?> name="O">Outro</option>
+                            <option value="s"<?php echo htmlspecialchars($dados['sexo'] ?? '') ?> name = "s">Selecione</option>
+                            <option value="M" <?php echo htmlspecialchars($dados['sexo'] ?? '')?>  name = "M">Masculino</option>
+                            <option value="F" <?php echo htmlspecialchars($dados['sexo'] ?? '')?> name = "F">Feminino</option>
+                            <option value="O" <?php echo htmlspecialchars($dados['sexo'] ?? '')?> name = "O">Outro</option>
                         </select>
                         <p style="color: red;"><?php echo $erros["sexo"] ?? ""; ?></p>
                     </div>
@@ -302,21 +306,21 @@
                 <!-- Nome Materno -->
                 <section class="mb-3">
                     <label for="nome_materno" class="form-label">Nome Materno:</label>
-                    <input type="text" id="nome_materno" name="nome_materno" class="form-control" value="<?php echo htmlspecialchars($dados['nome_materno'] ?? '') ?>" placeholder="Digite o nome da sua mãe" required>
+                    <input type="text" id="nome_materno" name="nome_materno" class="form-control" value="<?php echo htmlspecialchars($dados['nome_materno'] ?? '')?>" placeholder="Digite o nome da sua mãe" required>
                     <p style="color: red;"><?php echo $erros["nome_materno"] ?? ""; ?></p>
                 </section>
 
                 <!-- CPF -->
                 <section class="mb-3">
                     <label for="cpf" class="form-label">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" class="form-control" maxlength="14" value="<?php echo htmlspecialchars($dados['cpf'] ?? '') ?>" placeholder="000.000.000-00" required>
+                    <input type="text" id="cpf" name="cpf" class="form-control" maxlength="14" value = "<?php echo htmlspecialchars($dados['cpf'] ?? '')?>"placeholder="000.000.000-00" required>
                     <P style="color: red;"><?php echo $erros["cpf"] ?? ''; ?></p>
                 </section>
 
                 <!-- E-mail -->
-                <section class="mb-3">
-                    <label for="email" class="form-label">E-mail:</label>
-                    <input type="email" id="email" name="email" class="form-control" value="<?php echo htmlspecialchars($dados['email'] ?? '') ?>" placeholder="exemplo@email.com" required>
+                <section class="mb-3">    
+                <label for="email" class="form-label">E-mail:</label>
+                    <input type="email" id="email" name="email" class="form-control" value="<?php echo htmlspecialchars($dados['email'] ?? '')?>" placeholder="exemplo@email.com" required>
                     <p style="color: red;"><?php echo $erros["email"] ?? ""; ?></p>
                 </section>
 
@@ -343,7 +347,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="cep" class="form-label">CEP:</label>
-                        <input type="text" id="cep" name="cep" class="form-control" maxlength="9" value="<?php echo htmlspecialchars($dados['cep'] ?? '') ?>" oninput="buscarCep()" placeholder="00000-000" required>
+                        <input type="text" id="cep" name="cep" class="form-control" maxlength="9" value="<?php echo htmlspecialchars($dados ['cep'] ?? '') ?>" oninput="buscarCep()" placeholder="00000-000" required>
                         <p style="color: red;"><?php echo $erros["cep"] ?? ""; ?></p>
                     </div>
                 </section>
@@ -402,7 +406,7 @@
                 <section class="row">
                     <div class="col-md-6 mb-3">
                         <label for="cidade" class="form-label">Cidade:</label>
-                        <input type="text" id="cidade" name="cidade" class="form-control" value="<?php echo htmlspecialchars($dados['cidade'] ?? '') ?>" placeholder="Digite sua cidade" required>
+                        <input type="text" id="cidade" name="cidade" class="form-control" value="<?php echo htmlspecialchars($dados ['cidade'] ?? '') ?>" placeholder="Digite sua cidade" required>
                         <p style="color: red;"><?php echo $erros["cidade"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -439,7 +443,7 @@
                 <!-- Botões -->
                 <footer class="form-actions mt-4">
                     <input type="reset" class="btn btn-outline-secondary w-100 mt-2" name="limpar" value="Limpar">
-                    <input type="submit" class="btn btn-outline-primary w-100 mt-2" name="cadastrar" value="Enviar">
+                    <input type="submit" class="btn btn-outline-primary w-100 mt-2"name="cadastrar" value = "Enviar">
                 </footer>
             </form>
         </section>
@@ -460,7 +464,7 @@
         </div>
     </div>
 
-
+    
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -495,7 +499,7 @@
         }
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             // Máscara para Telefone Fixo: (+xx)(xx)xxxx-xxxx
             const telefoneFixoInput = document.getElementById("telefone_fixo");
             IMask(telefoneFixoInput, {
@@ -519,14 +523,14 @@
             IMask(cepInput, {
                 mask: "00000-000",
             });
-        });
+            });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const limparBtn = document.querySelector('input[name="limpar"]');
             const form = document.getElementById("cadastro-form");
 
-            limparBtn.addEventListener("click", function(event) {
+            limparBtn.addEventListener("click", function (event) {
                 event.preventDefault(); // Evita o comportamento padrão do botão
 
                 // Limpa os valores dos campos do formulário
@@ -539,10 +543,7 @@
         });
     </script>
     <script src="https://unpkg.com/imask"></script>
-    <script src="js/mascara.js"></script>
-    <script>
-        src = "js/viacep.js"
-    </script>
+    <script src="js/mascara.js"></script>      
+    <script>src="js/viacep.js"</script>
 </body>
-
 </html>
