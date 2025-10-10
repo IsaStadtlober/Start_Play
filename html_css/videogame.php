@@ -161,7 +161,7 @@
              </div>
 
              <!-- Final -->
-              <h1 class="cons_final">CONSIDERAÇÕES FINAIS</h1>
+              <h1 class="cons_final mt-5 pt-5">CONSIDERAÇÕES FINAIS</h1>
               <p class="par_final">A história dos videogames é marcada por uma evolução constante, impulsionada por inovação e paixão. Desde o Magnavox Odyssey, em 1972, até os consoles atuais como Polstation 5 e X-game Series X/S, a indústria transformou o entretenimento digital.</p>
 
               <p class="par_final">Cada console significativo trouxe algo novo. O Atar 2600 popularizou os cartuchos, o NES salvou a indústria em 1983, o Polstation introduziu jogos em CD e inovou com controles de movimento.</p>
