@@ -184,6 +184,9 @@ a:hover::after {
     box-sizing: border-box;
     /* permite que os botões encolham e não forcem overflow */
     flex-wrap: nowrap;
+    /* centralizar conteúdo (icone de perfil) em mobile */
+    justify-content: center;
+    align-items: center;
   }
   .auth-buttons button {
     font-size: 14px;
@@ -191,6 +194,17 @@ a:hover::after {
     flex: 1 1 auto;
     box-sizing: border-box;
     min-width: 0;
+  }
+  /* garantir que o form e o botão interno não quebrem o centramento */
+  .auth-buttons form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  .auth-buttons form button {
+    display: block;
   }
 }
 
