@@ -487,6 +487,14 @@ hr {
   hr {
     margin-bottom: 4px;
   }
+  /* ocultar link 'Especificações' dentro do carrossel em telas menores */
+  .carousel .especificacoes {
+    display: none !important;
+  }
+  /* ocultar o ícone SVG do carrossel junto com o link */
+  .carousel .bi-controller {
+    display: none !important;
+  }
 }
 
 @media (max-width: 600px) {
