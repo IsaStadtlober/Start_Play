@@ -1,639 +1,657 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
 
 /* Reset Básico */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-#index{
-    background-color: #ffffff;
+#index {
+  background-color: #ffffff;
 }
 
 /* Cabeçalho */
 header {
-    display: flex; 
-    align-items: center;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    padding: 10px; 
-    background-color: #ffffff; 
-    height: 80px;
-    box-shadow: 0px -5px 50px rgb(91, 91, 91);
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ffffff;
+  height: 80px;
+  box-shadow: 0px -5px 50px rgb(91, 91, 91);
+  gap: 10px;
 }
 
 header img {
-    width: 50px;
-    margin: 0;
+  width: 50px;
+  margin: 0;
 }
 
 header h1 {
-    font-family: "Roboto Flex", sans-serif;
-    font-weight: 300;
-    margin: 0;
-    font-size: 30px;
-    flex-shrink: 0;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 300;
+  margin: 0;
+  font-size: 30px;
+  flex-shrink: 0;
 }
 
 /* Navegação */
 nav {
-    display: flex;
-    gap: 20px;
-    margin-left: auto;
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
 }
 
 a {
-    position: relative;
-    color: black;
-    text-decoration: none;
-    font-family: "Roboto Flex", sans-serif;
-    font-weight: 300;
+  position: relative;
+  color: black;
+  text-decoration: none;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 300;
 }
 
 a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background-color: lightgray;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: lightgray;
+  transition: width 0.3s ease;
 }
 
 a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 /*Barra de pesquisa no header*/
 
 .search-bar {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 5px;
-    padding: 5px;
-    background-color: #ffffff;
-    margin-left: auto;
-    box-sizing: border-box;
-    max-width: 300px;
-    width: 100%;
-    flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #ffffff;
+  margin-left: auto;
+  box-sizing: border-box;
+  max-width: 300px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .search-bar input {
-    border: none;
-    outline: none;
-    font-family: "Roboto Flex", sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    background-color: transparent;
-    width: 100%;
+  border: none;
+  outline: none;
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  background-color: transparent;
+  width: 100%;
 }
 
 .search-bar button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
 }
-
 
 /*Botões de login e cadastro no header*/
 
 .auth-buttons {
-    display: flex;
-    gap: 15px;
-    margin-left: auto;
+  display: flex;
+  gap: 15px;
+  margin-left: auto;
 }
 
 .auth-buttons button {
-    padding: 10px 20px; 
-    border: none;
-    background-color: #313131;
-    color: white;
-    font-family: "Roboto Flex", sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  border: none;
+  background-color: #313131;
+  color: white;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .auth-buttons button:hover {
-    background-color: #000000;
+  background-color: #000000;
 }
 
+/* <= 765px: header quebra e centraliza elementos */
 @media (min-width: 481px) and (max-width: 765px) {
-    header {
-        flex-wrap: wrap;
-        justify-content: center;
-        height: auto;
-        padding: 15px;
-    }
-
-
-
-    nav {
-        gap: 10px;
-        margin-left: 0;
-        align-items: center;
-    }
-
-    .search-bar {
-        width: 100%; 
-        max-width: 500px; 
-        margin: 0 auto; 
-        margin-top: 10px; 
-        margin-bottom: 5px;
-    }
-
-    .auth-buttons {
-        gap: 10px;
-        margin-left: 0;
-        align-items: center;
-    }
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    padding: 15px;
+  }
+  nav {
+    gap: 10px;
+    margin-left: 0;
+    align-items: center;
+  }
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto 5px;
+  }
+  .auth-buttons {
+    gap: 10px;
+    margin-left: 0;
+    align-items: center;
+  }
 }
 
-/* Estilos para telas menores que 480px */
+/* <= 480px: header quebra; botões ficam lado-a-lado abaixo */
 @media (max-width: 480px) {
-    header img {
-        width: 40px;
-    }
+  header img {
+    width: 40px;
+  }
+  header h1 {
+    font-size: 20px;
+  }
+  a,
+  .search-bar input {
+    font-size: 14px;
+  }
+  /* permite que o header aumente de altura em vez de cortar conteúdo */
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    height: auto;
+    padding: 8px 10px;
+  }
 
-    header h1 {
-        font-size: 20px;
-    }
-
-    a {
-        font-size: 14px;
-    }
-
-    .search-bar input {
-        font-size: 14px;
-    }
-
-    .auth-buttons button {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
+  /* botões lado-a-lado, abaixo do header */
+  .auth-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+    max-width: 340px;
+    margin: 8px auto 0;
+    padding: 0 8px;
+    box-sizing: border-box;
+    /* permite que os botões encolham e não forcem overflow */
+    flex-wrap: nowrap;
+  }
+  .auth-buttons button {
+    font-size: 14px;
+    padding: 8px 12px;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    min-width: 0;
+  }
 }
 
+/* Ajustes para telas muito pequenas para evitar overflow */
+@media (max-width: 360px) {
+  header img {
+    width: 36px;
+  }
+  header h1 {
+    font-size: 18px;
+  }
+  .auth-buttons {
+    max-width: 300px;
+    gap: 6px;
+    padding: 0 6px;
+  }
+  .auth-buttons button {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+}
+
+/* 758-1000px: header com quebra suave e centralização */
 @media (min-width: 758px) and (max-width: 1000px) {
-    header {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 20px; 
-        padding: 10px;
-        height: auto;
-    }
-
-    nav {
-        order: 1;
-        margin: auto;
-    }
-
-    .auth-buttons {
-        width: auto;
-        display: flex;
-        justify-content: center;
-        gap: 15px; 
-        margin-bottom: 15px; 
-        order: 2;
-        margin: auto;
-    }
-
-    .search-bar {
-        width: 100%; 
-        max-width: 500px; 
-        margin: 0 auto; 
-        margin-top: 10px; 
-        margin-bottom: 5px;
-        order: 3;
-    }
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    height: auto;
+  }
+  nav {
+    order: 1;
+    margin: auto;
+  }
+  .auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    order: 2;
+    margin: auto 0 15px;
+  }
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto 5px;
+    order: 3;
+  }
 }
 
 /* Carrossel */
 
 /* Indicadores do Carrossel */
 .carousel-indicators {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-top: 35px;
-    margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 25px;
 }
 
 .carousel-indicators [data-bs-target] {
-    background-color: rgba(0, 0, 0, 0.45);
-    width: 6px;
-    height: 6px;
+  background-color: rgba(0, 0, 0, 0.45);
+  width: 6px;
+  height: 6px;
 }
 
 .carousel-indicators button {
-    border: none;
-    border-radius: 50%;
+  border: none;
+  border-radius: 50%;
 }
 
 .carousel-indicators button.active {
-    background-color: #000;
+  background-color: #000;
 }
 
 /*Centralizando Carrosel*/
-#carouselExampleCaptions{
-    max-width: 90%;
-    margin: 0 auto;
+#carouselExampleCaptions {
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 /*Centralizando telas menores*/
 @media (max-width: 1150px) {
-    #carouselExampleCaptions {
-        max-width: 90%;
-    }
+  #carouselExampleCaptions {
+    max-width: 90%;
+  }
 }
 
-@media (max-width: 768px){
-    .carousel-indicators {
-        margin-top: 60px;
-    }
+@media (max-width: 768px) {
+  .carousel-indicators {
+    margin-top: 60px;
+  }
 }
 
 /* Setas de Navegação */
 .carousel-control-prev,
 .carousel-control-next {
-    position: absolute;
-    top: 55%;
-    transform: translateY(-50%);
-    width: 50px;
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 50px;
 }
 
-.carousel-control-prev{
-    left: 3px;
+.carousel-control-prev {
+  left: 3px;
 }
 
 .carousel-control-next {
-    right: 3px;
+  right: 3px;
 }
 
-@media (max-width: 1000px){
-    .carousel-control-prev,
-    .carousel-control-next {
-        margin-top: 15px;
-    }
+@media (max-width: 1000px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    margin-top: 15px;
+  }
 }
 
 /* Legendas no Carrossel */
 .custom-caption {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-60%);
-    text-align: left;
-    font-family: "Roboto Flex", sans-serif;
-    font-size: 15px;
-    color: #fff;
-    padding: 0px 0px 0px 50px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-60%);
+  text-align: left;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  padding: 0px 0px 0px 50px;
 }
 
 h5 {
-    font-size: 25px;
-    font-weight: bold;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 strong {
-    font-size: 17px;
+  font-size: 17px;
 }
 
 p {
-    font-size: 14px;
-    margin: 15px 0;
+  font-size: 14px;
+  margin: 15px 0;
 }
 
 /* Ajusta para telas menores com responsividade */
 @media (max-width: 1000px) {
-    .custom-caption {
-        font-size: 1.5vw;
-        padding: 0px 0px 0px 50px;
-        margin-bottom: -20px;
-    }
+  .custom-caption {
+    font-size: 1.5vw;
+    padding: 0px 0px 0px 50px;
+    margin-bottom: -20px;
+  }
 
-    h5 {
-        font-size: 2.2vw;
-    }
+  h5 {
+    font-size: 2.2vw;
+  }
 
-    strong {
-        font-size: 1.7vw;
-    }
+  strong {
+    font-size: 1.7vw;
+  }
 
-    p {
-        font-size: 1.4vw;
-        margin: 13px 0;
-    }
+  p {
+    font-size: 1.4vw;
+    margin: 13px 0;
+  }
 }
 
 @media (max-width: 650px) {
-.custom-caption {
+  .custom-caption {
     font-size: 1.5vw;
     padding: 0px 0px 0px 45px;
     margin-bottom: -25px;
-}
+  }
 
-h5 {
-     font-size: 2.1vw;
-}
+  h5 {
+    font-size: 2.1vw;
+  }
 
-strong {
+  strong {
     font-size: 1.6vw;
-}
+  }
 
-p {
+  p {
     font-size: 1.5vw;
     margin: 10px 0;
-}
+  }
 }
 
 /*Especificações*/
 .img-especificacoes {
-    width: 15px;
-    height: 15px;
-    margin-right: 8px;
-    margin-bottom: 10px;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  margin-bottom: 10px;
 }
 
-hr{
-    margin-top: 3px;
-    margin-bottom: 8px;
+hr {
+  margin-top: 3px;
+  margin-bottom: 8px;
 }
 
 .especificacoes {
-    font-weight: 600;
-    color: #ffffff;
+  font-weight: 600;
+  color: #ffffff;
 }
-    
+
 .especificacoes:hover {
-    color: #d4d2d2;
+  color: #d4d2d2;
 }
 
 #especificacoesCard {
-    position: absolute;
-    top:  -40%;
-    left: 50%;
-    transform: translateX(-42%);
-    z-index: 10;
-    width: 700px;
-    height: 195px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: "Roboto Flex", sans-serif;
-    color: #000000;
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-42%);
+  z-index: 10;
+  width: 700px;
+  height: 195px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Roboto Flex", sans-serif;
+  color: #000000;
 }
 
-#especificacoesCard h5{
-    font-size: 13px; 
+#especificacoesCard h5 {
+  font-size: 13px;
 }
 
 #especificacoesCard strong {
-    font-size: 11px;
-    font-weight: 600;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 #especificacoesCard p {
-    margin: 3px;
-    font-size: 10px; 
-    font-weight: 300;
+  margin: 3px;
+  font-size: 10px;
+  font-weight: 300;
 }
 
 @media (max-width: 1000px) {
-    #especificacoesCard {
-        position: absolute;
-        top:  -35%;
-        left: 50%;
-        transform: translateX(-42%);
-        width: 600px;
-        height: 195px; 
-}
+  #especificacoesCard {
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    transform: translateX(-42%);
+    width: 600px;
+    height: 195px;
+  }
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 800px) {
-    #especificacoesCard {
-        position: absolute;
-        top:  -35%;
-        left: 50%;
-        transform: translateX(-42%); 
-        width: 500px; 
-        height: 205px; 
-}
+  #especificacoesCard {
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    transform: translateX(-42%);
+    width: 500px;
+    height: 205px;
+  }
 
-hr{
+  hr {
     margin-top: 2px;
     margin-bottom: 5px;
-}
-
+  }
 }
 
 @media (max-width: 670px) {
-    #especificacoesCard {
-        position: absolute; 
-        top:  -30%;
-        left: 50%; 
-        transform: translateX(-42%); 
-        width: 400px;
-        height: 185px;
-}
+  #especificacoesCard {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-42%);
+    width: 400px;
+    height: 185px;
+  }
 
-    #especificacoesCard h5{
-        font-size: 10px; 
-}
+  #especificacoesCard h5 {
+    font-size: 10px;
+  }
 
-    #especificacoesCard strong {
-        font-size: 9px;
-        font-weight: 600;
-}
+  #especificacoesCard strong {
+    font-size: 9px;
+    font-weight: 600;
+  }
 
-    #especificacoesCard p {
-        margin: 3px;
-        font-size: 8px; 
-        font-weight: 300;
-}
+  #especificacoesCard p {
+    margin: 3px;
+    font-size: 8px;
+    font-weight: 300;
+  }
 
-hr{
+  hr {
     margin-bottom: 4px;
-}
-
+  }
 }
 
 @media (max-width: 600px) {
-    #especificacoesCard {
-        position: absolute;
-        top:  -30%;
-        left: 51%;
-        transform: translateX(-42%); 
-        width: 350px;
-        height: 154px;
-        padding: 10px;
-}
+  #especificacoesCard {
+    position: absolute;
+    top: -30%;
+    left: 51%;
+    transform: translateX(-42%);
+    width: 350px;
+    height: 154px;
+    padding: 10px;
+  }
 
-    #especificacoesCard h5{
-        font-size: 8.5px; 
-}
+  #especificacoesCard h5 {
+    font-size: 8.5px;
+  }
 
-    #especificacoesCard strong {
-        font-size: 7.5px;
-        font-weight: 600;
-}
+  #especificacoesCard strong {
+    font-size: 7.5px;
+    font-weight: 600;
+  }
 
-    #especificacoesCard p {
-        font-size: 6.5px; 
-        font-weight: 300;
-}
-
+  #especificacoesCard p {
+    font-size: 6.5px;
+    font-weight: 300;
+  }
 }
 
 /* SESSÃO 2 */
 
 /* Imagens */
 .img-fluid {
-    border-radius: 5px;
-    margin-top: 10px;
-    box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.445); 
-  }
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.445);
+}
 
 /*Fonte Título*/
-.card-title{
-    font-family: "Roboto Flex", sans-serif; 
-    font-weight: 700; 
-    font-size: 1.6em;
+.card-title {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 700;
+  font-size: 1.6em;
 }
 
-.card-text{
-    font-size: 1.1em;
+.card-text {
+  font-size: 1.1em;
 }
 
-.custom-card{
-    border-radius: 10px;
-    transform: scale(0.8);
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.274);
+.custom-card {
+  border-radius: 10px;
+  transform: scale(0.8);
+  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.274);
 }
 .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
-    transform: scale(0.9);
-    box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.226);
+  transform: scale(0.9);
+  box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.226);
 }
 
 /*  PROPRIEDADES BOTÃO*/
-.btn-sm{
-    font-family: "Roboto Flex", sans-serif; 
-    font-weight: 600; 
-    font-size: 1.1em;
-    margin: 10px 10px;
-    box-shadow:  3px 5px 8px rgba(0, 0, 0, 0.445);
+.btn-sm {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin: 10px 10px;
+  box-shadow: 3px 5px 8px rgba(0, 0, 0, 0.445);
 }
 
 @media (max-width: 768px) {
-    .custom-card{
-        transform: scale(0.7); 
-        
-    }
+  .custom-card {
+    transform: scale(0.7);
+  }
 }
 
 /* Modal LOGIN */
 @media (max-width: 600px) {
-    .modal-dialog {
-        max-width: 400px; 
-        margin: 1.75rem auto; 
-    }
+  .modal-dialog {
+    max-width: 400px;
+    margin: 1.75rem auto;
+  }
 }
 
-.form-label{
-    font-family: "Roboto Flex", sans-serif; 
-    font-weight: 500; 
-    font-size: 1em; 
-    margin-left: 3px;
+.form-label {
+  font-family: "Roboto Flex", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  margin-left: 3px;
 }
-
-
 
 /* Estilo do rodapé */
 .footer-index {
-    font-family: 'Roboto Flex', sans-serif;
-    background-color: #ffffff;
-    box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.432);
-    padding: 80px 50px 20px 70px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
-    text-align: center;
-    margin-top: 100px;
+  font-family: "Roboto Flex", sans-serif;
+  background-color: #ffffff;
+  box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.432);
+  padding: 80px 50px 20px 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
 }
 
 .footer-index .footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    width: 100%;
-    max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .footer-index .footer-column {
-    flex: 1;
-    text-align: left;
+  flex: 1;
+  text-align: left;
 }
 
 .footer-index .footer-column + .footer-column {
-    border-left: 2px solid #000; 
-    padding-left: 50px;
+  border-left: 2px solid #000;
+  padding-left: 50px;
 }
 
 .footer-index .footer-bottom {
-    margin-top: 60px;
-    text-align: center;
+  margin-top: 60px;
+  text-align: center;
 }
 
-.footer-column h5{
-    font-weight: 800;
-    font-size: 1.6vw;
-    margin-bottom: 5px;
+.footer-column h5 {
+  font-weight: 800;
+  font-size: 1.6vw;
+  margin-bottom: 5px;
 }
 
-.footer-column p{
-    font-weight: 200;
-    font-size: 1vw;
-    margin: 1px;
+.footer-column p {
+  font-weight: 200;
+  font-size: 1vw;
+  margin: 1px;
 }
 
 .footer-index .footer-bottom p {
-    margin: 0;
-    font-size: 1vw;
+  margin: 0;
+  font-size: 1vw;
 }
 
-.footer-index strong{
-    font-weight: 700;
-    font-size: 1.1vw;
+.footer-index strong {
+  font-weight: 700;
+  font-size: 1.1vw;
 }
 
-@media (max-width: 700px){
-    .footer-column h5{
-        font-size: 1.8vw;
-    }
+@media (max-width: 700px) {
+  .footer-column h5 {
+    font-size: 1.8vw;
+  }
 
-    .footer-column p{
-        font-size: 1.2vw;
-    }
+  .footer-column p {
+    font-size: 1.2vw;
+  }
 
-    .footer-index .footer-bottom p {
-        font-size: 1.3vw;
-    }
+  .footer-index .footer-bottom p {
+    font-size: 1.3vw;
+  }
 
-    .footer-index strong{
-        font-size: 1.3vw;
-    }
+  .footer-index strong {
+    font-size: 1.3vw;
+  }
 }
