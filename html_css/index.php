@@ -153,6 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
     <title>Start Play</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dark_mode.css">
 </head>
 <body id="index">
     <header>
@@ -178,18 +179,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
               </button>
             </form>
           <?php else: ?>
-            <button type="button" class="btn text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
-            <button onclick="location.href='cadastro.php'">Cadastro</button>
+            <button type="button" class="btn btn-no-dark btn-secondary text-white toggle-btn" onclick="toggleDarkMode()">Alternar Modo</button> 
+            <button type="button" class="btn btn-no-dark text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
+            <button class="btn-no-dark" onclick="location.href='cadastro.php'">Cadastro</button>
           <?php endif; ?>
         </div>
     </header>
 
     <main>
       <!-- SESSÃO 1 CARROSEL -->
-      <section id="carousel">
+    <section id="carousel" class="no-dark">
         <div id="carouselExampleCaptions" class="carousel slide">
           <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="btn-no-dark active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
@@ -316,7 +318,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <button class="btn-no-dark carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
@@ -546,6 +548,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
           modal.show();
         });
       <?php endif; ?>
+    </script>
+    <script>
+        if (localStorage.getItem("modo") === "dark") {
+            document.body.classList.add("dark-mode");
+            document.documentElement.setAttribute("data-bs-theme", "dark");
+        }
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            const isDark = document.body.classList.contains("dark-mode");
+            document.documentElement.setAttribute("data-bs-theme", isDark ? "dark" : "light");
+            localStorage.setItem("modo", isDark ? "dark" : "light");
+        }
     </script>
 </body>
 </html>
