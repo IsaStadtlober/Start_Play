@@ -1,0 +1,61 @@
+/* Setas do carrossel não mudam de cor no modo dark */
+.dark-mode .carousel-control-prev,
+.dark-mode .carousel-control-next,
+.dark-mode .carousel-control-prev *,
+.dark-mode .carousel-control-next * {
+    background-color: initial !important;
+    color: initial !important;
+    border-color: initial !important;
+    box-shadow: initial !important;
+    fill: initial !important;
+}
+/* Elementos dentro de .no-dark não são afetados pelo modo dark */
+.dark-mode .no-dark, .dark-mode .no-dark * {
+    background-color: initial !important;
+    color: initial !important;
+    border-color: initial !important;
+    box-shadow: initial !important;
+}
+body.dark-mode {
+    background-color: #1a1a1a !important;
+    color: #f0f0f0 !important;
+}
+
+.dark-mode header {
+    background-color: #181818 !important;
+    color: #f0f0f0 !important;
+    box-shadow: 0px -5px 50px rgb(30,30,30);
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e !important;
+    color: #f0f0f0 !important;
+    border-color: #222 !important;
+}
+
+
+.dark-mode .modal-content {
+    background-color: #181818 !important;
+    color: #f0f0f0 !important;
+    border-color: #222 !important;
+}
+
+.dark-mode a {
+    color: #ffffff !important;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background-color: #222 !important;
+    color: #f0f0f0 !important;
+    border-color: #333 !important;
+}
+
+.dark-mode footer {
+    background-color: #181818 !important;
+    color: #f0f0f0 !important;
+    border-top: 1px solid #222 !important;
+}
+
+/* Adicione outros elementos conforme necessário... */

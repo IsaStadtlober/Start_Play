@@ -1,15 +1,16 @@
 <?php
-    session_start(); // Inicia a sessão para acessar as variáveis de usuário
+session_start(); // Inicia a sessão para acessar as variáveis de usuário
 
-    // Verifica se o usuário está logado
-    if (!isset($_SESSION["usuario_logado"])) {
-       header("Location: nao_log.php"); // Redireciona para a página de acesso negado
-        exit(); // Finaliza o script
-    }
-    // Se o usuário estiver logado, exibe o conteúdo
+// Verifica se o usuário está logado
+if (!isset($_SESSION["usuario_logado"])) {
+    header("Location: nao_log.php"); // Redireciona para a página de acesso negado
+    exit(); // Finaliza o script
+}
+// Se o usuário estiver logado, exibe o conteúdo
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,23 +20,24 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cards.css">
 </head>
+
 <body>
     <header>
         <img src="img/logo-pp2.png" alt="Logo">
         <h1>Start Play</h1>
         <a href="#"></a>
         <nav>
-          <a href="index.php">Home</a>
-          <a href="card.php">Games</a>
-          <a href="videogame.php">Consoles</a>
+            <a href="index.php">Home</a>
+            <a href="card.php">Games</a>
+            <a href="videogame.php">Consoles</a>
         </nav>
         <div class="auth-buttons">
             <form action="perfil.php" method="get" class="d-inline p-0 m-0" style="display:inline;">
                 <button type="submit" class="btn p-0 border-0 bg-transparent" title="Perfil" style="box-shadow:none; color: #212529;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg>
                 </button>
             </form>
         </div>
@@ -327,7 +329,7 @@
                         <strong>Nota dos Jogadores:</strong>
                         <p>9.0/10.</p>
                     </div>
-                <section>
+                    <section>
             </article>
             <hr>
             <aside class="requisitos">
@@ -356,91 +358,93 @@
         </section>
 
         <footer class="footer-index">
-          <div class="footer-content">
-              <!-- Primeira Coluna -->
-              <div class="footer-column">
-                  <p><strong>Starplay</strong> é sua fonte completa de conhecimento sobre games. Nosso objetivo é direto: oferecer informações precisas e guias práticos para todos os jogadores. Encontre tudo o que você precisa para dominar seus jogos favoritos em um só lugar.</p>
-                  <p><strong>Starplay: Game On, Knowledge Up!</strong></p>
-              </div>
-              <!-- Segunda Coluna -->
-              <div class="footer-column">
-                  <h5>Contatos:</h5>
-                  <p><strong>Email:</strong> emailficticostarplay@gmail.com</p>
-                  <p><strong>Número:</strong> (99) 99999-9999</p>
-              </div>
-          </div>
-          <!-- Parte de Baixo -->
-          <div class="footer-bottom">
-              <p>&copy; 2025 StarPlay. Todos os direitos reservados.</p>
-              <p>Desenvolvido por <strong>Equipe Starplay.</strong></p>
-          </div>
+            <div class="footer-content">
+                <!-- Primeira Coluna -->
+                <div class="footer-column">
+                    <p><strong>Starplay</strong> é sua fonte completa de conhecimento sobre games. Nosso objetivo é direto: oferecer informações precisas e guias práticos para todos os jogadores. Encontre tudo o que você precisa para dominar seus jogos favoritos em um só lugar.</p>
+                    <p><strong>Starplay: Game On, Knowledge Up!</strong></p>
+                </div>
+                <!-- Segunda Coluna -->
+                <div class="footer-column">
+                    <h5>Contatos:</h5>
+                    <p><strong>Email:</strong> emailficticostarplay@gmail.com</p>
+                    <p><strong>Número:</strong> (99) 99999-9999</p>
+                </div>
+            </div>
+            <!-- Parte de Baixo -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 StarPlay. Todos os direitos reservados.</p>
+                <p>Desenvolvido por <strong>Equipe Starplay.</strong></p>
+            </div>
         </footer>
     </main>
 
-     <!-- Modal 1: Login -->
-     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content p-4 py-1">
-              <!-- Botão de Fechar no canto superior direito -->
-              <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
-              <!-- Imagem e texto no topo do modal -->
-              <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
-                  <img src="img/logo-pp2.png" alt="Logo Startplay" style="max-width: 40px; margin-right: 10px;">
-                  <h1 class="fs-5 mb-0">StartPlay</h1>
-              </div>
-              <!-- Título do modal -->
-              <h2 class="modal-title fs-2 text-center mt-3" id="loginModalLabel">Login</h2>
-              <p class="text-center fs-6">Complete com os seus dados para efetuar o login.</p>
-              <div class="modal-body">
-                  <!-- Formulário de Login -->
-                  <?php 
+    <!-- Modal 1: Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4 py-1">
+                <!-- Botão de Fechar no canto superior direito -->
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                <!-- Imagem e texto no topo do modal -->
+                <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+                    <img src="img/logo-pp2.png" alt="Logo Startplay" style="max-width: 40px; margin-right: 10px;">
+                    <h1 class="fs-5 mb-0">StartPlay</h1>
+                </div>
+                <!-- Título do modal -->
+                <h2 class="modal-title fs-2 text-center mt-3" id="loginModalLabel">Login</h2>
+                <p class="text-center fs-6">Complete com os seus dados para efetuar o login.</p>
+                <div class="modal-body">
+                    <!-- Formulário de Login -->
+                    <?php
                     $erro = [];
                     $dados = [];
 
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                      $dados = [
-                        "email" => $_POST["email"],
-                        "password" => $_POST["password"],
-                        "confirm_password" => $_POST["confirm_password"]
-                      ];
-                      function email($email) {
-                        if ($email != "emailficticostarplay@gmail.com") {
-                          return "Esse e-mail não está cadastrado";
+                        $dados = [
+                            "email" => $_POST["email"],
+                            "password" => $_POST["password"],
+                            "confirm_password" => $_POST["confirm_password"]
+                        ];
+                        function email($email)
+                        {
+                            if ($email != "emailficticostarplay@gmail.com") {
+                                return "Esse e-mail não está cadastrado";
+                            }
+                            return null;
                         }
-                        return null; 
-                      }
-                      function senha($password) {
-                        if ($password != "abcdefgh") {
-                            return "Senha incorreta";
+                        function senha($password)
+                        {
+                            if ($password != "abcdefgh") {
+                                return "Senha incorreta";
+                            }
+                            return null;
                         }
-                        return null;
-                      }
-                    
-                      function confirmarSenha($password, $confirm_password) {
-                          if ($confirm_password != $password) {
-                              return "As senhas não são iguais";
-                          }
-                          return null;
-                      }
 
-                      $erro["email"] = email($dados["email"]);
-                      $erro["password"] = senha($dados["password"]);
-                      $erro["confirm_password"] = confirmarSenha($dados["password"], $dados["confirm_password"]);
+                        function confirmarSenha($password, $confirm_password)
+                        {
+                            if ($confirm_password != $password) {
+                                return "As senhas não são iguais";
+                            }
+                            return null;
+                        }
+
+                        $erro["email"] = email($dados["email"]);
+                        $erro["password"] = senha($dados["password"]);
+                        $erro["confirm_password"] = confirmarSenha($dados["password"], $dados["confirm_password"]);
 
 
-                      if (!empty(array_filter($erro))) {
-                        // Reabre o modal se houver erros
-                        echo "
+                        if (!empty(array_filter($erro))) {
+                            // Reabre o modal se houver erros
+                            echo "
                         <script>
                           document.addEventListener('DOMContentLoaded', function () {
                             var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
                             loginModal.show();
                           });
                         </script>";
-                      }
-                      else {
-                        // Exibe o modal de sucesso
-                        echo "
+                        } else {
+                            // Exibe o modal de sucesso
+                            echo "
                         <script>
                           document.addEventListener('DOMContentLoaded', function () {
                             var successModal = new bootstrap.Modal(document.getElementById('successModal'));
@@ -452,39 +456,39 @@
                             }, 3000);
                           });
                         </script>";
-                      }
+                        }
                     }
-                   ?>
-                  <form action="" method="POST" id="login-form">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">E-mail:</label>
-                        <input type="email" id="email" name="email" class="form-control" value="<?php echo htmlspecialchars($dados["email"] ?? '')?>" placeholder="Digite seu e-mail" required>
-                        <p style="color: red;"><?php echo $erro["email"] ?? ""; ?></p>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Senha:</label>
-                        <input type="password" id="password" name="password" class="form-control" value="<?php echo htmlspecialchars($dados["password"] ?? '') ?>" placeholder="Digite sua senha" required>
-                        <p style="color: red;"><?php echo $erro["password"] ?? ""; ?></p>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirm-password" class="form-label">Confirmar Senha:</label>
-                        <input type="password" id="confirm_password" name="confirm_password" class="form-control" value="<?php echo htmlspecialchars($dados['confirm_password'] ?? '') ?>" placeholder="Confirme sua senha" required>
-                        <p style="color: red;"><?php echo $erro["confirm_password"] ?? ""; ?></p>
-                    </div>
-                    <div class="form-actions mt-4 d-flex justify-content-between">
-                        <button type="reset" class="btn btn-outline-secondary w-50"style="margin-right: 20px;">Limpar</button>
-                        <button type="submit" class="btn btn-outline-primary w-50" id="login-submit">
-                          Entrar
-                        </button>
-                    </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                  <p class="mb-1 fs-6">Não tem uma conta? <a href="cadastro.php" class="text-primary">Cadastre-se aqui.</a></p>
-                  <p class="mb-1 fs-6">Esqueceu a Senha? <a href="#" class="text-primary">Mudar aqui.</a></p>
-              </div>
-          </div>
-      </div>
+                    ?>
+                    <form action="" method="POST" id="login-form">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail:</label>
+                            <input type="email" id="email" name="email" class="form-control" value="<?php echo htmlspecialchars($dados["email"] ?? '') ?>" placeholder="Digite seu e-mail" required>
+                            <p style="color: red;"><?php echo $erro["email"] ?? ""; ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha:</label>
+                            <input type="password" id="password" name="password" class="form-control" value="<?php echo htmlspecialchars($dados["password"] ?? '') ?>" placeholder="Digite sua senha" required>
+                            <p style="color: red;"><?php echo $erro["password"] ?? ""; ?></p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm-password" class="form-label">Confirmar Senha:</label>
+                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" value="<?php echo htmlspecialchars($dados['confirm_password'] ?? '') ?>" placeholder="Confirme sua senha" required>
+                            <p style="color: red;"><?php echo $erro["confirm_password"] ?? ""; ?></p>
+                        </div>
+                        <div class="form-actions mt-4 d-flex justify-content-between">
+                            <button type="reset" class="btn btn-outline-secondary w-50" style="margin-right: 20px;">Limpar</button>
+                            <button type="submit" class="btn btn-outline-primary w-50" id="login-submit">
+                                Entrar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p class="mb-1 fs-6">Não tem uma conta? <a href="cadastro.php" class="text-primary">Cadastre-se aqui.</a></p>
+                    <p class="mb-1 fs-6">Esqueceu a Senha? <a href="#" class="text-primary">Mudar aqui.</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Modal 2: Segundo Fator de Autenticação 
@@ -517,54 +521,55 @@
         </div>
     </div> -->
 
-    
+
     <!-- Modal de Login Efetuado -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content p-4 py-1">
-            <!-- Botão de Fechar no canto superior direito -->
-            <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            <!-- Conteúdo do Modal -->
-            <div class="modal-body text-center">
-              <img src="img/favicon.ico" alt="Ícone de Sucesso" style="max-width: 40px; margin-bottom: 20px;">
-              <h2 class="modal-title fs-3 text-success" id="successModalLabel">Login efetuado com sucesso!</h2>
-              <p class="fs-6 mt-3">Bem-vindo(a) de volta! Você será redirecionado em breve.</p>
-              <div class="d-flex justify-content-center mt-4">
-                <button type="button" class="btn btn-outline-success w-50" data-bs-dismiss="modal">Fechar</button>
-              </div>
+            <div class="modal-content p-4 py-1">
+                <!-- Botão de Fechar no canto superior direito -->
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                <!-- Conteúdo do Modal -->
+                <div class="modal-body text-center">
+                    <img src="img/favicon.ico" alt="Ícone de Sucesso" style="max-width: 40px; margin-bottom: 20px;">
+                    <h2 class="modal-title fs-3 text-success" id="successModalLabel">Login efetuado com sucesso!</h2>
+                    <p class="fs-6 mt-3">Bem-vindo(a) de volta! Você será redirecionado em breve.</p>
+                    <div class="d-flex justify-content-center mt-4">
+                        <button type="button" class="btn btn-outline-success w-50" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const loginForm = document.getElementById("login-form");
-        const secondFactorModal = new bootstrap.Modal(document.getElementById("secondFactorModal"));
+        document.addEventListener("DOMContentLoaded", function() {
+            const loginForm = document.getElementById("login-form");
+            const secondFactorModal = new bootstrap.Modal(document.getElementById("secondFactorModal"));
 
-        // Intercepta o envio do formulário de login
-        loginForm.addEventListener("submit", function (event) {
-          event.preventDefault(); // Impede o envio padrão do formulário
+            // Intercepta o envio do formulário de login
+            loginForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Impede o envio padrão do formulário
 
-          // Coleta os dados do formulário
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-          const confirmPassword = document.getElementById("confirm_password").value;
+                // Coleta os dados do formulário
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirm_password").value;
 
-          // Simula a validação do formulário
-          if (email === "emailficticostarplay@gmail.com" && password === "abcdfghi" && password === confirmPassword) {
-            console.log("Validação bem-sucedida!");
+                // Simula a validação do formulário
+                if (email === "emailficticostarplay@gmail.com" && password === "abcdfghi" && password === confirmPassword) {
+                    console.log("Validação bem-sucedida!");
 
-            // Abre o modal de segundo fator de autenticação
-            secondFactorModal.show();
-          } else {
-            console.log("Erro na validação. Verifique os dados.");
-            alert("Erro na validação. Verifique os dados.");
-          }
+                    // Abre o modal de segundo fator de autenticação
+                    secondFactorModal.show();
+                } else {
+                    console.log("Erro na validação. Verifique os dados.");
+                    alert("Erro na validação. Verifique os dados.");
+                }
+            });
         });
-      });
     </script>
 </body>
+
 </html>
