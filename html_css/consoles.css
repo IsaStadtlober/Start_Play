@@ -4,6 +4,184 @@ body {
   overflow-x: hidden;
 }
 
+/* Duplicate do override 670px aplicado também a 768px para manter o mesmo padrão */
+@media screen and (max-width: 768px) {
+  .consoles {
+    align-items: center;
+    padding: 6% 5%;
+  }
+
+  .containerV,
+  .container2,
+  .container3,
+  .container4,
+  .container5,
+  .container6,
+  .container7,
+  .container8,
+  .container9,
+  .container10 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 220px;
+    max-width: 95%;
+    margin: 18px auto;
+    transform: none;
+    box-sizing: border-box;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .containerV img,
+  .container2 img,
+  .container3 img,
+  .container4 img,
+  .container5 img,
+  .container6 img,
+  .container7 img,
+  .container8 img,
+  .container9 img,
+  .container10 img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+  }
+
+  .linhadata,
+  .linhaver,
+  .linhaver2,
+  .linhaver3,
+  .linhaver4,
+  .linhaver5,
+  .linhaver6,
+  .linhaver7,
+  .linhaver8,
+  .linhaver9,
+  .linhaver10,
+  .data1,
+  .data1_2,
+  .data1_3,
+  .data1_4,
+  .data1_5,
+  .data1_6,
+  .data1_7,
+  .data1_8,
+  .data1_9,
+  .data1_10 {
+    display: none !important;
+  }
+
+  .consoles h1 {
+    font-size: 35px;
+    text-align: center;
+    margin: 10px 0 6px 0;
+  }
+
+  .consoles h2 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .consoles p {
+    font-size: 15px;
+    padding-bottom: 20px;
+    width: 92%;
+    text-align: center;
+    margin: 0 auto 10px auto;
+  }
+
+  .consoles h1.cons_final {
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    letter-spacing: 5px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .consoles p.par_final {
+    font-size: 15px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .container10 {
+    margin-bottom: 120px;
+  }
+}
+
+/* Correção direta para garantir que .containerV img e .container4 img sejam centralizadas
+   e aumentadas mesmo quando outras regras (position:absolute) existirem. */
+@media screen and (max-width: 768px) {
+  .containerV,
+  .container4 {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .containerV img {
+    position: relative !important;
+    left: 60px !important;
+    right: auto !important;
+    top: 40px !important;
+    width: 120% !important; /* valor aplicado — ajuste se desejar outro */
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    transform: translateX(0) !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+}
+
+.container4 img {
+    position: relative !important;
+    left: auto !important;
+    right: 80px !important;
+    top: -30px !important;
+    width: 120% !important; /* valor aplicado — ajuste se desejar outro */
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    transform: translateX(0) !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+@media screen and (max-width: 670px) {
+  .containerV,
+  .container4 {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .containerV img,
+  .container4 img {
+    position: relative !important;
+    width: 120% !important;
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+}
+
 .consoles {
   display: flex;
   flex-direction: column; /* Define a exibição como flexbox */
@@ -942,5 +1120,125 @@ body {
     width: 95%;
     font-size: 14px;
     padding: 0 8px 20px 8px;
+  }
+}
+
+/* Override final: garantir que o layout siga o padrão aplicado em 670px
+   para todas as larguras menores. Colocado por último para prevalecer. */
+@media screen and (max-width: 670px) {
+  .consoles {
+    align-items: center;
+    padding: 6% 5%;
+  }
+
+  /* Containers centralizados e de tamanho consistente (padrão 670px) */
+  .containerV,
+  .container2,
+  .container3,
+  .container4,
+  .container5,
+  .container6,
+  .container7,
+  .container8,
+  .container9,
+  .container10 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 220px;
+    max-width: 95%;
+    margin: 18px auto;
+    transform: none;
+    box-sizing: border-box;
+    padding: 8px;
+    text-align: center;
+  }
+
+  /* Imagens ocupam o container de forma proporcional */
+  .containerV img,
+  .container2 img,
+  .container3 img,
+  .container4 img,
+  .container5 img,
+  .container6 img,
+  .container7 img,
+  .container8 img,
+  .container9 img,
+  .container10 img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+  }
+
+  /* Remover elementos laterais que atrapalham no layout móvel */
+  .linhadata,
+  .linhaver,
+  .linhaver2,
+  .linhaver3,
+  .linhaver4,
+  .linhaver5,
+  .linhaver6,
+  .linhaver7,
+  .linhaver8,
+  .linhaver9,
+  .linhaver10,
+  .data1,
+  .data1_2,
+  .data1_3,
+  .data1_4,
+  .data1_5,
+  .data1_6,
+  .data1_7,
+  .data1_8,
+  .data1_9,
+  .data1_10 {
+    display: none !important;
+  }
+
+  .consoles h1 {
+    font-size: 35px;
+    text-align: center;
+    margin: 10px 0 6px 0;
+  }
+
+  .consoles h2 {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .consoles p {
+    font-size: 15px;
+    padding-bottom: 20px;
+    width: 92%;
+    text-align: center;
+    margin: 0 auto 10px auto;
+  }
+
+  .consoles h1.cons_final {
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    letter-spacing: 5px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .consoles p.par_final {
+    font-size: 15px;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* espaço extra para evitar colisão com footer */
+  .container10 {
+    margin-bottom: 120px;
   }
 }
