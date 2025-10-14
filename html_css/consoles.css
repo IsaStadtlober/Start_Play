@@ -1242,3 +1242,27 @@ body {
     margin-bottom: 120px;
   }
 }
+
+/* Restaurar tamanho/posicionamento padrão em telas maiores (>=769px)
+   para que regras responsivas não alterem o padrão do desktop */
+@media screen and (min-width: 769px) {
+  .container4 img {
+    position: absolute !important;
+    right: 50px !important;
+    top: -170px !important;
+    width: 450px !important;
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+  }
+
+  .containerV img {
+    position: absolute !important;
+    left: 8% !important;
+    top: -15px !important;
+    width: 250px !important;
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain !important;
+  }
+}
