@@ -197,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
           </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="img/img-principal 1.png" class="d-block w-100" alt="Imagem de um jogo">
+                <img src="img/img-principal 1.jpeg" class="d-block w-100" alt="Imagem de um jogo">
                 <div class="carousel-caption custom-caption">
                   <h5>O MAIS ESPERADO <br>DE TODOS</h5>
                   <strong>O jogo que todo mundo está <br>esperando!</strong>
