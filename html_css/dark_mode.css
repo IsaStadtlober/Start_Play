@@ -131,7 +131,6 @@ body.dark-mode {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
 /* --- Página de Perfil e edição --- */
 /* Modo escuro para o container principal */
 .dark-mode main .perfil-editar-dark {
@@ -166,7 +165,7 @@ body.dark-mode {
 }
 
 /* Estilo geral para elementos de formulário no modo escuro */
-.dark-mode label{
+.dark-mode label {
     color: #ffffff !important;
 }
 
