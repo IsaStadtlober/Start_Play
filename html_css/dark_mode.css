@@ -1,61 +1,111 @@
-/* Setas do carrossel não mudam de cor no modo dark */
-.dark-mode .carousel-control-prev,
-.dark-mode .carousel-control-next,
-.dark-mode .carousel-control-prev *,
-.dark-mode .carousel-control-next * {
-    background-color: initial !important;
-    color: initial !important;
-    border-color: initial !important;
-    box-shadow: initial !important;
-    fill: initial !important;
-}
-/* Elementos dentro de .no-dark não são afetados pelo modo dark */
-.dark-mode .no-dark, .dark-mode .no-dark * {
+/* --- Elementos que ignoram modo escuro --- */
+.dark-mode .no-dark,
+.dark-mode .no-dark * {
     background-color: initial !important;
     color: initial !important;
     border-color: initial !important;
     box-shadow: initial !important;
 }
+
+/* --- Estrutura principal --- */
 body.dark-mode {
-    background-color: #1a1a1a !important;
+    background-color: #1d1d1d !important;
     color: #f0f0f0 !important;
 }
 
+/* --- Header --- */
 .dark-mode header {
-    background-color: #181818 !important;
+    background-color: #0e0e0e !important;
     color: #f0f0f0 !important;
-    box-shadow: 0px -5px 50px rgb(30,30,30);
+    box-shadow: 0px 8px 32px 0px rgb(0, 0, 0) !important;
+    position: relative;
+    z-index: 10;
 }
 
+/* Botão de alternar modo */
+.transition-icon {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dark-mode .transition-icon {
+  transform: rotate(180deg);
+}
+
+/* Modo claro: ícone visível */
+.perfil-icon {
+  color: #212529;         /* cor escura padrão */
+  fill: #212529;          /* aplica ao SVG */
+  transition: fill 0.3s ease, color 0.3s ease;
+}
+
+/* Modo escuro: ícone branco */
+.dark-mode .perfil-icon {
+  color: #ffffff;
+  fill: #ffffff;
+}
+
+/* --- Card --- */
 .dark-mode .card {
-    background-color: #1e1e1e !important;
+    background-color: #0e0e0e !important;
     color: #f0f0f0 !important;
-    border-color: #222 !important;
+    border-color: #ffffff3b !important;
+    box-shadow: 10px 8px 32px 0px rgb(0, 0, 0) !important;
 }
 
-
-.dark-mode .modal-content {
-    background-color: #181818 !important;
-    color: #f0f0f0 !important;
-    border-color: #222 !important;
-}
-
+/* --- Elementos de formulário e links --- */
 .dark-mode a {
     color: #ffffff !important;
 }
 
-.dark-mode input,
-.dark-mode textarea,
-.dark-mode select {
-    background-color: #222 !important;
-    color: #f0f0f0 !important;
-    border-color: #333 !important;
+/* --- Carrossel --- */
+/* Indicadores do carrossel */
+.dark-mode .carousel-indicators {
+    margin-bottom: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
+.dark-mode .carousel-indicators button {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    margin: 0 4px !important;
+    background-color: #888 !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    outline: none !important;
+    transition: background-color 0.2s;
+    vertical-align: middle !important;
+}
+
+.dark-mode .carousel-indicators .active {
+    background-color: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    outline: none !important;
+}
+
+/* Força as setas do carrossel a ficarem cinza, ignorando o modo escuro */
+.dark-mode .carousel-control-prev-icon,
+.dark-mode .carousel-control-next-icon {
+    color: #6c757d !important;
+    /* cinza padrão Bootstrap */
+    filter: none !important;
+}
+
+/* --- Footer --- */
 .dark-mode footer {
-    background-color: #181818 !important;
+    background-color: #0e0e0e !important;
     color: #f0f0f0 !important;
-    border-top: 1px solid #222 !important;
+    box-shadow: 0px -8px 32px 0px rgb(0, 0, 0) !important;
+    position: relative;
+    z-index: 10;
 }
 
-/* Adicione outros elementos conforme necessário... */
+/* Borda branca na coluna de contatos do footer no modo escuro */
+.dark-mode .footer-index .footer-column+.footer-column {
+    border-left: 2px solid #fff !important;
+    padding-left: 50px;
+}
