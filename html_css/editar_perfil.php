@@ -63,15 +63,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <title>Editar Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="dark_mode.css">
 </head>
 
 <body id="cadastro" class="bg-light py-4">
     <main>
-        <section class="container">
+        <section class="container perfil-editar-dark">
             <div class="mx-auto" style="max-width: 680px;">
                 <div class="text-center mb-4">
                     <div
@@ -97,11 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for="sexo" class="form-label">Sexo</label>
                             <select class="form-select" id="sexo" name="sexo" required>
                                 <option value="M" <?php if ($usuario['sexo'] == 'M')
-                                    echo 'selected'; ?>>Masculino</option>
+                                                        echo 'selected'; ?>>Masculino</option>
                                 <option value="F" <?php if ($usuario['sexo'] == 'F')
-                                    echo 'selected'; ?>>Feminino</option>
+                                                        echo 'selected'; ?>>Feminino</option>
                                 <option value="O" <?php if ($usuario['sexo'] == 'O')
-                                    echo 'selected'; ?>>Outro</option>
+                                                        echo 'selected'; ?>>Outro</option>
                             </select>
                         </div>
                         <div class="col-12">
@@ -149,59 +151,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for="uf" class="form-label">UF</label>
                             <select id="uf" name="uf" class="form-select" required>
                                 <option value="AC" <?php if ($usuario['uf'] == 'AC')
-                                    echo 'selected'; ?>>AC</option>
+                                                        echo 'selected'; ?>>AC</option>
                                 <option value="AL" <?php if ($usuario['uf'] == 'AL')
-                                    echo 'selected'; ?>>AL</option>
+                                                        echo 'selected'; ?>>AL</option>
                                 <option value="AP" <?php if ($usuario['uf'] == 'AP')
-                                    echo 'selected'; ?>>AP</option>
+                                                        echo 'selected'; ?>>AP</option>
                                 <option value="AM" <?php if ($usuario['uf'] == 'AM')
-                                    echo 'selected'; ?>>AM</option>
+                                                        echo 'selected'; ?>>AM</option>
                                 <option value="BA" <?php if ($usuario['uf'] == 'BA')
-                                    echo 'selected'; ?>>BA</option>
+                                                        echo 'selected'; ?>>BA</option>
                                 <option value="CE" <?php if ($usuario['uf'] == 'CE')
-                                    echo 'selected'; ?>>CE</option>
+                                                        echo 'selected'; ?>>CE</option>
                                 <option value="DF" <?php if ($usuario['uf'] == 'DF')
-                                    echo 'selected'; ?>>DF</option>
+                                                        echo 'selected'; ?>>DF</option>
                                 <option value="ES" <?php if ($usuario['uf'] == 'ES')
-                                    echo 'selected'; ?>>ES</option>
+                                                        echo 'selected'; ?>>ES</option>
                                 <option value="GO" <?php if ($usuario['uf'] == 'GO')
-                                    echo 'selected'; ?>>GO</option>
+                                                        echo 'selected'; ?>>GO</option>
                                 <option value="MA" <?php if ($usuario['uf'] == 'MA')
-                                    echo 'selected'; ?>>MA</option>
+                                                        echo 'selected'; ?>>MA</option>
                                 <option value="MT" <?php if ($usuario['uf'] == 'MT')
-                                    echo 'selected'; ?>>MT</option>
+                                                        echo 'selected'; ?>>MT</option>
                                 <option value="MS" <?php if ($usuario['uf'] == 'MS')
-                                    echo 'selected'; ?>>MS</option>
+                                                        echo 'selected'; ?>>MS</option>
                                 <option value="MG" <?php if ($usuario['uf'] == 'MG')
-                                    echo 'selected'; ?>>MG</option>
+                                                        echo 'selected'; ?>>MG</option>
                                 <option value="PA" <?php if ($usuario['uf'] == 'PA')
-                                    echo 'selected'; ?>>PA</option>
+                                                        echo 'selected'; ?>>PA</option>
                                 <option value="PB" <?php if ($usuario['uf'] == 'PB')
-                                    echo 'selected'; ?>>PB</option>
+                                                        echo 'selected'; ?>>PB</option>
                                 <option value="PR" <?php if ($usuario['uf'] == 'PR')
-                                    echo 'selected'; ?>>PR</option>
+                                                        echo 'selected'; ?>>PR</option>
                                 <option value="PE" <?php if ($usuario['uf'] == 'PE')
-                                    echo 'selected'; ?>>PE</option>
+                                                        echo 'selected'; ?>>PE</option>
                                 <option value="PI" <?php if ($usuario['uf'] == 'PI')
-                                    echo 'selected'; ?>>PI</option>
+                                                        echo 'selected'; ?>>PI</option>
                                 <option value="RJ" <?php if ($usuario['uf'] == 'RJ')
-                                    echo 'selected'; ?>>RJ</option>
+                                                        echo 'selected'; ?>>RJ</option>
                                 <option value="RN" <?php if ($usuario['uf'] == 'RN')
-                                    echo 'selected'; ?>>RN</option>
+                                                        echo 'selected'; ?>>RN</option>
                                 <option value="RS" <?php if ($usuario['uf'] == 'RS')
-                                    echo 'selected'; ?>>RS</option>
+                                                        echo 'selected'; ?>>RS</option>
                                 <option value="RO" <?php if ($usuario['uf'] == 'RO')
-                                    echo 'selected'; ?>>RO</option>
+                                                        echo 'selected'; ?>>RO</option>
                                 <option value="RR" <?php if ($usuario['uf'] == 'RR')
-                                    echo 'selected'; ?>>RR</option>
+                                                        echo 'selected'; ?>>RR</option>
                                 <option value="SC" <?php if ($usuario['uf'] == 'SC')
-                                    echo 'selected'; ?>>SC</option>
+                                                        echo 'selected'; ?>>SC</option>
                                 <option value="SP" <?php if ($usuario['uf'] == 'SP')
-                                    echo 'selected'; ?>>SP</option>
+                                                        echo 'selected'; ?>>SP</option>
                                 <option value="SE" <?php if ($usuario['uf'] == 'SE')
-                                    echo 'selected'; ?>>SE</option>
+                                                        echo 'selected'; ?>>SE</option>
                                 <option value="TO" <?php if ($usuario['uf'] == 'TO')
-                                    echo 'selected'; ?>>TO</option>
+                                                        echo 'selected'; ?>>TO</option>
                             </select>
                         </div>
                         <div class="col-12">
@@ -249,10 +251,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function() {
                 var modal = new bootstrap.Modal(document.getElementById('modalSucesso'));
                 modal.show();
-                setTimeout(function () {
+                setTimeout(function() {
                     window.location.href = "perfil.php";
                 }, 4000); // 4 segundos
             });
@@ -262,6 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/imask"></script>
     <script src="js/viacep.js"></script>
+    <script src="dark_mode.js"></script>
     <script>
         let timeout = null; // Variável para controlar o tempo de espera antes da requisição
 
@@ -294,7 +297,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             // Máscara para Telefone Fixo: (+xx)(xx)xxxx-xxxx
             const telefoneFixoInput = document.getElementById("telefone_fixo");
             if (telefoneFixoInput) {

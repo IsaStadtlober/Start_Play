@@ -130,3 +130,53 @@ body.dark-mode {
 .btn-no-dark {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+
+/* --- Página de Perfil e edição --- */
+/* Modo escuro para o container principal */
+.dark-mode main .perfil-editar-dark {
+    background-color: #0e0e0e !important;
+    /* fundo escuro */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.322);
+}
+
+/* Título do perfil e título de edição */
+.dark-mode .profile-title,
+.dark-mode .card-title {
+    color: #ffffff !important;
+}
+
+/* Informações do perfil */
+.dark-mode .profile-info p {
+    color: #f0f0f0 !important;
+}
+
+/* 🌙 Ícones dentro dos avatares */
+.dark-mode .profile-avatar i,
+.dark-mode .edit-avatar i {
+    color: #ffffff !important;
+}
+
+/* 🌙 Fundos dos avatares */
+.dark-mode .profile-avatar,
+.dark-mode .edit-avatar {
+    background-color: #1a1a1a !important;
+}
+
+/* Estilo geral para elementos de formulário no modo escuro */
+.dark-mode label{
+    color: #ffffff !important;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+    color: #ffffffd3 !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #c7c6c694 !important;
+}

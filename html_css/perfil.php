@@ -27,14 +27,14 @@ $usuario = mysqli_fetch_assoc($result);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="dark_mode.css">
 </head>
 
 <body id="cadastro" class="bg-light py-4">
     <main>
-        <section class="container">
+        <section class="container perfil-editar-dark">
             <div class="text-center mb-4">
-                <div
-                    class="profile-avatar rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-2">
+                <div class="profile-avatar rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-2">
                     <i class="bi bi-person-circle text-dark"></i>
                 </div>
                 <h2 class="profile-title mb-4">Meu Perfil</h2>
@@ -74,6 +74,8 @@ $usuario = mysqli_fetch_assoc($result);
             </div>
         </section>
     </main>
+
+    <script src="dark_mode.js"></script>
 </body>
 
 </html>
