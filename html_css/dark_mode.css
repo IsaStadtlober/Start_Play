@@ -24,24 +24,40 @@ body.dark-mode {
 
 /* Botão de alternar modo */
 .transition-icon {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .dark-mode .transition-icon {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 /* Modo claro: ícone visível */
 .perfil-icon {
-  color: #212529;         /* cor escura padrão */
-  fill: #212529;          /* aplica ao SVG */
-  transition: fill 0.3s ease, color 0.3s ease;
+    color: #212529;
+    /* cor escura padrão */
+    fill: #212529;
+    /* aplica ao SVG */
+    transition: fill 0.3s ease, color 0.3s ease;
 }
 
 /* Modo escuro: ícone branco */
 .dark-mode .perfil-icon {
-  color: #ffffff;
-  fill: #ffffff;
+    color: #ffffff;
+    fill: #ffffff;
+}
+
+/* Estilos botões header*/
+.dark-mode .btn-no-dark {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+    box-shadow: 5px 5px 2px rgb(0, 0, 0);
+}
+
+.dark-mode .btn-no-dark:hover {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
 }
 
 /* --- Card --- */
@@ -108,4 +124,9 @@ body.dark-mode {
 .dark-mode .footer-index .footer-column+.footer-column {
     border-left: 2px solid #fff !important;
     padding-left: 50px;
+}
+
+/* Estilo padrão dos botões */
+.btn-no-dark {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
