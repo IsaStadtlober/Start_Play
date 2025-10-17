@@ -164,6 +164,15 @@ body.dark-mode {
     background-color: #1a1a1a !important;
 }
 
+/* --- Página de Cadastro --- */
+/* Modo escuro para o container do formulário de cadastro */
+body.dark-mode section.container.cadastro-dark {
+    background-color: #0e0e0e !important;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.322);
+}
+
 /* Estilo geral para elementos de formulário no modo escuro */
 .dark-mode label {
     color: #ffffff !important;

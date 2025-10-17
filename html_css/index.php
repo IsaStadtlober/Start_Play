@@ -539,8 +539,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
     </div>
   </div>
 
+  <!-- Bootstrap JS Bundle com Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script de Dark Mode -->
   <script src="dark_mode.js"></script>
+
+ <!-- Script para reabrir modais em caso de erro -->
   <script>
     // Reabrir modal de mudar senha se houver erro
     <?php if (!empty($erro_mudar["email"]) || !empty($erro_mudar["nova_senha"]) || !empty($erro_mudar["confirmar_nova_senha"])): ?>
