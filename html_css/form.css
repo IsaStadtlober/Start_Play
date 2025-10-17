@@ -1,0 +1,34 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Flex", sans-serif;
+}
+
+/* Estilo do formulário de cadastro */
+#cadastro {
+    background-image: url(img/fundo_cadastro1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Modo claro para o container do formulário de cadastro */
+body:not(.dark-mode) .cadastro-dark {
+    background-color: #ffffff;
+    color: #050505;
+    box-shadow: 10px 8px 32px 0px rgb(0, 0, 0) !important;
+}
+
+/* Modo escuro para o container do formulário de cadastro */
+body.dark-mode .cadastro-dark {
+    background-color: #0e0e0e !important;
+    color: #f0f0f0 !important;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.322);
+}

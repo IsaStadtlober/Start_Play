@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="dark_mode.css">
 </head>
 
@@ -36,17 +36,18 @@
 
     <main>
         <!-- Formulário -->
-        <section class="container cadastro-dark">
+        <section class="container p-5 rounded shadow mx-auto my-5 cadastro-dark" style="max-width: 500px;">
             <!-- Cabeçalho do formulário -->
-            <div class="form-header">
-                <div class="form-header-top">
-                    <img src="img/logo-pp2.png" alt="Logo Startplay" class="logo-startplay">
-                    <h1>StartPlay</h1>
+            <div class="text-center mb-4">
+                <div class="d-flex align-items-center justify-content-center gap-2 mb-4">
+                    <img src="img/logo-pp2.png" alt="Logo Startplay" class="logo-startplay mb-2" style="max-width: 45px;">
+                    <h1 class="fs-4 fw-bold">StartPlay</h1>
                 </div>
-                <div class="form-header2">
-                    <h2>CADASTRO:</h2>
-                    <p>Complete com seus dados para efetuar cadastro.</p>
-                </div>
+            </div>
+            <div class="text-center mb-4">
+                <h2 class="fs-2 fw-semibold">Cadastro</h2>
+                <p class="small text-muted">Preencha os dados abaixo para criar sua conta.</p>
+            </div>
             </div>
             <!-- Formulário de cadastro -->
             <?php
@@ -292,8 +293,8 @@
             <form action="" method="POST" id="cadastro-form">
                 <!-- Nome Completo -->
                 <section class="mb-4">
-                    <label for="nome_completo" class="form-label">Nome Completo:</label>
-                    <p class="form-text">O campo deve ter no mínimo 15 e no máximo 80 caracteres alfabéticos.</p>
+                    <label for="nome_completo" class="form-label fw-medium">Nome Completo:</label>
+                    <p class="form-text text-muted small">O campo deve ter no mínimo 15 e no máximo 80 caracteres alfabéticos.</p>
                     <input type="text" id="nome_completo" name="nome_completo" class="form-control" value="<?php echo htmlspecialchars($dados["nome_completo"] ?? '') ?>" placeholder="Digite seu nome completo" required>
                     <p style="color: red;"><?php echo $erros["nome_completo"] ?? ""; ?></p>
                 </section>
@@ -301,17 +302,17 @@
                 <!-- Data de Nascimento e Sexo -->
                 <section class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="data_nascimento" class="form-label">Data de Nascimento:</label>
+                        <label for="data_nascimento" class="form-label fw-medium">Data de Nascimento:</label>
                         <?php
                         $hoje = date('Y-m-d');
                         ?>
-                        <input type="date" id="data_nascimento" name="data_nascimento" class="form-control"
+                        <input type="date" id="data_nascimento" name="data_nascimento" class="form-control fw-medium"
                             value="<?php echo htmlspecialchars($dados["data_nascimento"] ?? '') ?>"
                             min="1900-01-01" max="<?php echo $hoje; ?>" required>
                         <p style="color: red;"><?php echo $erros["data_nascimento"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="sexo" class="form-label">Sexo:</label>
+                        <label for="sexo" class="form-label fw-medium">Sexo:</label>
                         <select id="sexo" name="sexo" class="form-select" required>
                             <option value="s" <?php echo htmlspecialchars($dados['sexo'] ?? '') ?> name="s">Selecione</option>
                             <option value="M" <?php echo htmlspecialchars($dados['sexo'] ?? '') ?> name="M">Masculino</option>
@@ -324,21 +325,21 @@
 
                 <!-- Nome Materno -->
                 <section class="mb-3">
-                    <label for="nome_materno" class="form-label">Nome Materno:</label>
+                    <label for="nome_materno" class="form-label fw-medium">Nome Materno:</label>
                     <input type="text" id="nome_materno" name="nome_materno" class="form-control" value="<?php echo htmlspecialchars($dados['nome_materno'] ?? '') ?>" placeholder="Digite o nome da sua mãe" required>
                     <p style="color: red;"><?php echo $erros["nome_materno"] ?? ""; ?></p>
                 </section>
 
                 <!-- CPF -->
                 <section class="mb-3">
-                    <label for="cpf" class="form-label">CPF:</label>
+                    <label for="cpf" class="form-label fw-medium">CPF:</label>
                     <input type="text" id="cpf" name="cpf" class="form-control" maxlength="14" value="<?php echo htmlspecialchars($dados['cpf'] ?? '') ?>" placeholder="000.000.000-00" required>
                     <P style="color: red;"><?php echo $erros["cpf"] ?? ''; ?></p>
                 </section>
 
                 <!-- E-mail -->
                 <section class="mb-3">
-                    <label for="email" class="form-label">E-mail:</label>
+                    <label for="email" class="form-label fw-medium">E-mail:</label>
                     <input type="email" id="email" name="email" class="form-control" value="<?php echo htmlspecialchars($dados['email'] ?? '') ?>" placeholder="exemplo@email.com" required>
                     <p style="color: red;"><?php echo $erros["email"] ?? ""; ?></p>
                 </section>
@@ -346,12 +347,12 @@
                 <!-- Telefones -->
                 <section class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="telefone_celular" class="form-label">Telefone Celular:</label>
+                        <label for="telefone_celular" class="form-label fw-medium">Telefone Celular:</label>
                         <input type="tel" id="telefone_celular" name="telefone_celular" class="form-control" maxlength="22" value="<?php echo htmlspecialchars($dados['telefone_celular'] ?? '') ?>" placeholder="(+xx)(xx)xxxxx-xxxx" required>
                         <p style="color: red;"><?php echo $erros["telefone_celular"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="telefone_fixo" class="form-label">Telefone Fixo:</label>
+                        <label for="telefone_fixo" class="form-label fw-medium">Telefone Fixo:</label>
                         <input type="tel" id="telefone_fixo" name="telefone_fixo" class="form-control" maxlength="22" value="<?php echo htmlspecialchars($dados['telefone_fixo'] ?? '') ?>" placeholder="(+xx)(xx)xxxx-xxxx" required>
                         <p style="color: red;"><?php echo $erros["telefone_fixo"] ?? ""; ?></p>
                     </div>
@@ -360,12 +361,12 @@
                 <!-- Endereço e CEP -->
                 <section class="row">
                     <div class="col-md-8 mb-3">
-                        <label for="endereco" class="form-label">Endereço:</label>
+                        <label for="endereco" class="form-label fw-medium">Endereço:</label>
                         <input type="text" id="endereco" name="endereco" class="form-control" value="<?php echo htmlspecialchars($dados['endereco'] ?? '') ?>" placeholder="Digite seu endereço" required>
                         <p style="color: red;"><?php echo $erros["endereco"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="cep" class="form-label">CEP:</label>
+                        <label for="cep" class="form-label fw-medium">CEP:</label>
                         <input type="text" id="cep" name="cep" class="form-control" maxlength="9" value="<?php echo htmlspecialchars($dados['cep'] ?? '') ?>" oninput="buscarCep()" placeholder="00000-000" required>
                         <p style="color: red;"><?php echo $erros["cep"] ?? ""; ?></p>
                     </div>
@@ -374,7 +375,7 @@
                 <!-- Complemento -->
                 <section class="row">
                     <div class="col-md-12 mb-3">
-                        <label for="complemento" class="form-label">Complemento:</label>
+                        <label for="complemento" class="form-label fw-medium">Complemento:</label>
                         <input type="text" id="complemento" name="complemento" class="form-control" placeholder="Apto, Bloco, etc.">
                     </div>
                 </section>
@@ -382,12 +383,12 @@
                 <!-- Número e UF -->
                 <section class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="numero" class="form-label">Número:</label>
+                        <label for="numero" class="form-label fw-medium">Número:</label>
                         <input type="text" id="numero" name="numero" class="form-control" value="<?php echo htmlspecialchars($dados['numero'] ?? '') ?>" placeholder="Nº" required>
                         <p style="color: red;"><?php echo $erros["numero"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="uf" class="form-label">UF:</label>
+                        <label for="uf" class="form-label fw-medium">UF:</label>
                         <select id="uf" name="uf" class="form-select" required>
                             <option value="">Selecione</option>
                             <option value="AC">AC</option>
@@ -424,12 +425,12 @@
                 <!-- Cidade e Bairro -->
                 <section class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="cidade" class="form-label">Cidade:</label>
+                        <label for="cidade" class="form-label fw-medium">Cidade:</label>
                         <input type="text" id="cidade" name="cidade" class="form-control" value="<?php echo htmlspecialchars($dados['cidade'] ?? '') ?>" placeholder="Digite sua cidade" required>
                         <p style="color: red;"><?php echo $erros["cidade"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="bairro" class="form-label">Bairro:</label>
+                        <label for="bairro" class="form-label fw-medium">Bairro:</label>
                         <input type="text" id="bairro" name="bairro" class="form-control" value="<?php echo htmlspecialchars($dados['bairro'] ?? '') ?>" placeholder="Digite seu bairro" required>
                         <p style="color: red;"><?php echo $erros["bairro"] ?? ""; ?></p>
                     </div>
@@ -437,8 +438,8 @@
 
                 <!-- Login -->
                 <section class="mb-3">
-                    <label for="login" class="form-label">Login:</label>
-                    <p class="form-text">Máximo de 6 caracteres alfabéticos.</p>
+                    <label for="login" class="form-label fw-medium">Login:</label>
+                    <p class="form-text text-muted small">Máximo de 6 caracteres alfabéticos.</p>
                     <input type="text" id="login" name="login" class="form-control" value="<?php echo htmlspecialchars($dados['login'] ?? '') ?>" placeholder="Digite seu login" required>
                     <p style="color: red;"><?php echo $erros["login"] ?? ""; ?></p>
                 </section>
@@ -446,14 +447,14 @@
                 <!-- Senhas -->
                 <section class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="senha" class="form-label">Insira uma senha:</label>
-                        <p class="form-text">Mínimo de 8 caracteres alfabéticos.</p>
+                        <label for="senha" class="form-label fw-medium">Insira uma senha:</label>
+                        <p class="form-text text-muted small">Mínimo de 8 caracteres alfabéticos.</p>
                         <input type="password" id="senha" name="senha" class="form-control" value="<?php echo htmlspecialchars($dados['senha'] ?? '') ?>" placeholder="Digite sua senha" required>
                         <p style="color: red;"><?php echo $erros["senha"] ?? ""; ?></p>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="confirmar_senha" class="form-label">Confirmar senha:</label>
-                        <p class="form-text">Mínimo de 8 caracteres alfabéticos.</p>
+                        <label for="confirmar_senha" class="form-label fw-medium">Confirmar senha:</label>
+                        <p class="form-text text-muted small">Mínimo de 8 caracteres alfabéticos.</p>
                         <input type="password" id="confirmar_senha" name="confirmar_senha" class="form-control" value="<?php echo htmlspecialchars($dados['confirmar_senha'] ?? '') ?>" placeholder="Confirme sua senha" required>
                         <p style="color: red;"><?php echo $erros["confirmar_senha"] ?? ""; ?></p>
                     </div>
@@ -461,8 +462,10 @@
 
                 <!-- Botões -->
                 <footer class="form-actions mt-4">
-                    <input type="reset" class="btn btn-outline-secondary w-100 mt-2" name="limpar" value="Limpar">
-                    <input type="submit" class="btn btn-outline-primary w-100 mt-2" name="cadastrar" value="Enviar">
+                    <div class="d-flex gap-3 mt-4">
+                        <button type="reset" class="btn btn-outline-secondary w-100">Limpar</button>
+                        <button type="submit" class="btn btn-outline-primary w-100">Enviar</button>
+                    </div>
                 </footer>
             </form>
         </section>
@@ -489,6 +492,10 @@
 
     <!-- Script de Dark Mode -->
     <script src="dark_mode.js"></script>
+
+    <!-- Biblioteca imask -->
+    <script src="https://unpkg.com/imask"></script>
+
 
     <!-- ViaCEP -->
     <script>
@@ -571,11 +578,8 @@
         });
     </script>
 
-
-    <!-- Máscaras -->
-    <script src="https://unpkg.com/imask"></script>
     <script src="js/mascara.js"></script>
-    <script src = "js/viacep.js"></script>
+    <script src="js/viacep.js"></script>
 </body>
 
 </html>
