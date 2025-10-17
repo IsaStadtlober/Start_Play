@@ -16,14 +16,16 @@ if (!isset($_SESSION["usuario_logado"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <title>Card Jogos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cards.css">
+    <link rel="stylesheet" href="games_cards.css">
+    <link rel="stylesheet" href="dark_mode.css">
 </head>
 
 <body>
     <header>
-        <img src="img/logo-pp2.png" alt="Logo">
+        <img src="img/logo-pp2.png" alt="Logo" class="logo-startplay">
         <h1>Start Play</h1>
         <a href="#"></a>
         <nav>
@@ -33,8 +35,11 @@ if (!isset($_SESSION["usuario_logado"])) {
         </nav>
         <div class="auth-buttons">
             <form action="perfil.php" method="get" class="d-inline p-0 m-0" style="display:inline;">
-                <button type="submit" class="btn p-0 border-0 bg-transparent" title="Perfil" style="box-shadow:none; color: #212529;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <button type="button" class="btn btn-no-dark btn-secondary text-white toggle-btn mx-1" onclick="toggleDarkMode()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alternar modo claro/escuro">
+                    <i class="bi bi-sun-fill transition-icon"></i>
+                </button>
+                <button type="submit" class="btn p-0 border-0 bg-transparent" title="Perfil" style="box-shadow:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="bi bi-person-circle perfil-icon" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                     </svg>
@@ -44,13 +49,15 @@ if (!isset($_SESSION["usuario_logado"])) {
     </header>
     <main>
         <!--JOGOS INDIE-->
-        <h1 id="card-indie" class="section-title">JOGOS INDIE</h1>
-        <section class="card-body">
+        <h2 class="text-center fw-bold mt-5 mb-5 py-3 px-2" style="font-size: 3vw; letter-spacing: 3px; background: linear-gradient(90deg, transparent, #d4d4d460, transparent);">
+            JOGOS INDIE
+        </h2>
+        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
             <!--Jogo Indie CESTIES OF REVENTURE-->
-            <article class="container">
-                <img src="img/img-card-m.png" alt="Imagem do jogo Cesties of Reventure" class="img-fluid">
-                <section class="game-details">
-                    <h2>CESTIES OF REVENTURE</h2>
+            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
+                <img src="img/img-card-m.png" alt="Imagem do jogo Cesties of Reventure" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
+                <section class="d-flex flex-column gap-3 mt-4">
+                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap;">CESTIES OF REVENTURE</h2>
                     <div class="info">
                         <strong>Desenvolvedora:</strong>
                         <p>Pixel Dream Studios.</p>
@@ -97,11 +104,11 @@ if (!isset($_SESSION["usuario_logado"])) {
             </section>
         </section>
         <!--Jogo Indie BURALIST-->
-        <section class="card-body">
-            <article class="container">
-                <img src="img/img-card1-m.png" alt="Imagem do jogo Buralist" class="img-fluid">
-                <section class="game-details">
-                    <h2>BURALIST</h2>
+        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
+            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
+                <img src="img/img-card1-m.png" alt="Imagem do jogo Buralist" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
+                <section class="d-flex flex-column gap-3 mt-4">
+                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">BURALIST</h2>
                     <div class="info">
                         <strong>Desenvolvedora:</strong>
                         <p>Brysatine Studios.</p>
@@ -149,16 +156,18 @@ if (!isset($_SESSION["usuario_logado"])) {
         </section>
 
         <!--JOGOS AAA-->
-        <h1 id="card-aaa" class="section-title">JOGOS AAA</h1>
-        <section class="card-body">
+        <h2 class="text-center fw-bold mt-5 mb-5 py-3 px-2" style="font-size: 3vw; letter-spacing: 3px; background: linear-gradient(90deg, transparent, #d4d4d460, transparent);">
+            JOGOS AAA
+        </h2>
+
+        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
             <!--Jogo AAA ALEK-STHOR-->
-            <article class="container">
-                <img src="img/img-card2-m.png" alt="Imagem do jogo Alek-Sthor" class="img-fluid">
-                <section class="game-details">
-                    <h2>ALEK-STHOR</h2>
-                    <div class="info">
-                        <strong>Desenvolvedora:</strong>
-                        <p>Grand Legacy Studios.</p>
+            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
+                <img src="img/img-card2-m.png" alt="Imagem do jogo Alek-Sthor" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
+                <section class="d-flex flex-column gap-3 mt-4">
+                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">ALEK-STHOR</h2>
+                    <strong>Desenvolvedora:</strong>
+                    <p>Grand Legacy Studios.</p>
                     </div>
                     <div class="info">
                         <strong>Data de Lançamento:</strong>
@@ -201,12 +210,12 @@ if (!isset($_SESSION["usuario_logado"])) {
                 <p class="explicacao">Em "Alek-Sthor", uma imersiva simulação medieval, você é um nobre gerenciando propriedades, construindo fortalezas, comandando exércitos e negociando alianças. Suas escolhas moldam o destino do reino, em uma experiência visualmente rica que captura a complexidade e grandiosidade da era medieval.</p>
             </section>
         </section>
-        <section class="card-body">
+        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
             <!--Jogo AAA KNIGHT SOULS-->
-            <article class="container">
-                <img src="img/img-card3-m.png" alt="Imagem do jogo Knight Souls" class="img-fluid">
-                <section class="game-details">
-                    <h2>KNIGHT SOULS</h2>
+            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
+                <img src="img/img-card3-m.png" alt="Imagem do jogo Knight Souls" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
+                <section class="d-flex flex-column gap-3 mt-4">
+                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">KNIGHT SOULS</h2>
                     <div class="info">
                         <strong>Desenvolvedora:</strong>
                         <p>Teyvat Wonders Studio.</p>
@@ -254,13 +263,15 @@ if (!isset($_SESSION["usuario_logado"])) {
         </section>
 
         <!--JOGOS + VENDIDOS-->
-        <h2 id="card-vendidos" class="section-title">JOGOS +VENDIDOS</h2>
-        <section class="card-body">
+        <h2 class="text-center fw-bold mt-5 mb-5 py-3 px-2" style="font-size: 3vw; letter-spacing: 3px; background: linear-gradient(90deg, transparent, #d4d4d460, transparent);">
+            JOGOS +Vendidos
+        </h2>
+        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
             <!--Jogo +Vendido Survivalcraft-->
-            <article class="container">
-                <img src="img/img-card4-m.png" alt="Imagem do jogo Survivalcraft" class="img-fluid">
-                <section class="game-details">
-                    <h2>SURVIVALCRAFT</h2>
+            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
+                <img src="img/img-card4-m.png" alt="Imagem do jogo Survivalcraft" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
+                <section class="d-flex flex-column gap-3 mt-4">
+                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">SURVIVALCRAFT</h2>
                     <div class="info">
                         <strong>Desenvolvedora:</strong>
                         <p>Block World Studios.</p>
@@ -307,12 +318,12 @@ if (!isset($_SESSION["usuario_logado"])) {
                 </p>
             </section>
         </section>
-        <section class="card-body">
+        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
             <!--Jogo +Vendidos BLOCK-Z-->
-            <article class="container">
-                <img src="img/img-card5-m.png" alt="Imagem do jogo Block-Z" class="img-fluid">
-                <section class="game-details">
-                    <h2>BLOCK-Z</h2>
+            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
+                <img src="img/img-card5-m.png" alt="Imagem do jogo Block-Z" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
+                <section class="d-flex flex-column gap-3 mt-4">
+                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">BLOCK-Z</h2>
                     <div class="info">
                         <strong>Desenvolvedora:</strong>
                         <p>Pixel Puzzle Studios.</p>
@@ -542,7 +553,13 @@ if (!isset($_SESSION["usuario_logado"])) {
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS Bundle com Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de Dark Mode -->
+    <script src="dark_mode.js"></script>
+
+    <!-- Script para manipulação dos Modais -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const loginForm = document.getElementById("login-form");
