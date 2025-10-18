@@ -26,48 +26,49 @@ $usuario = mysqli_fetch_assoc($result);
     <title>Meu Perfil - StartPlay</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="perfil_editar.css">
     <link rel="stylesheet" href="dark_mode.css">
 </head>
 
 <body id="cadastro" class="bg-light py-4">
     <main>
-        <section class="container perfil-editar-dark">
+        <section class="container perfil-editar-dark bg-white rounded-3 mx-auto p-2" style="max-width: 500px; position: relative; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.56);">
+            <!-- Seta simples no canto superior esquerdo -->
+            <a href="index.php" class="position-absolute top-0 start-0 m-3 text-dark" title="Voltar para início">
+                <i class="bi bi-arrow-left fs-4"></i>
+            </a>
+
             <div class="text-center mb-4">
-                <div class="profile-avatar rounded-circle bg-light d-flex align-items-center justify-content-center mx-auto mb-2">
-                    <i class="bi bi-person-circle text-dark"></i>
+                <!-- Avatar -->
+                <div class="rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-2 mt-2" style="width: 80px; height: 80px;">
+                    <i class="bi bi-person-circle text-dark" style="font-size: 3.5rem;"></i>
                 </div>
-                <h2 class="profile-title mb-4">Meu Perfil</h2>
-                <div class="profile-info mx-auto w-100 text-start">
-                    <p><span class="fw-semibold text-secondary">Nome:</span>
-                        <?php echo htmlspecialchars($usuario['nomecompleto']); ?></p>
-                    <p><span class="fw-semibold text-secondary">E-mail:</span>
-                        <?php echo htmlspecialchars($usuario['email']); ?></p>
-                    <p><span class="fw-semibold text-secondary">Login:</span>
-                        <?php echo htmlspecialchars($usuario['login']); ?></p>
-                    <p><span class="fw-semibold text-secondary">Data de Nascimento:</span>
-                        <?php echo date('d/m/Y', strtotime($usuario['datanascimento'])); ?></p>
-                    <p><span class="fw-semibold text-secondary">Sexo:</span>
-                        <?php echo htmlspecialchars($usuario['sexo']); ?></p>
-                    <p><span class="fw-semibold text-secondary">Nome da Mãe:</span>
-                        <?php echo htmlspecialchars($usuario['nomematerno']); ?></p>
-                    <p><span class="fw-semibold text-secondary">CPF:</span>
-                        <?php echo htmlspecialchars($usuario['cpf']); ?></p>
-                    <p><span class="fw-semibold text-secondary">Celular:</span>
-                        <?php echo htmlspecialchars($usuario['telefonecelular']); ?></p>
-                    <p><span class="fw-semibold text-secondary">Telefone Fixo:</span>
-                        <?php echo htmlspecialchars($usuario['telefonefixo']); ?></p>
+
+                <!-- Título -->
+                <h2 class="fw-bold fs-3 mb-4">Meu Perfil</h2>
+
+                <!-- Informações -->
+                <div class="text-start mx-auto" style="max-width: 400px;">
+                    <p><span class="fw-bold">Nome:</span> <span class="text-muted"><?= htmlspecialchars($usuario['nomecompleto']) ?></span></p>
+                    <p><span class="fw-bold">E-mail:</span> <span class="text-muted"><?= htmlspecialchars($usuario['email']) ?></span></p>
+                    <p><span class="fw-bold">Login:</span> <span class="text-muted"><?= htmlspecialchars($usuario['login']) ?></span></p>
+                    <p><span class="fw-bold">Data de Nascimento:</span> <span class="text-muted"><?= date('d/m/Y', strtotime($usuario['datanascimento'])) ?></span></p>
+                    <p><span class="fw-bold">Sexo:</span> <span class="text-muted"><?= htmlspecialchars($usuario['sexo']) ?></span></p>
+                    <p><span class="fw-bold">Nome da Mãe:</span> <span class="text-muted"><?= htmlspecialchars($usuario['nomematerno']) ?></span></p>
+                    <p><span class="fw-bold">CPF:</span> <span class="text-muted"><?= htmlspecialchars($usuario['cpf']) ?></span></p>
+                    <p><span class="fw-bold">Celular:</span> <span class="text-muted"><?= htmlspecialchars($usuario['telefonecelular']) ?></span></p>
+                    <p><span class="fw-bold">Telefone Fixo:</span> <span class="text-muted"><?= htmlspecialchars($usuario['telefonefixo']) ?></span></p>
                 </div>
+
+                <!-- Botões -->
                 <div class="d-flex justify-content-center gap-2 flex-wrap mt-4">
-                    <a href="logout.php" class="btn btn-outline-danger d-flex align-items-center gap-2" title="Logout">
+                    <a href="logout.php" class="btn btn-outline-danger d-flex align-items-center gap-2 fw-semibold">
                         <i class="bi bi-box-arrow-right"></i> Logout
                     </a>
-                    <a href="editar_perfil.php" class="btn btn-outline-dark d-flex align-items-center gap-2"
-                        title="Editar Perfil">
+                    <a href="editar_perfil.php" class="btn btn-outline-dark d-flex align-items-center gap-2 fw-semibold">
                         <i class="bi bi-pencil-square"></i> Editar
                     </a>
-                    <a href="index.php" class="btn btn-outline-primary d-flex align-items-center gap-2"
-                        title="Voltar para a Tela Inicial">
+                    <a href="index.php" class="btn btn-outline-primary d-flex align-items-center gap-2 fw-semibold">
                         <i class="bi bi-house-door"></i> Início
                     </a>
                 </div>
@@ -75,6 +76,11 @@ $usuario = mysqli_fetch_assoc($result);
         </section>
     </main>
 
+    
+    <!-- Bootstrap JS Bundle com Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script de Dark Mode -->
     <script src="dark_mode.js"></script>
 </body>
 

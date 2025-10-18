@@ -472,6 +472,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
   <div class="modal fade" id="mudarSenhaModal" tabindex="-1" aria-labelledby="mudarSenhaModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-4 py-1">
+        <!-- Seta para voltar ao modal de login -->
+        <button type="button" class="btn position-absolute top-0 start-0 m-3 text-dark" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal" title="Voltar para login">
+          <i class="bi bi-arrow-left fs-4"></i>
+        </button>
         <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
         <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
           <img src="img/logo-pp2.png" alt="Logo Startplay" class="logo-startplay" style="max-width: 40px; margin-right: 10px;">
@@ -545,7 +549,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
   <!-- Script de Dark Mode -->
   <script src="dark_mode.js"></script>
 
- <!-- Script para reabrir modais em caso de erro -->
+  <!-- Script para reabrir modais em caso de erro -->
   <script>
     // Reabrir modal de mudar senha se houver erro
     <?php if (!empty($erro_mudar["email"]) || !empty($erro_mudar["nova_senha"]) || !empty($erro_mudar["confirmar_nova_senha"])): ?>

@@ -13,6 +13,12 @@ body.dark-mode {
     color: #f0f0f0 !important;
 }
 
+/* Seta de voltar branca no modo escuro */
+body.dark-mode .modal .btn.text-dark i.bi-arrow-left {
+    color: #ffffff !important;
+}
+
+
 /* --- Header --- */
 .dark-mode header {
     background-color: #0e0e0e !important;
@@ -142,44 +148,52 @@ body.dark-mode p {
 }
 
 /* Estilo padrão dos botões */
+body.dark-mode .btn-outline-secondary {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
 .btn-no-dark {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* --- Página de Perfil e edição --- */
-/* Modo escuro para o container principal */
-.dark-mode main .perfil-editar-dark {
-    background-color: #0e0e0e !important;
-    /* fundo escuro */
+/* Container principal da página de perfil */
+body.dark-mode .perfil-editar-dark {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08) !important;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.322);
 }
 
-/* Título do perfil e título de edição */
-.dark-mode .profile-title,
-.dark-mode .card-title {
+/* Título do perfil */
+body.dark-mode .perfil-editar-dark .text-start span.fw-bold {
+    color: #ffffffe8 !important;
+}
+
+body.dark-mode .perfil-editar-dark .text-start .text-muted {
+    color: #dadada !important;
+}
+
+/* Botões perfil */
+body.dark-mode .perfil-editar-dark .btn-outline-dark {
     color: #ffffff !important;
+    border-color: #ffffff !important;
 }
 
-/* Informações do perfil */
-.dark-mode .profile-info p {
-    color: #f0f0f0 !important;
+body.dark-mode .perfil-editar-dark .btn-outline-dark:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
 }
 
-/* 🌙 Ícones dentro dos avatares */
-.dark-mode .profile-avatar i,
-.dark-mode .edit-avatar i {
-    color: #ffffff !important;
-}
-
-/* 🌙 Fundos dos avatares */
-.dark-mode .profile-avatar,
-.dark-mode .edit-avatar {
-    background-color: #1a1a1a !important;
-}
-
-/* Estilo geral para elementos de formulário no modo escuro */
+/* Estilo geral para elementos de formulário */
 .dark-mode label {
     color: #ffffff !important;
 }
