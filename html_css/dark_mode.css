@@ -60,13 +60,28 @@ body.dark-mode {
     border: 1px solid #000000 !important;
 }
 
-/* --- Card --- */
+/* 🌙 Modo escuro para os cards */
 .dark-mode .card {
-    background-color: #0e0e0e !important;
-    color: #f0f0f0 !important;
-    border-color: #ffffff3b !important;
-    box-shadow: 10px 8px 32px 0px rgb(0, 0, 0) !important;
+    background-color: #0e0e0e85 !important;
+    /* fundo preto */
+    color: #ffffff !important;
+    /* texto branco */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+    /* sombra suave clara */
+    border: none !important;
+    /* sem borda visível */
 }
+
+/* 🌙 Título e texto do card */
+.dark-mode .card-title,
+.dark-mode .card-text {
+    color: #ffffff !important;
+}
+
+body.dark-mode p {
+    color: #f3f3f3d8 !important;
+}
+
 
 /* --- Elementos de formulário e links --- */
 .dark-mode a {
@@ -178,31 +193,4 @@ body.dark-mode {
 .dark-mode input::placeholder,
 .dark-mode textarea::placeholder {
     color: #c7c6c694 !important;
-}
-
-/* Estilo página games */
-.dark-mode .container {
-    background-color: #1e1e1e !important;
-    color: #f0f0f0 !important;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .card-body,
-.dark-mode .game-details,
-.dark-mode .requisitos,
-.dark-mode .game-sinopse {
-    background-color: #1e1e1e !important;
-    color: #f0f0f0 !important;
-    border-radius: 12px;
-    padding: 20px;
-}
-
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode h3,
-.dark-mode p,
-.dark-mode strong {
-    color: #f0f0f0 !important;
 }

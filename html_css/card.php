@@ -47,324 +47,453 @@ if (!isset($_SESSION["usuario_logado"])) {
             </form>
         </div>
     </header>
+
     <main>
         <!--JOGOS INDIE-->
         <h2 class="text-center fw-bold mt-5 mb-5 py-3 px-2" style="font-size: 3vw; letter-spacing: 3px; background: linear-gradient(90deg, transparent, #d4d4d460, transparent);">
             JOGOS INDIE
         </h2>
-        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
-            <!--Jogo Indie CESTIES OF REVENTURE-->
-            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
-                <img src="img/img-card-m.png" alt="Imagem do jogo Cesties of Reventure" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
-                <section class="d-flex flex-column gap-3 mt-4">
-                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap;">CESTIES OF REVENTURE</h2>
-                    <div class="info">
-                        <strong>Desenvolvedora:</strong>
-                        <p>Pixel Dream Studios.</p>
+        <section class="card-body card-games rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
+            <!-- Jogo Indie CESTIES OF REVENTURE -->
+            <article class="row g-4 align-items-center justify-content-center px-4 mx-auto text-center text-md-start">
+                <!-- Imagem -->
+                <div class="col-12 col-md-4 d-flex justify-content-center">
+                    <img src="img/img-card-m.png" alt="Imagem do jogo Cesties of Reventure" class="img-fluid rounded shadow-sm" style="max-width: 230px; width: 100%; height: auto;">
+                </div>
+
+                <!-- Texto -->
+                <div class="col-12 col-md-8 d-flex flex-column justify-content-center align-items-center align-items-md-start gap-3 mt-4 mt-md-0">
+                    <h2 class="fw-bold text-center text-md-start" style="font-size: 2.5vw; letter-spacing: 3px;">CESTIES OF REVENTURE</h2>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Desenvolvedora:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Pixel Dream Studios.</p>
                     </div>
-                    <div class="info">
-                        <strong>Data de Lançamento:</strong>
-                        <p>15 de agosto de 2024.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Data de Lançamento:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">15 de agosto de 2024.</p>
                     </div>
-                    <div class="info">
-                        <strong>Onde Comprar:</strong>
-                        <p>Steam & Epic Games Store.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Onde Comprar:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Steam & Epic Games Store.</p>
                     </div>
-                    <div class="info">
-                        <strong>Nota dos Jogadores:</strong>
-                        <p>7.8/10.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Nota dos Jogadores:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">7.8/10.</p>
                     </div>
-                </section>
+                </div>
             </article>
-            <hr>
-            <aside class="requisitos">
-                <section class="requisitos-minimos">
-                    <h3>Requisitos mínimos (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 10 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i3 ou AMD equivalente.</p>
-                    <p><strong>Memória:</strong> 2 GB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> Intel HD Graphics integrada <br>ou AMD Radeon R2 Graphics integrada.</p>
-                    <p><strong>DirectX:</strong> Versão 12.</p>
-                    <p><strong>Armazenamento:</strong> 2 GB de espaço livre.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Requisitos -->
+            <aside class="row text-center text-md-start justify-content-center">
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos mínimos:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 10</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i3 ou AMD equivalente.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">2 GB RAM.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">Intel HD Graphics integrada ou AMD Radeon R2 Graphics integrada.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 12.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">2 GB de espaço livre.</span></p>
+                    </div>
                 </section>
-                <section class="requisitos-recomendados">
-                    <h3>Requisitos recomendados (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 10 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i5 ou AMD equivalente.</p>
-                    <p><strong>Memória:</strong> 4 GB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> NVIDIA GeForce GT 730 <br>ou AMD Radeon HD 6570.</p>
-                    <p><strong>DirectX:</strong> Versão 12.</p>
-                    <p><strong>Armazenamento:</strong> 2 GB de espaço livre.</p>
+
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos recomendados:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 10.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i5 ou AMD equivalente.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">4 GB RAM.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">NVIDIA GeForce GT 730 ou AMD Radeon HD 6570.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 12.</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">2 GB de espaço livre.</span></p>
+                    </div>
                 </section>
             </aside>
-            <hr>
-            <section class="game-sinopse">
-                <h2 class="sinopse">SINOPSE CESTIES OF REVENTURE </h2>
-                <p class="explicacao">A jovem Elara e seu fiel cão, Pipoca, embarcam em uma singela jornada por um mundo de pixel art. Movidos pela curiosidade após encontrarem um mapa rabiscado, eles exploram cenários encantadores, resolvem pequenos desafios e desfrutam da companhia um do outro em busca de novas descobertas.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Sinopse -->
+            <section class="text-center">
+                <h2 class="fw-bold mb-3" style="font-size: 2vw; letter-spacing: 1px;">SINOPSE CESTIES OF REVENTURE</h2>
+                <p class="mx-auto" style="font-size: 1.1vw; width: 45%; font-weight: 500; color: #383838;">
+                    A jovem Elara e seu fiel cão, Pipoca, embarcam em uma singela jornada por um mundo de pixel art. Movidos pela curiosidade após encontrarem um mapa rabiscado, eles exploram cenários encantadores, resolvem pequenos desafios e desfrutam da companhia um do outro em busca de novas descobertas.
+                </p>
             </section>
         </section>
+
         <!--Jogo Indie BURALIST-->
-        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
-            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
-                <img src="img/img-card1-m.png" alt="Imagem do jogo Buralist" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
-                <section class="d-flex flex-column gap-3 mt-4">
-                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">BURALIST</h2>
-                    <div class="info">
-                        <strong>Desenvolvedora:</strong>
-                        <p>Brysatine Studios.</p>
+        <section class="card-body card-games rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
+            <article class="row g-4 align-items-center justify-content-center px-4 mx-auto text-center text-md-start">
+                <!-- Imagem -->
+                <div class="col-12 col-md-4 d-flex justify-content-center">
+                    <img src="img/img-card1-m.png" alt="Imagem do jogo Buralist" class="img-fluid rounded shadow-sm" style="max-width: 230px; width: 100%; height: auto;">
+                </div>
+
+                <!-- Texto -->
+                <div class="col-12 col-md-8 d-flex flex-column justify-content-center align-items-center align-items-md-start gap-3 mt-4 mt-md-0">
+                    <h2 class="fw-bold text-center text-md-start" style="font-size: 2.5vw; letter-spacing: 3px;">BURALIST</h2>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Desenvolvedora:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Brysatine Studios.</p>
                     </div>
-                    <div class="info">
-                        <strong>Data de Lançamento:</strong>
-                        <p>10 de Outubro de 2022.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Data de Lançamento:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">10 de Outubro de 2022.</p>
                     </div>
-                    <div class="info">
-                        <strong>Onde Comprar:</strong>
-                        <p>Steam & Epic Games Store.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Onde Comprar:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Steam & Epic Games Store.</p>
                     </div>
-                    <div class="info">
-                        <strong>Nota dos Jogadores:</strong>
-                        <p>8.5/10.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Nota dos Jogadores:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">8.5/10.</p>
                     </div>
-                </section>
+                </div>
             </article>
-            <hr>
-            <aside class="requisitos">
-                <section class="requisitos-minimos">
-                    <h3>Requisitos mínimos (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 7 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i3-3220 <br>ou AMD X4 955.</p>
-                    <p><strong>Memória:</strong> 4 GB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> NVIDIA GeForce GTX 550 Ti ou AMD Radeon HD 6770.</p>
-                    <p><strong>DirectX:</strong> Versão 11.</p>
-                    <p><strong>Armazenamento:</strong> 3 GB de espaço livre.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Requisitos -->
+            <aside class="row text-center text-md-start justify-content-center">
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos mínimos:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 7 (64-bit)</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i3-3220 ou AMD X4 955</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">4 GB RAM</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">NVIDIA GeForce GTX 550 Ti ou AMD Radeon HD 6770</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 11</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">3 GB de espaço livre</span></p>
+                    </div>
                 </section>
-                <section class="requisitos-recomendados">
-                    <h3>Requisitos recomendados (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 10 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i5-4460 <br>ou AMD FX-8350.</p>
-                    <p><strong>Memória:</strong> 8 GB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> NVIDIA GeForce GTX 750 Ti ou AMD Radeon R9 270X.</p>
-                    <p><strong>DirectX:</strong> Versão 11.</p>
-                    <p><strong>Armazenamento:</strong> 6 GB de espaço livre.</p>
+
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos recomendados:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 10 (64-bit)</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i5-4460 ou AMD FX-8350</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">8 GB RAM</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">NVIDIA GeForce GTX 750 Ti ou AMD Radeon R9 270X</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 11</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">6 GB de espaço livre</span></p>
+                    </div>
                 </section>
             </aside>
-            <hr>
-            <section class="game-sinopse">
-                <h2 class="sinopse">SINOPSE BURALIST</h2>
-                <p class="explicacao">Em "Buralist", o jogador perdido em um deserto nebuloso e inóspito explora ruínas em busca de respostas. Sem memórias e sob uma atmosfera opressora, a jornada intensifica o isolamento e a sensação de uma presença sinistra, testando a sanidade na busca pela verdade em um mundo implacável.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Sinopse -->
+            <section class="text-center">
+                <h2 class="fw-bold mb-3" style="font-size: 2vw; letter-spacing: 1px;">SINOPSE BURALIST</h2>
+                <p class="mx-auto text-muted" style="font-size: 1.1vw; width: 45%; font-weight: 500;">
+                    Em "Buralist", o jogador perdido em um deserto nebuloso e inóspito explora ruínas em busca de respostas. Sem memórias e sob uma atmosfera opressora, a jornada intensifica o isolamento e a sensação de uma presença sinistra, testando a sanidade na busca pela verdade em um mundo implacável.
+                </p>
             </section>
         </section>
 
         <!--JOGOS AAA-->
-        <h2 class="text-center fw-bold mt-5 mb-5 py-3 px-2" style="font-size: 3vw; letter-spacing: 3px; background: linear-gradient(90deg, transparent, #d4d4d460, transparent);">
-            JOGOS AAA
-        </h2>
+        <section class="card-body card-games rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
+            <!-- Jogo AAA ALEK-STHOR -->
+            <article class="row g-4 align-items-center justify-content-center px-4 mx-auto text-center text-md-start">
+                <!-- Imagem -->
+                <div class="col-12 col-md-4 d-flex justify-content-center">
+                    <img src="img/img-card2-m.png" alt="Imagem do jogo Alek-Sthor" class="img-fluid rounded shadow-sm" style="max-width: 230px; width: 100%; height: auto;">
+                </div>
 
-        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
-            <!--Jogo AAA ALEK-STHOR-->
-            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
-                <img src="img/img-card2-m.png" alt="Imagem do jogo Alek-Sthor" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
-                <section class="d-flex flex-column gap-3 mt-4">
-                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">ALEK-STHOR</h2>
-                    <strong>Desenvolvedora:</strong>
-                    <p>Grand Legacy Studios.</p>
+                <!-- Texto -->
+                <div class="col-12 col-md-8 d-flex flex-column justify-content-center align-items-center align-items-md-start gap-3 mt-4 mt-md-0">
+                    <h2 class="fw-bold text-center text-md-start" style="font-size: 2.5vw; letter-spacing: 3px;">ALEK-STHOR</h2>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Desenvolvedora:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Grand Legacy Studios.</p>
                     </div>
-                    <div class="info">
-                        <strong>Data de Lançamento:</strong>
-                        <p>12 de Setembro de 2023.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Data de Lançamento:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">12 de Setembro de 2023.</p>
                     </div>
-                    <div class="info">
-                        <strong>Onde Comprar:</strong>
-                        <p>Steam & Epic Games Store.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Onde Comprar:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Steam & Epic Games Store.</p>
                     </div>
-                    <div class="info">
-                        <strong>Nota dos Jogadores:</strong>
-                        <p>9.5/10.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Nota dos Jogadores:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">9.5/10.</p>
                     </div>
-                </section>
+                </div>
             </article>
-            <hr>
-            <aside class="requisitos">
-                <section class="requisitos-minimos">
-                    <h3>Requisitos mínimos (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 10 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i7-9700K ou AMD Ryzen 7 3700X.</p>
-                    <p><strong>Memória:</strong> 16 GB RAM DDR4 @ 3200MHz.</p>
-                    <p><strong>Placa de vídeo:</strong> GeForce RTX 2070 (8GB VRAM) <br>ou AMD Radeon RX 5700 XT (8GB VRAM).</p>
-                    <p><strong>DirectX:</strong> Versão 12.</p>
-                    <p><strong>Armazenamento:</strong> 60 GB de espaço livre (SSD recomendado).</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Requisitos -->
+            <aside class="row text-center text-md-start justify-content-center">
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos mínimos:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 10 (64-bit)</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i7-9700K ou AMD Ryzen 7 3700X</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">16 GB RAM DDR4 @ 3200MHz</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">GeForce RTX 2070 (8GB VRAM) ou AMD Radeon RX 5700 XT (8GB VRAM)</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 12</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">60 GB de espaço livre (SSD recomendado)</span></p>
+                    </div>
                 </section>
-                <section class="requisitos-recomendados">
-                    <h3>Requisitos recomendados (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 10 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i9-11900K ou AMD Ryzen 9 5900X.</p>
-                    <p><strong>Memória:</strong> 32 GB RAM DDR4 @ 3600MH.</p>
-                    <p><strong>Placa de vídeo:</strong> NVIDIA GeForce RTX 3080 <br>(10GB VRAM) ou AMD Radeon RX 6900 XT.</p>
-                    <p><strong>DirectX:</strong> Versão 12.</p>
-                    <p><strong>Armazenamento:</strong> 60 GB de espaço livre (SSD NVMe obrigatório).</p>
+
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos recomendados:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 10 (64-bit)</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i9-11900K ou AMD Ryzen 9 5900X</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">32 GB RAM DDR4 @ 3600MHz</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">NVIDIA GeForce RTX 3080 (10GB VRAM) ou AMD Radeon RX 6900 XT</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 12</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">60 GB de espaço livre (SSD NVMe obrigatório)</span></p>
+                    </div>
                 </section>
             </aside>
-            <hr>
-            <section class="game-sinopse">
-                <h2 class="sinopse">SINOPSE ALEK-STHOR</h2>
-                <p class="explicacao">Em "Alek-Sthor", uma imersiva simulação medieval, você é um nobre gerenciando propriedades, construindo fortalezas, comandando exércitos e negociando alianças. Suas escolhas moldam o destino do reino, em uma experiência visualmente rica que captura a complexidade e grandiosidade da era medieval.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Sinopse -->
+            <section class="text-center">
+                <h2 class="fw-bold mb-3" style="font-size: 2vw; letter-spacing: 1px;">SINOPSE ALEK-STHOR</h2>
+                <p class="mx-auto text-muted" style="font-size: 1.1vw; width: 45%; font-weight: 500;">
+                    Em "Alek-Sthor", uma imersiva simulação medieval, você é um nobre gerenciando propriedades, construindo fortalezas, comandando exércitos e negociando alianças. Suas escolhas moldam o destino do reino, em uma experiência visualmente rica que captura a complexidade e grandiosidade da era medieval.
+                </p>
             </section>
         </section>
-        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
-            <!--Jogo AAA KNIGHT SOULS-->
-            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
-                <img src="img/img-card3-m.png" alt="Imagem do jogo Knight Souls" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
-                <section class="d-flex flex-column gap-3 mt-4">
-                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">KNIGHT SOULS</h2>
-                    <div class="info">
-                        <strong>Desenvolvedora:</strong>
-                        <p>Teyvat Wonders Studio.</p>
+
+        <section class="card-body card-games rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
+            <!-- Jogo AAA KNIGHT SOULS -->
+            <article class="row g-4 align-items-center justify-content-center px-4 mx-auto text-center text-md-start">
+                <!-- Imagem -->
+                <div class="col-12 col-md-4 d-flex justify-content-center">
+                    <img src="img/img-card3-m.png" alt="Imagem do jogo Knight Souls" class="img-fluid rounded shadow-sm" style="max-width: 230px; width: 100%; height: auto;">
+                </div>
+
+                <!-- Texto -->
+                <div class="col-12 col-md-8 d-flex flex-column justify-content-center align-items-center align-items-md-start gap-3 mt-4 mt-md-0">
+                    <h2 class="fw-bold text-center text-md-start" style="font-size: 2.5vw; letter-spacing: 3px;">KNIGHT SOULS</h2>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Desenvolvedora:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Teyvat Wonders Studio.</p>
                     </div>
-                    <div class="info">
-                        <strong>Data de Lançamento:</strong>
-                        <p>18 de Julho de 2024.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Data de Lançamento:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">18 de Julho de 2024.</p>
                     </div>
-                    <div class="info">
-                        <strong>Onde Comprar:</strong>
-                        <p>PlayStation & Epic Games Store.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Onde Comprar:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">PlayStation & Epic Games Store.</p>
                     </div>
-                    <div class="info">
-                        <strong>Nota dos Jogadores:</strong>
-                        <p>9.2/10.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Nota dos Jogadores:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">9.2/10.</p>
                     </div>
-                </section>
+                </div>
             </article>
-            <hr>
-            <aside class="requisitos">
-                <section class="requisitos-minimos">
-                    <h3>Requisitos mínimos (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 7 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i5-4460 ou AMD <br>Ryzen 5 1400.</p>
-                    <p><strong>Memória:</strong> 8 GB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> NVIDIA GeForce GTX 970 ou AMD Radeon RX 580.</p>
-                    <p><strong>DirectX:</strong> Versão 11.</p>
-                    <p><strong>Armazenamento:</strong> 40 GB de espaço livre.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Requisitos -->
+            <aside class="row text-center text-md-start justify-content-center">
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos mínimos:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 7 (64-bit)</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i5-4460 ou AMD Ryzen 5 1400</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">8 GB RAM</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">NVIDIA GeForce GTX 970 ou AMD Radeon RX 580</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 11</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">40 GB de espaço livre</span></p>
+                    </div>
                 </section>
-                <section class="requisitos-recomendados">
-                    <h3>Requisitos recomendados (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 10 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i7-7700K ou AMD <br>Ryzen 7 2700X.</p>
-                    <p><strong>Memória:</strong> 16 GB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> NVIDIA GeForce RTX 2060 ou AMD Radeon RX 5700 XT.</p>
-                    <p><strong>DirectX:</strong> Versão 11.</p>
-                    <p><strong>Armazenamento:</strong> 40 GB de espaço livre.</p>
+
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos recomendados:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 10 (64-bit)</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i7-7700K ou AMD Ryzen 7 2700X</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">16 GB RAM</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">NVIDIA GeForce RTX 2060 ou AMD Radeon RX 5700 XT</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 11</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">40 GB de espaço livre</span></p>
+                    </div>
                 </section>
             </aside>
-            <hr>
-            <section class="game-sinopse">
-                <h2 class="sinopse">SINOPSE KNIGHT SOULS</h2>
-                <p class="explicacao">Em "Knight Souls", jogadores exploram o vibrante mundo de Aerthos como um cavaleiro elemental, protegendo as nações de forças sombrias. A jornada épica leva a vastas regiões, com combates dinâmicos contra criaturas poderosas e a descoberta de segredos ao lado de companheiros únicos, em um mundo aberto cheio de missões e desafios.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Sinopse -->
+            <section class="text-center">
+                <h2 class="fw-bold mb-3" style="font-size: 2vw; letter-spacing: 1px;">SINOPSE KNIGHT SOULS</h2>
+                <p class="mx-auto text-muted" style="font-size: 1.1vw; width: 45%; font-weight: 500;">
+                    Em "Knight Souls", jogadores exploram o vibrante mundo de Aerthos como um cavaleiro elemental, protegendo as nações de forças sombrias. A jornada épica leva a vastas regiões, com combates dinâmicos contra criaturas poderosas e a descoberta de segredos ao lado de companheiros únicos, em um mundo aberto cheio de missões e desafios.
+                </p>
             </section>
         </section>
 
         <!--JOGOS + VENDIDOS-->
-        <h2 class="text-center fw-bold mt-5 mb-5 py-3 px-2" style="font-size: 3vw; letter-spacing: 3px; background: linear-gradient(90deg, transparent, #d4d4d460, transparent);">
-            JOGOS +Vendidos
-        </h2>
-        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
-            <!--Jogo +Vendido Survivalcraft-->
-            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
-                <img src="img/img-card4-m.png" alt="Imagem do jogo Survivalcraft" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
-                <section class="d-flex flex-column gap-3 mt-4">
-                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">SURVIVALCRAFT</h2>
-                    <div class="info">
-                        <strong>Desenvolvedora:</strong>
-                        <p>Block World Studios.</p>
+        <section class="card-body card-games rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
+            <!-- Jogo +Vendido SURVIVALCRAFT -->
+            <article class="row g-4 align-items-center justify-content-center px-4 mx-auto text-center text-md-start">
+                <!-- Imagem -->
+                <div class="col-12 col-md-4 d-flex justify-content-center">
+                    <img src="img/img-card4-m.png" alt="Imagem do jogo Survivalcraft" class="img-fluid rounded shadow-sm" style="max-width: 230px; width: 100%; height: auto;">
+                </div>
+
+                <!-- Texto -->
+                <div class="col-12 col-md-8 d-flex flex-column justify-content-center align-items-center align-items-md-start gap-3 mt-4 mt-md-0">
+                    <h2 class="fw-bold text-center text-md-start" style="font-size: 2.5vw; letter-spacing: 3px;">SURVIVALCRAFT</h2>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Desenvolvedora:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Block World Studios.</p>
                     </div>
-                    <div class="info">
-                        <strong>Data de Lançamento:</strong>
-                        <p>17 de Maio de 2011.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Data de Lançamento:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">17 de Maio de 2011.</p>
                     </div>
-                    <div class="info">
-                        <strong>Onde Comprar:</strong>
-                        <p>Epic Games Store & Play Store.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Onde Comprar:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Epic Games Store & Play Store.</p>
                     </div>
-                    <div class="info">
-                        <strong>Nota dos Jogadores:</strong>
-                        <p>9.8/10.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Nota dos Jogadores:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">9.8/10.</p>
                     </div>
-                </section>
+                </div>
             </article>
-            <hr>
-            <aside class="requisitos">
-                <section class="requisitos-minimos">
-                    <h3>Requisitos mínimos (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows XP ou superior.</p>
-                    <p><strong>Processador:</strong> Intel Core i3-3220 ou AMD <br>Phenom II X4 955.</p>
-                    <p><strong>Memória:</strong> 4 GB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> NVIDIA GeForce GT 630 ou AMD Radeon HD 6570.</p>
-                    <p><strong>DirectX:</strong> Versão 11.</p>
-                    <p><strong>Armazenamento:</strong> 4 GB de espaço livre.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Requisitos -->
+            <aside class="row text-center text-md-start justify-content-center">
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos mínimos:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows XP ou superior</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i3-3220 ou AMD Phenom II X4 955</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">4 GB RAM</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">NVIDIA GeForce GT 630 ou AMD Radeon HD 6570</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 11</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">4 GB de espaço livre</span></p>
+                    </div>
                 </section>
-                <section class="requisitos-recomendados">
-                    <h3>Requisitos recomendados (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 10 (64-bit).</p>
-                    <p><strong>Processador:</strong> Intel Core i5-4460 ou AMD <br>Ryzen 5 1400.</p>
-                    <p><strong>Memória:</strong> 8 GB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> NVIDIA GeForce GTX 750 Ti ou AMD Radeon RX 560.</p>
-                    <p><strong>DirectX:</strong> Versão 11.</p>
-                    <p><strong>Armazenamento:</strong> 6 GB de espaço livre.</p>
+
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos recomendados:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 10 (64-bit)</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Intel Core i5-4460 ou AMD Ryzen 5 1400</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">8 GB RAM</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">NVIDIA GeForce GTX 750 Ti ou AMD Radeon RX 560</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">DirectX:</strong> <span class="text-muted">Versão 11</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">6 GB de espaço livre</span></p>
+                    </div>
                 </section>
             </aside>
-            <hr>
-            <section class="game-sinopse">
-                <h2 class="sinopse">SINOPSE SURVIVALCRAFT</h2>
-                <p class="explicacao">Em "Survivalcraft", você explora um mundo aberto de blocos gerado proceduralmente,coletando recursos para construir abrigos, ferramentas e armas. Aventure-se por diversos biomas, enfrente a vida selvagem e use a criatividade para construir estruturas complexas, enquanto explora cavernas, enfrenta perigos e personaliza sua experiência.
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Sinopse -->
+            <section class="text-center">
+                <h2 class="fw-bold mb-3" style="font-size: 2vw; letter-spacing: 1px;">SINOPSE SURVIVALCRAFT</h2>
+                <p class="mx-auto text-muted" style="font-size: 1.1vw; width: 45%; font-weight: 500;">
+                    Em "Survivalcraft", você explora um mundo aberto de blocos gerado proceduralmente, coletando recursos para construir abrigos, ferramentas e armas. Aventure-se por diversos biomas, enfrente a vida selvagem e use a criatividade para construir estruturas complexas, enquanto explora cavernas, enfrenta perigos e personaliza sua experiência.
                 </p>
             </section>
         </section>
-        <section class="card-body rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
-            <!--Jogo +Vendidos BLOCK-Z-->
-            <article class="d-flex align-items-start gap-4 px-4 ms-3 flex-wrap flex-md-nowrap">
-                <img src="img/img-card5-m.png" alt="Imagem do jogo Block-Z" class="img-fluid rounded shadow-sm" style="max-width: 100%;">
-                <section class="d-flex flex-column gap-3 mt-4">
-                    <h2 class="fw-bold" style="font-size: 2.5vw; letter-spacing: 3px; white-space: nowrap">BLOCK-Z</h2>
-                    <div class="info">
-                        <strong>Desenvolvedora:</strong>
-                        <p>Pixel Puzzle Studios.</p>
+
+        <section class="card-body card-games rounded shadow mx-auto mb-5 p-4" style="width: 80%;">
+            <!-- Jogo +Vendido BLOCK-Z -->
+            <article class="row g-4 align-items-center justify-content-center px-4 mx-auto text-center text-md-start">
+                <!-- Imagem -->
+                <div class="col-12 col-md-4 d-flex justify-content-center">
+                    <img src="img/img-card5-m.png" alt="Imagem do jogo Block-Z" class="img-fluid rounded shadow-sm" style="max-width: 230px; width: 100%; height: auto;">
+                </div>
+
+                <!-- Texto -->
+                <div class="col-12 col-md-8 d-flex flex-column justify-content-center align-items-center align-items-md-start gap-3 mt-4 mt-md-0">
+                    <h2 class="fw-bold text-center text-md-start" style="font-size: 2.5vw; letter-spacing: 3px;">BLOCK-Z</h2>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Desenvolvedora:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Pixel Puzzle Studios.</p>
                     </div>
-                    <div class="info">
-                        <strong>Data de Lançamento:</strong>
-                        <p>6 de Junho de 1984.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Data de Lançamento:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">6 de Junho de 1984.</p>
                     </div>
-                    <div class="info">
-                        <strong>Onde Comprar:</strong>
-                        <p>Emulação & Epic Games Store.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Onde Comprar:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">Emulação & Epic Games Store.</p>
                     </div>
-                    <div class="info">
-                        <strong>Nota dos Jogadores:</strong>
-                        <p>9.0/10.</p>
+
+                    <div class="d-flex flex-column flex-md-row w-100 justify-content-center justify-content-md-start gap-2 gap-md-2 text-center text-md-start">
+                        <strong class="fw-bold d-block mx-auto mx-md-0" style="font-size: 1.1vw;">Nota dos Jogadores:</strong>
+                        <p class="m-0 text-center text-md-start" style="font-size: 1vw;">9.0/10.</p>
                     </div>
-                    <section>
+                </div>
             </article>
-            <hr>
-            <aside class="requisitos">
-                <section class="requisitos-minimos">
-                    <h3>Requisitos mínimos (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows XP ou superior ou Emulador compatível.</p>
-                    <p><strong>Processador:</strong> Pentium III 800MHz ou equivalente.</p>
-                    <p><strong>Memória:</strong> 128 MB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> Qualquer placa com suporte a <br>DirectX 7.0.</p>
-                    <p><strong>Armazenamento:</strong> 50 MB de espaço livre.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Requisitos -->
+            <aside class="row text-center text-md-start justify-content-center">
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos mínimos:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows XP ou superior ou Emulador compatível</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Pentium III 800MHz ou equivalente</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">128 MB RAM</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">Qualquer placa com suporte a DirectX 7.0</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">50 MB de espaço livre</span></p>
+                    </div>
                 </section>
-                <section class="requisitos-recomendados">
-                    <h3>Requisitos recomendados (PC):</h3>
-                    <p><strong>Sistema Operacional:</strong> Windows 7 ou superior ou Emulador compatível.</p>
-                    <p><strong>Processador:</strong> Pentium 4 1.5GHz ou equivalente.</p>
-                    <p><strong>Memória:</strong> 256 MB RAM.</p>
-                    <p><strong>Placa de vídeo:</strong> Qualquer placa com suporte a <br>DirectX 9.0.</p>
-                    <p><strong>Armazenamento:</strong> 250 MB de espaço livre.</p>
+
+                <section class="col-12 col-md-6 mb-4">
+                    <div class="mx-auto" style="max-width: 90%;">
+                        <h3 class="fw-bold mb-4" style="font-size: 1.7vw;">Requisitos recomendados:</h3>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Sistema Operacional:</strong> <span class="text-muted">Windows 7 ou superior ou Emulador compatível</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Processador:</strong> <span class="text-muted">Pentium 4 1.5GHz ou equivalente</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Memória:</strong> <span class="text-muted">256 MB RAM</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Placa de vídeo:</strong> <span class="text-muted">Qualquer placa com suporte a DirectX 9.0</span></p>
+                        <p><strong class="fw-semibold" style="font-size: 1.2vw;">Armazenamento:</strong> <span class="text-muted">250 MB de espaço livre</span></p>
+                    </div>
                 </section>
             </aside>
-            <hr>
-            <section class="game-sinopse">
-                <h2 class="sinopse">SINOPSE BLOCK-Z</h2>
-                <p class="explicacao">"Block-Z" é um quebra-cabeça pioneiro onde o jogador gira e encaixa formas geométricas coloridas para formar e eliminar linhas, acumulando pontos. Com mecânica simples e estratégica, o jogo oferece uma experiência atemporal e infinitamente replayable, mantendo seu desafio e cativando jogadores de todas as idades.</p>
+
+            <hr class="my-4 mx-auto" style="width: 100%;">
+
+            <!-- Sinopse -->
+            <section class="text-center">
+                <h2 class="fw-bold mb-3" style="font-size: 2vw; letter-spacing: 1px;">SINOPSE BLOCK-Z</h2>
+                <p class="mx-auto text-muted" style="font-size: 1.1vw; width: 45%; font-weight: 500;">
+                    "Block-Z" é um quebra-cabeça pioneiro onde o jogador gira e encaixa formas geométricas coloridas para formar e eliminar linhas, acumulando pontos. Com mecânica simples e estratégica, o jogo oferece uma experiência atemporal e infinitamente replayable, mantendo seu desafio e cativando jogadores de todas as idades.
+                </p>
             </section>
         </section>
 
