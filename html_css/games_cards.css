@@ -8,12 +8,12 @@
 }
 
 .card-games {
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.411);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.527);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
 .card-games:hover{
     transform: scale(1.01);
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.712); 
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.781); 
 }
 

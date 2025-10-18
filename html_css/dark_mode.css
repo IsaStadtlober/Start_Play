@@ -1,4 +1,18 @@
-/* --- Elementos que ignoram modo escuro --- */
+/* === Modo escuro: estrutura geral === */
+body.dark-mode {
+    background-color: #131313 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode p {
+    color: #f3f3f3d8 !important;
+}
+
+.dark-mode a {
+    color: #ffffff !important;
+}
+
+/* Elementos que ignoram o modo escuro */
 .dark-mode .no-dark,
 .dark-mode .no-dark * {
     background-color: initial !important;
@@ -7,52 +21,26 @@
     box-shadow: initial !important;
 }
 
-/* --- Estrutura principal --- */
-body.dark-mode {
-    background-color: #1d1d1d !important;
-    color: #f0f0f0 !important;
-}
-
-/* Seta de voltar branca no modo escuro */
-body.dark-mode .modal .btn.text-dark i.bi-arrow-left {
-    color: #ffffff !important;
-}
-
-
-/* --- Header --- */
-.dark-mode header {
+/* === Header e Footer === */
+.dark-mode header,
+.dark-mode footer {
     background-color: #0e0e0e !important;
     color: #f0f0f0 !important;
-    box-shadow: 0px 8px 32px 0px rgb(0, 0, 0) !important;
+    box-shadow: 0px 8px 32px rgb(0, 0, 0) !important;
     position: relative;
     z-index: 10;
 }
 
-/* Botão de alternar modo */
-.transition-icon {
-    transition: transform 0.3s ease, opacity 0.3s ease;
+.dark-mode footer {
+    box-shadow: 0px -8px 32px rgb(0, 0, 0) !important;
 }
 
-.dark-mode .transition-icon {
-    transform: rotate(180deg);
+.dark-mode .footer-index .footer-column+.footer-column {
+    border-left: 2px solid #fff !important;
+    padding-left: 50px;
 }
 
-/* Modo claro: ícone visível */
-.perfil-icon {
-    color: #212529;
-    /* cor escura padrão */
-    fill: #212529;
-    /* aplica ao SVG */
-    transition: fill 0.3s ease, color 0.3s ease;
-}
-
-/* Modo escuro: ícone branco */
-.dark-mode .perfil-icon {
-    color: #ffffff;
-    fill: #ffffff;
-}
-
-/* Estilos botões header*/
+/* === Botões gerais === */
 .dark-mode .btn-no-dark {
     background-color: #ffffff !important;
     color: #000000 !important;
@@ -63,39 +51,42 @@ body.dark-mode .modal .btn.text-dark i.bi-arrow-left {
 .dark-mode .btn-no-dark:hover {
     background-color: #f0f0f0 !important;
     color: #000000 !important;
-    border: 1px solid #000000 !important;
 }
 
-/* 🌙 Modo escuro para os cards */
-.dark-mode .card {
-    background-color: #0e0e0e85 !important;
-    /* fundo preto */
+.dark-mode .btn-outline-secondary {
+    background-color: transparent !important;
     color: #ffffff !important;
-    /* texto branco */
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
-    /* sombra suave clara */
-    border: none !important;
-    /* sem borda visível */
+    border: 1px solid #ffffff !important;
 }
 
-/* 🌙 Título e texto do card */
+.dark-mode .btn-outline-secondary:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.dark-mode .btn-outline-dark {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+.dark-mode .btn-outline-dark:hover {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* === Cards e carrossel === */
+.dark-mode .card {
+    background-color: #131313 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+    border: none !important;
+}
+
 .dark-mode .card-title,
 .dark-mode .card-text {
     color: #ffffff !important;
 }
 
-body.dark-mode p {
-    color: #f3f3f3d8 !important;
-}
-
-
-/* --- Elementos de formulário e links --- */
-.dark-mode a {
-    color: #ffffff !important;
-}
-
-/* --- Carrossel --- */
-/* Indicadores do carrossel */
 .dark-mode .carousel-indicators {
     margin-bottom: 2rem !important;
     display: flex !important;
@@ -118,53 +109,15 @@ body.dark-mode p {
 
 .dark-mode .carousel-indicators .active {
     background-color: #fff !important;
-    border: none !important;
-    box-shadow: none !important;
-    opacity: 1 !important;
-    outline: none !important;
 }
 
-/* Força as setas do carrossel a ficarem cinza, ignorando o modo escuro */
 .dark-mode .carousel-control-prev-icon,
 .dark-mode .carousel-control-next-icon {
     color: #6c757d !important;
-    /* cinza padrão Bootstrap */
     filter: none !important;
 }
 
-/* --- Footer --- */
-.dark-mode footer {
-    background-color: #0e0e0e !important;
-    color: #f0f0f0 !important;
-    box-shadow: 0px -8px 32px 0px rgb(0, 0, 0) !important;
-    position: relative;
-    z-index: 10;
-}
-
-/* Borda branca na coluna de contatos do footer no modo escuro */
-.dark-mode .footer-index .footer-column+.footer-column {
-    border-left: 2px solid #fff !important;
-    padding-left: 50px;
-}
-
-/* Estilo padrão dos botões */
-body.dark-mode .btn-outline-secondary {
-    background-color: transparent !important;
-    color: #ffffff !important;
-    border: 1px solid #ffffff !important;
-}
-
-body.dark-mode .btn-outline-secondary:hover {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-}
-
-.btn-no-dark {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* --- Página de Perfil e edição --- */
-/* Container principal da página de perfil */
+/* === Perfil e edição === */
 body.dark-mode .perfil-editar-dark {
     background-color: #121212 !important;
     color: #ffffff !important;
@@ -173,7 +126,6 @@ body.dark-mode .perfil-editar-dark {
     padding: 20px;
 }
 
-/* Título do perfil */
 body.dark-mode .perfil-editar-dark .text-start span.fw-bold {
     color: #ffffffe8 !important;
 }
@@ -182,18 +134,24 @@ body.dark-mode .perfil-editar-dark .text-start .text-muted {
     color: #dadada !important;
 }
 
-/* Botões perfil */
-body.dark-mode .perfil-editar-dark .btn-outline-dark {
-    color: #ffffff !important;
-    border-color: #ffffff !important;
+/* === Avatares === */
+.dark-mode .profile-avatar,
+.dark-mode .edit-avatar {
+    background-color: #1a1a1a !important;
+    border: 2px solid #444 !important;
 }
 
-body.dark-mode .perfil-editar-dark .btn-outline-dark:hover {
+.dark-mode .edit-avatar {
     background-color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+}
+
+.dark-mode .profile-avatar i,
+.dark-mode .edit-avatar i {
     color: #000000 !important;
 }
 
-/* Estilo geral para elementos de formulário */
+/* === Formulários === */
 .dark-mode label {
     color: #ffffff !important;
 }
@@ -207,4 +165,29 @@ body.dark-mode .perfil-editar-dark .btn-outline-dark:hover {
 .dark-mode input::placeholder,
 .dark-mode textarea::placeholder {
     color: #c7c6c694 !important;
+}
+
+/* === Ícones e transições === */
+.transition-icon {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dark-mode .transition-icon {
+    transform: rotate(180deg);
+}
+
+.perfil-icon {
+    color: #212529;
+    fill: #212529;
+    transition: fill 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .perfil-icon {
+    color: #ffffff;
+    fill: #ffffff;
+}
+
+/* === Modal: seta de voltar branca === */
+body.dark-mode .modal .btn.text-dark i.bi-arrow-left {
+    color: #ffffff !important;
 }

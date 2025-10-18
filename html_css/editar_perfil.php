@@ -81,8 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="text-center mb-4">
                 <!-- Avatar de edição -->
-                <div class="edit-avatar rounded-circle bg-light border d-flex align-items-center justify-content-center mx-auto mb-2 mt-2" style="width: 80px; height: 80px;">
-                    <i class="bi bi-pencil-square text-dark" style="font-size: 3.5rem;"></i>
+                <div class="edit-avatar rounded-circle border d-flex align-items-center justify-content-center mx-auto mb-2 mt-2" style="width: 80px; height: 80px;">
+                    <i class="bi bi-pencil-square perfil-icon" style="font-size: 3.5rem;"></i>
                 </div>
 
                 <!-- Título -->
