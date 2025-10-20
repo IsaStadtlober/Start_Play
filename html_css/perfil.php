@@ -33,10 +33,6 @@ $usuario = mysqli_fetch_assoc($result);
 <body id="cadastro" class="bg-light py-4">
     <main>
         <section class="container perfil-editar-dark bg-white rounded-3 mx-auto p-2" style="max-width: 500px; position: relative; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.56);">
-            <!-- Seta simples no canto superior esquerdo -->
-            <a href="index.php" class="position-absolute top-0 start-0 m-3 text-dark" title="Voltar para início">
-                <i class="bi bi-arrow-left fs-4"></i>
-            </a>
 
             <div class="text-center mb-4">
                 <!-- Avatar -->
@@ -81,7 +77,7 @@ $usuario = mysqli_fetch_assoc($result);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Script de Dark Mode -->
-    <script src="dark_mode.js"></script>
+    <script src="js/dark_mode.js"></script>
 </body>
 
 </html>

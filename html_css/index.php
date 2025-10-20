@@ -173,17 +173,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
     </nav>
     <div class="auth-buttons">
       <?php if (isset($_SESSION['usuario_logado'])): ?>
-        <form action="perfil.php" method="get" class="d-inline p-0 m-0" style="display:inline;">
-          <button type="button" class="btn btn-no-dark btn-secondary text-white toggle-btn mx-1" onclick="toggleDarkMode()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alternar modo claro/escuro">
+        <div class="d-flex align-items-center gap-2">
+          <button type="button" class="btn btn-no-dark btn-secondary text-white toggle-btn" onclick="toggleDarkMode()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alternar modo claro/escuro">
             <i class="bi bi-sun-fill transition-icon"></i>
           </button>
-          <button type="submit" class="btn p-0 border-0 bg-transparent" title="Perfil" style="box-shadow:none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="bi bi-person-circle perfil-icon" viewBox="0 0 16 16">
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-            </svg>
-          </button>
-        </form>
+          <form action="perfil.php" method="get" class="m-0 p-0">
+            <button type="submit" class="btn p-0 border-0 bg-transparent" title="Perfil" style="box-shadow:none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="bi bi-person-circle perfil-icon" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+              </svg>
+            </button>
+          </form>
+        </div>
       <?php else: ?>
         <button type="button" class="btn btn-no-dark btn-secondary text-white toggle-btn" onclick="toggleDarkMode()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alternar modo claro/escuro">
           <i class="bi bi-sun-fill transition-icon"></i>
@@ -532,12 +534,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
       <div class="modal-content p-4 py-1">
         <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
         <div class="modal-body text-center">
-          <img src="img/favicon.ico" alt="Ícone de Sucesso" style="max-width: 40px; margin-bottom: 20px;">
           <h2 class="modal-title fs-3 text-success" id="successModalLabel">Login efetuado com sucesso!</h2>
           <p class="fs-6 mt-3" id="successModalMsg">Bem-vindo(a) de volta! Você será redirecionado em breve.</p>
-          <div class="d-flex justify-content-center mt-4">
-            <button type="button" class="btn btn-outline-success w-50" data-bs-dismiss="modal">Fechar</button>
-          </div>
         </div>
       </div>
     </div>
@@ -547,26 +545,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Script de Dark Mode -->
-  <script src="dark_mode.js"></script>
+  <<script src="js/dark_mode.js">
+    </script>
 
-  <!-- Script para reabrir modais em caso de erro -->
-  <script>
-    // Reabrir modal de mudar senha se houver erro
-    <?php if (!empty($erro_mudar["email"]) || !empty($erro_mudar["nova_senha"]) || !empty($erro_mudar["confirmar_nova_senha"])): ?>
-      document.addEventListener("DOMContentLoaded", function() {
-        var modal = new bootstrap.Modal(document.getElementById('mudarSenhaModal'));
-        modal.show();
-      });
-    <?php endif; ?>
+    <!-- Script para reabrir modais em caso de erro -->
+    <script>
+      // Reabrir modal de mudar senha se houver erro
+      <?php if (!empty($erro_mudar["email"]) || !empty($erro_mudar["nova_senha"]) || !empty($erro_mudar["confirmar_nova_senha"])): ?>
+        document.addEventListener("DOMContentLoaded", function() {
+          var modal = new bootstrap.Modal(document.getElementById('mudarSenhaModal'));
+          modal.show();
+        });
+      <?php endif; ?>
 
-    // Exibir modal de sucesso ao alterar senha
-    <?php if ($mensagem_sucesso): ?>
-      document.addEventListener("DOMContentLoaded", function() {
-        var modal = new bootstrap.Modal(document.getElementById('modalSucessoSenha'));
-        modal.show();
-      });
-    <?php endif; ?>
-  </script>
+      // Exibir modal de sucesso ao alterar senha
+      <?php if ($mensagem_sucesso): ?>
+        document.addEventListener("DOMContentLoaded", function() {
+          var modal = new bootstrap.Modal(document.getElementById('modalSucessoSenha'));
+          modal.show();
+        });
+      <?php endif; ?>
+    </script>
 </body>
 
 </html>
