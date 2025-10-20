@@ -1,22 +1,22 @@
-<?php 
-  session_start();
-  include '../conexao/conexao.php';
-  // Verifica se o usuário está logado
-  if(!isset($_SESSION['usuario_logado'])){
-    header("Location: ../index.php");
-    exit();
-  }
-  // Busca o e-mail da sessão
-  $email = $_SESSION['usuario_logado'];
-  // Consulta o banco buscar o id do usuário
-  $sql = "SELECT tipo_perfil FROM usuario WHERE email = '$email'";
-  $result = mysqli_query($conn, $sql);
-  $row = mysqli_fetch_assoc($result);
-  $id_usuario = $row['tipo_perfil'] ?? null;
+<?php
+session_start();
+include '../conexao/conexao.php';
+// Verifica se o usuário está logado
+if (!isset($_SESSION['usuario_logado'])) {
+  header("Location: ../index.php");
+  exit();
+}
+// Busca o e-mail da sessão
+$email = $_SESSION['usuario_logado'];
+// Consulta o banco buscar o id do usuário
+$sql = "SELECT tipo_perfil FROM usuario WHERE email = '$email'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$id_usuario = $row['tipo_perfil'] ?? null;
 
-  // se o usuario não for master, bloqueia o acesso
-  if ($id_usuario != 2){
-    echo '
+// se o usuario não for master, bloqueia o acesso
+if ($id_usuario != 2) {
+  echo '
     <!DOCTYPE html>
     <html lang="pt-br">
     <head>
@@ -37,46 +37,52 @@
     </body>
     </html>
     ';
-    exit();
-  }
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
-    <title>CRUD</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+  <title>CRUD</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../dark_mode.css">
 </head>
 
 <body>
   <header class="p-5">
-          <img src="../img/logo-pp2.png" alt="Logo">
-          <h1>Start Play</h1>
-          <nav>
-            <a href="../index.php">Home</a>
-            <a href="../card.php">Games</a>
-            <a href="../videogame.php">Consoles</a>
-          </nav>
+    <img src="../img/logo-pp2.png" alt="Logo">
+    <h1>Start Play</h1>
+    <nav>
+      <a href="../index.php">Home</a>
+      <a href="../card.php">Games</a>
+      <a href="../videogame.php">Consoles</a>
+    </nav>
+    <button type="button" class="btn btn-no-dark btn-secondary text-white toggle-btn mx-2" onclick="toggleDarkMode()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alternar modo claro/escuro">
+      <i class="bi bi-sun-fill transition-icon"></i>
+    </button>
   </header>
+
   <!-- php para excluir usuário -->
   <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluir_usuario'])){
-      include '../conexao/conexao.php';
-      $nome = mysqli_real_escape_string($conn, $_POST['excluir_usuario']);
-      $sql = "DELETE FROM usuario WHERE nomecompleto = '$nome'";
-      mysqli_query($conn, $sql);
-    }
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['excluir_usuario'])) {
+    include '../conexao/conexao.php';
+    $nome = mysqli_real_escape_string($conn, $_POST['excluir_usuario']);
+    $sql = "DELETE FROM usuario WHERE nomecompleto = '$nome'";
+    mysqli_query($conn, $sql);
+  }
   ?>
   <div class="container mt-5">
-      <h2 class="text-center">Consulta de Usuários</h2>
-      <p class="text-center">Visualize, edite ou exclua usuários do sistema.</p>
+    <h2 class="text-center">Consulta de Usuários</h2>
+    <p class="text-center">Visualize, edite ou exclua usuários do sistema.</p>
   </div>
   <div class="d-flex justify-content-center mt-4 mb-4">
-    <nav class = "navbar w-100 d-flex justify-content-center">
+    <nav class="navbar w-100 d-flex justify-content-center">
       <form class="d-flex w-50" style="max-width:400px;" method="POST" action="consulta.php">
         <label for="search" class="visually-hidden">Consultar</label>
         <input id="search" class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Pesquisar" name="pesquisar" value="" autocomplete="off">
@@ -85,48 +91,48 @@
     </nav>
   </div>
   <div class="container d-flex flex-column align-items-center mt-5">
-      <table class="table table-bordered table-striped">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">NOME</th>
-            <th scope="col">LOGIN</th>
-            <th scope="col">EMAIL</th>
-            <th scope="col">AÇÕES</th>
-          </tr>
-        </thead>
-        <tbody class="table-group-divider">
-            <?php 
-              $pesquisar = $_POST['pesquisar'] ?? '';
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">NOME</th>
+          <th scope="col">LOGIN</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">AÇÕES</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <?php
+        $pesquisar = $_POST['pesquisar'] ?? '';
 
-              include '../conexao/conexao.php';
+        include '../conexao/conexao.php';
 
-              $sql = "SELECT * FROM usuario WHERE nomecompleto LIKE '%$pesquisar%'";
+        $sql = "SELECT * FROM usuario WHERE nomecompleto LIKE '%$pesquisar%'";
 
-              $dados = mysqli_query($conn, $sql);
+        $dados = mysqli_query($conn, $sql);
 
-              while($linha = mysqli_fetch_assoc($dados)){
-                $nome = $linha['nomecompleto'];
-                $data = date('d/m/Y', strtotime($linha['datanascimento']));
-                $sexo = $linha['sexo'];
-                $nomematerno = $linha['nomematerno'];
-                $cpf = $linha['cpf'];
-                $email = $linha['email'];
-                $celular = $linha['telefonecelular'];
-                $fixo = $linha['telefonefixo'];
-                $login = $linha['login'];
-                $senha = $linha['senha'];
-                $email = $linha['email'];
-                $cep = $linha['cep'];
-                $logradouro = $linha['logradouro'];
-                $numero = $linha['numero'];
-                $bairro = $linha['bairro'];
-                $cidade = $linha['cidade'];
-                $estado = $linha['uf'];
+        while ($linha = mysqli_fetch_assoc($dados)) {
+          $nome = $linha['nomecompleto'];
+          $data = date('d/m/Y', strtotime($linha['datanascimento']));
+          $sexo = $linha['sexo'];
+          $nomematerno = $linha['nomematerno'];
+          $cpf = $linha['cpf'];
+          $email = $linha['email'];
+          $celular = $linha['telefonecelular'];
+          $fixo = $linha['telefonefixo'];
+          $login = $linha['login'];
+          $senha = $linha['senha'];
+          $email = $linha['email'];
+          $cep = $linha['cep'];
+          $logradouro = $linha['logradouro'];
+          $numero = $linha['numero'];
+          $bairro = $linha['bairro'];
+          $cidade = $linha['cidade'];
+          $estado = $linha['uf'];
 
-                $id = $linha['id_usuario']; // Certifique-se que existe o campo id
+          $id = $linha['id_usuario']; // Certifique-se que existe o campo id
 
-                echo  "<tr>
+          echo  "<tr>
                   <td>$id</td>
                   <td>$nome</td>
                   <td>$login</td>
@@ -164,7 +170,7 @@
                             <p><strong>Telefone Fixo:</strong> " . htmlspecialchars($fixo) . "</p>
                             <p><strong>Login:</strong> " . htmlspecialchars($login) . "</p>
                             <p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>
-                            <p><strong>Senha:</strong> " . htmlspecialchars($senha) . ' (Criptografia MD5)'. "</p>
+                            <p><strong>Senha:</strong> " . htmlspecialchars($senha) . ' (Criptografia MD5)' . "</p>
                             <p><strong>CEP:</strong> " . htmlspecialchars($cep) . "</p>
                             <p><strong>Logradouro:</strong> " . htmlspecialchars($logradouro) . "</p>
                             <p><strong>Número:</strong> " . htmlspecialchars($numero) . "</p>
@@ -181,45 +187,52 @@
                     </div>
                   </td>
                 </tr>";
-              }
-            ?>          
-        </tbody>
-      </table>
-      <div class="w-100 d-flex justify-content-between mb-2">
-          <a href="../cadastro.php" class="btn btn-success text-decoration-none text-white">
-              <i class="bi bi-person-plus"></i> Incluir novo usuário
-          </a>
-          <a href="log.php" class="btn btn-secondary text-decoration-none text-white">
-              <i class="bi bi-journal-text"></i> Tela de LOG
-          </a>
-      </div>
-</div>
-<!-- Modal Bootstrap -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-4 py-1">
-      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
-      <form method="POST" action="">
-        <div class="modal-body text-center">
-          <img src="../img/favicon.ico" alt="Ícone do site" style="max-width: 40px; margin-bottom: 20px;">
-          <h2 class="modal-title fs-3 text-danger" id="confirmDeleteModalLabel">Confirmar exclusão</h2>
-          <p class="fs-6 mt-3">Tem certeza que deseja excluir este usuário? Esta ação não poderá ser desfeita.</p>
-          <input type="hidden" name="excluir_usuario" id="excluir_usuario_modal">
-          <div class="d-flex justify-content-center gap-2 mt-4">
-            <button type="button" class="btn btn-outline-secondary w-50" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-danger w-50">Sim, excluir</button>
-          </div>
-        </div>
-      </form>
+        }
+        ?>
+      </tbody>
+    </table>
+    <div class="w-100 d-flex justify-content-between mb-2">
+      <a href="../cadastro.php" class="btn btn-success text-decoration-none text-white">
+        <i class="bi bi-person-plus"></i> Incluir novo usuário
+      </a>
+      <a href="log.php" class="btn btn-secondary text-decoration-none text-white">
+        <i class="bi bi-journal-text"></i> Tela de LOG
+      </a>
     </div>
   </div>
-</div>
+  <!-- Modal Bootstrap -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4 py-1">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        <form method="POST" action="">
+          <div class="modal-body text-center">
+            <img src="../img/favicon.ico" alt="Ícone do site" style="max-width: 40px; margin-bottom: 20px;">
+            <h2 class="modal-title fs-3 text-danger" id="confirmDeleteModalLabel">Confirmar exclusão</h2>
+            <p class="fs-6 mt-3">Tem certeza que deseja excluir este usuário? Esta ação não poderá ser desfeita.</p>
+            <input type="hidden" name="excluir_usuario" id="excluir_usuario_modal">
+            <div class="d-flex justify-content-center gap-2 mt-4">
+              <button type="button" class="btn btn-outline-secondary w-50" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-danger w-50">Sim, excluir</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-function setUsuarioNome(nome) {
-  document.getElementById('excluir_usuario_modal').value = nome;
-}
-</script>
+
+  <!-- Bootstrap JS Bundle com Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Dark Mode JS -->
+  <script src="../js/dark_mode.js"></script>
+
+  <script>
+    function setUsuarioNome(nome) {
+      document.getElementById('excluir_usuario_modal').value = nome;
+    }
+  </script>
 </body>
+
 </html>
