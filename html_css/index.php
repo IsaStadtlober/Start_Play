@@ -545,7 +545,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Script de Dark Mode -->
-  <<script src="js/dark_mode.js">
+  <script src="js/dark_mode.js">
     </script>
 
     <!-- Script para reabrir modais em caso de erro -->
