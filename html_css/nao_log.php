@@ -30,58 +30,38 @@
         </div>
     </main>
 
-    <!-- Modal Gamer Interativo -->
+    <!-- Modal Curiosidade -->
     <div class="modal fade" id="exitModal" tabindex="-1" aria-labelledby="exitModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exitModalLabel">👾 Antes de sair...</h5>
+                    <h5 class="modal-title" id="exitModalLabel">🎮 Curiosidade Gamer</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <p class="mb-2">Você sabia que o primeiro console da história foi o <strong>Magnavox Odyssey</strong>, lançado em 1972?</p>
-                    <p class="mb-3">Teste seus conhecimentos:</p>
-                    <p><strong>Qual console popularizou os cartuchos removíveis?</strong></p>
-                    <button class="btn btn-outline-primary btn-sm me-2">Atari 2600</button>
-                    <button class="btn btn-outline-primary btn-sm me-2">NES</button>
-                    <button class="btn btn-outline-primary btn-sm">Sega Genesis</button>
+                    <!-- Conteúdo gerado dinamicamente pelo JS -->
+                    <h5 class="fw-bold mb-3">Você sabia?</h5>
+                    <p class="mb-3">O jogo <em>Cesties of Reventure</em> foi inspirado em clássicos como Zelda e Stardew Valley, combinando exploração com narrativa emocional. A desenvolvedora Pixel Dream Studios começou como um projeto universitário.</p>
+                    <p class="text-muted fst-italic">Quer descobrir mais curiosidades como essa? Cadastre-se e explore o universo indie completo.</p>
                 </div>
-                <div class="modal-footer">
-                    <small class="text-muted">Curiosidades como essa estão te esperando. Que tal se cadastrar?</small>
+                <div class="modal-footer d-flex flex-column align-items-center">
+                    <p class="text-muted small mb-2">
+                        <a href="cadastro.php">Cadastre-se</a> para continuar explorando.
+                    </p>
                     <button id="confirmRedirect" class="btn btn-outline-success">Ir para Home</button>
                 </div>
             </div>
         </div>
-        </div<!-- Modal Curiosidade -->
-        <div class="modal fade" id="exitModal" tabindex="-1" aria-labelledby="exitModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exitModalLabel">🎮 Curiosidade Gamer</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Conteúdo gerado dinamicamente pelo JS -->
-                        <h5 class="fw-bold mb-3">Você sabia?</h5>
-                        <p class="mb-3">O jogo <em>Cesties of Reventure</em> foi inspirado em clássicos como Zelda e Stardew Valley, combinando exploração com narrativa emocional. A desenvolvedora Pixel Dream Studios começou como um projeto universitário.</p>
-                        <p class="text-muted fst-italic">Quer descobrir mais curiosidades como essa? Cadastre-se e explore o universo indie completo.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <small class="text-muted">Cadastre-se para continuar explorando.</small>
-                        <button id="confirmRedirect" class="btn btn-outline-success">Ir para Home</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <!-- Bootstrap JS Bundle -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Script de Dark Mode -->
-        <script src="js/dark_mode.js"></script>
+    <!-- Script de Dark Mode -->
+    <script src="js/dark_mode.js"></script>
 
-        <!-- Script de Interatividade e Curiosidades -->
-        <script type="module" src="js/interatividade.js"></script>
+    <!-- Script de Interatividade e Curiosidades -->
+    <script type="module" src="js/interatividade.js"></script>
 </body>
 
 </html>
