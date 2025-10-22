@@ -45,8 +45,8 @@
                     <p class="text-muted fst-italic">Quer descobrir mais curiosidades como essa? Cadastre-se e explore o universo indie completo.</p>
                 </div>
                 <div class="modal-footer d-flex flex-column align-items-center">
-                    <p class="text-muted small mb-2">
-                        <a href="cadastro.php">Cadastre-se</a> para continuar explorando.
+                    <p class="text-muted fs-6 mb-2">
+                        <a href="cadastro.php">Cadastre-se</a> <span class="small">para continuar explorando.</span>
                     </p>
                     <button id="confirmRedirect" class="btn btn-outline-success">Ir para Home</button>
                 </div>

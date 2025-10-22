@@ -186,20 +186,23 @@ if (!isset($_SESSION["usuario_logado"])) {
           <!-- Primeira Coluna -->
           <div class="col-12 col-md-6">
             <p class="fw-bold fs-5">Starplay</p>
-            <p class="small">É sua fonte completa de conhecimento sobre games. Nosso objetivo é direto: oferecer informações precisas e guias práticos para todos os jogadores. Encontre tudo o que você precisa para dominar seus jogos favoritos em um só lugar.</p>
-            <p class="fw-semibold small">Starplay: Game On, Knowledge Up!</p>
+            <p class="fs-6 me-md-5">É sua fonte completa de conhecimento sobre games. Nosso objetivo é direto: oferecer informações precisas e guias práticos para todos os jogadores. Encontre tudo o que você precisa para dominar seus jogos favoritos em um só lugar.</p>
+            <p class="fw-semibold fs-6">Starplay: Game On, Knowledge Up!</p>
           </div>
 
           <!-- Segunda Coluna -->
-          <div class="col-12 col-md-6 border-start ps-md-4">
+          <div class="col-12 col-md-6 ps-md-4 border-md-start mt-5">
             <h5 class="fw-bold fs-5">Contatos:</h5>
-            <p class="mb-1"><strong>Email:</strong> emailficticostarplay@gmail.com</p>
-            <p><strong>Número:</strong> (99) 99999-9999</p>
+            <p class="mb-1 fs-6"><span class="fw-bold">Email:</span> emailficticostarplay@gmail.com</p>
+            <p class="fs-6"><span class="fw-bold">Número:</span> (99) 99999-9999</p>
           </div>
         </div>
 
+        <!-- Linha horizontal separadora -->
+        <hr class="my-5 custom-hr">
+
         <!-- Parte de Baixo -->
-        <div class="mt-4 pt-4">
+        <div class="text-center">
           <p class="mb-0 small">&copy; 2025 StarPlay. Todos os direitos reservados.</p>
           <p class="small mt-0 pt-0">Desenvolvido por <span class="fw-bold fs-6">Equipe Starplay.</span></p>
         </div>
