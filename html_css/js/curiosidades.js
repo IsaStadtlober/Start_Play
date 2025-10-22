@@ -2,25 +2,30 @@
 
 export const curiosidades = [
   {
-    texto: "Você sabia que o primeiro console da história foi o Magnavox Odyssey, lançado em 1972?",
-    pergunta: "Qual console popularizou os cartuchos removíveis?",
-    opcoes: ["Atari 2600", "NES", "Sega Genesis"],
-    resposta: "Atari 2600",
-    explicacao: "O Atari 2600 foi o primeiro console a usar cartuchos intercambiáveis, permitindo múltiplos jogos em um só aparelho."
+    titulo: "Cesties of Reventure",
+    texto: "Elara e seu cão Pipoca exploram o mundo guiados por um mapa rabiscado encontrado por acaso...",
+    gancho: "Mas o que esse mapa realmente revela?"
   },
   {
-    texto: "O PlayStation 2 é o console mais vendido da história, com mais de 155 milhões de unidades.",
-    pergunta: "Qual jogo foi lançado junto com o PS2?",
-    opcoes: ["Gran Turismo 3", "Tekken Tag Tournament", "God of War"],
-    resposta: "Tekken Tag Tournament",
-    explicacao: "Tekken Tag Tournament foi um dos títulos de lançamento do PS2, mostrando o poder gráfico do novo console."
+    titulo: "Buralist",
+    texto: "Em Buralist, o jogador acorda sem memórias em um deserto nebuloso e inóspito...",
+    gancho: "Será que há algo esperando nas ruínas?"
   },
   {
-    texto: "O Nintendo Game Boy foi lançado em 1989 e revolucionou os portáteis.",
-    pergunta: "Qual jogo vinha com o Game Boy?",
-    opcoes: ["Pokémon Red", "Super Mario Land", "Tetris"],
-    resposta: "Tetris",
-    explicacao: "Tetris foi incluído com o Game Boy e ajudou a torná-lo um sucesso global, atraindo públicos de todas as idades."
+    titulo: "Alek-Sthor",
+    texto: "Em Alek-Sthor, suas decisões moldam o destino de um reino medieval inteiro...",
+    gancho: "Você governaria com honra ou com punho de ferro?"
+  },
+  {
+    titulo: "Knight Souls",
+    texto: "Knight Souls leva você a Aerthos, onde cavaleiros elementais enfrentam forças sombrias...",
+    gancho: "Mas qual é a verdadeira origem dessas trevas?"
+  },
+  {
+    titulo: "Survivalcraft",
+    texto: "Lançado em 2011, Survivalcraft permite criar, explorar e sobreviver em mundos de blocos...",
+    gancho: "Quantos segredos ainda estão enterrados nesses mundos?"
   }
 ];
+
 
