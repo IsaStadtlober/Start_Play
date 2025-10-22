@@ -400,24 +400,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
       </div>
     </section>
 
-    <footer class="footer-index">
-      <div class="footer-content">
-        <!-- Primeira Coluna -->
-        <div class="footer-column">
-          <p><strong>Starplay</strong> é sua fonte completa de conhecimento sobre games. Nosso objetivo é direto: oferecer informações precisas e guias práticos para todos os jogadores. Encontre tudo o que você precisa para dominar seus jogos favoritos em um só lugar.</p>
-          <p><strong>Starplay: Game On, Knowledge Up!</strong></p>
+    <footer class="bg-white shadow-lg mt-5 py-5 px-3 text-center">
+      <div class="container">
+        <div class="row gy-4 justify-content-center text-start">
+          <!-- Primeira Coluna -->
+          <div class="col-12 col-md-6">
+            <p class="fw-bold fs-5">Starplay</p>
+            <p class="small">É sua fonte completa de conhecimento sobre games. Nosso objetivo é direto: oferecer informações precisas e guias práticos para todos os jogadores. Encontre tudo o que você precisa para dominar seus jogos favoritos em um só lugar.</p>
+            <p class="fw-semibold small">Starplay: Game On, Knowledge Up!</p>
+          </div>
+
+          <!-- Segunda Coluna -->
+          <div class="col-12 col-md-6 border-start ps-md-4">
+            <h5 class="fw-bold fs-5">Contatos:</h5>
+            <p class="mb-1"><strong>Email:</strong> emailficticostarplay@gmail.com</p>
+            <p><strong>Número:</strong> (99) 99999-9999</p>
+          </div>
         </div>
-        <!-- Segunda Coluna -->
-        <div class="footer-column">
-          <h5>Contatos:</h5>
-          <p><strong>Email:</strong> emailficticostarplay@gmail.com</p>
-          <p><strong>Número:</strong> (99) 99999-9999</p>
+
+        <!-- Parte de Baixo -->
+        <div class="mt-4 pt-4">
+          <p class="mb-0 small">&copy; 2025 StarPlay. Todos os direitos reservados.</p>
+          <p class="small mt-0 pt-0">Desenvolvido por <span class="fw-bold fs-6">Equipe Starplay.</span></p>
         </div>
-      </div>
-      <!-- Parte de Baixo -->
-      <div class="footer-bottom">
-        <p>&copy; 2025 StarPlay. Todos os direitos reservados.</p>
-        <p>Desenvolvido por <strong>Equipe Starplay.</strong></p>
       </div>
     </footer>
   </main>
@@ -546,26 +551,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
 
   <!-- Script de Dark Mode -->
   <script src="js/dark_mode.js">
-    </script>
+  </script>
 
-    <!-- Script para reabrir modais em caso de erro -->
-    <script>
-      // Reabrir modal de mudar senha se houver erro
-      <?php if (!empty($erro_mudar["email"]) || !empty($erro_mudar["nova_senha"]) || !empty($erro_mudar["confirmar_nova_senha"])): ?>
-        document.addEventListener("DOMContentLoaded", function() {
-          var modal = new bootstrap.Modal(document.getElementById('mudarSenhaModal'));
-          modal.show();
-        });
-      <?php endif; ?>
+  <!-- Script para reabrir modais em caso de erro -->
+  <script>
+    // Reabrir modal de mudar senha se houver erro
+    <?php if (!empty($erro_mudar["email"]) || !empty($erro_mudar["nova_senha"]) || !empty($erro_mudar["confirmar_nova_senha"])): ?>
+      document.addEventListener("DOMContentLoaded", function() {
+        var modal = new bootstrap.Modal(document.getElementById('mudarSenhaModal'));
+        modal.show();
+      });
+    <?php endif; ?>
 
-      // Exibir modal de sucesso ao alterar senha
-      <?php if ($mensagem_sucesso): ?>
-        document.addEventListener("DOMContentLoaded", function() {
-          var modal = new bootstrap.Modal(document.getElementById('modalSucessoSenha'));
-          modal.show();
-        });
-      <?php endif; ?>
-    </script>
+    // Exibir modal de sucesso ao alterar senha
+    <?php if ($mensagem_sucesso): ?>
+      document.addEventListener("DOMContentLoaded", function() {
+        var modal = new bootstrap.Modal(document.getElementById('modalSucessoSenha'));
+        modal.show();
+      });
+    <?php endif; ?>
+  </script>
 </body>
 
 </html>
