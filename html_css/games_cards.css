@@ -17,3 +17,21 @@
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.781); 
 }
 
+@media (max-width: 768px) {
+  h2,
+  h3,
+  p,
+  strong {
+    font-size: 13px !important;
+  }
+
+  .card-games p {
+    font-size: 11px !important;
+  }
+
+  .card-games h2 {
+    font-size: 15px !important;
+  }
+}
+
+
