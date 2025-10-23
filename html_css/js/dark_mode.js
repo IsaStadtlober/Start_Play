@@ -1,9 +1,13 @@
 // 🌙 Aplica modo escuro ao carregar, se estiver salvo no localStorage
 document.addEventListener("DOMContentLoaded", function () {
-    // Ativa tooltips do Bootstrap
+    // Ativa tooltips do Bootstrap com posição fixa embaixo
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        new bootstrap.Tooltip(tooltipTriggerEl);
+        new bootstrap.Tooltip(tooltipTriggerEl, {
+            placement: 'bottom',
+            fallbackPlacements: [], // impede reposicionamento automático
+            boundary: 'window' // respeita os limites da janela
+        });
     });
 
     const isDarkSaved = localStorage.getItem("modo") === "dark";
