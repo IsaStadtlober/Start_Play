@@ -499,7 +499,7 @@ if (!isset($_SESSION["usuario_logado"])) {
             </section>
         </section>
 
-        <footer class="bg-white shadow-lg mt-5 py-5 px-3 text-center">
+        <footer class="bg-white shadow-lg mt-5 py-4 px-3 text-center">
             <div class="container">
                 <div class="row gy-4 justify-content-center text-start">
                     <!-- Primeira Coluna -->
