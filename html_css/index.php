@@ -549,6 +549,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
     </div>
   </div>
 
+  <!-- Botão Flutuante de Contato -->
+  <button type="button" class="btn-contato-flutuante" data-bs-toggle="modal" data-bs-target="#contatoModal" title="Entre em contato conosco">
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <!-- Modal de Contato -->
+  <div class="modal fade" id="contatoModal" tabindex="-1" aria-labelledby="contatoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4 py-1">
+        <!-- Botão de Fechar no canto superior direito -->
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        <!-- Imagem e texto no topo do modal -->
+        <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+          <img src="img/logo-pp2.png" alt="Logo Startplay" class="logo-startplay" style="max-width: 40px; margin-right: 10px;">
+          <h1 class="fs-5 mb-0">StartPlay</h1>
+        </div>
+        <!-- Título do modal -->
+        <h2 class="modal-title fs-4 text-center mt-3" id="contatoModalLabel">Entre em Contato</h2>
+        <p class="text-center fs-6">Preencha o formulário abaixo e entraremos em contato em breve.</p>
+        <div class="modal-body">
+          <!-- Formulário de Contato -->
+          <form action="enviar_email.php" method="POST" id="contato-form">
+            <div class="mb-3">
+              <label for="nome_contato" class="form-label">Nome:</label>
+              <input type="text" id="nome_contato" name="nome" class="form-control" placeholder="Digite seu nome" required>
+            </div>
+            <div class="mb-3">
+              <label for="email_contato" class="form-label">E-mail:</label>
+              <input type="email" id="email_contato" name="email" class="form-control" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="mb-3">
+              <label for="mensagem_contato" class="form-label">Mensagem:</label>
+              <textarea id="mensagem_contato" name="mensagem" class="form-control" rows="3" placeholder="Digite sua mensagem" required></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="reset" class="btn btn-outline-secondary w-50 me-2">Limpar</button>
+              <button type="submit" class="btn btn-outline-primary w-50">Enviar Mensagem</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap JS Bundle com Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -577,3 +621,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
 </body>
 
 </html>
+
+<style>
+  /* Botão Flutuante de Contato */
+  .btn-contato-flutuante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .btn-contato-flutuante:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-contato-flutuante:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    .btn-contato-flutuante {
+      width: 55px;
+      height: 55px;
+      bottom: 20px;
+      right: 20px;
+      font-size: 20px;
+    }
+  }
+
+  .logo-startplay {
+    max-width: 40px;
+    margin-right: 10px;
+  }
+</style>
