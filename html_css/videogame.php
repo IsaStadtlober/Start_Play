@@ -19,6 +19,7 @@ if (!isset($_SESSION["usuario_logado"])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contato.css">
   <link rel="stylesheet" href="consoles.css">
   <link rel="stylesheet" href="dark_mode.css">
 </head>
@@ -253,6 +254,50 @@ if (!isset($_SESSION["usuario_logado"])) {
         <div class="modal-footer">
           <p class="mb-1 fs-6">Não tem uma conta? <a href="cadastro.php" class="text-primary">Cadastre-se aqui.</a></p>
           <p class="mb-1 fs-6">Esqueceu a Senha? <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#mudarSenhaModal">Mudar aqui.</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão Flutuante de Contato -->
+  <button type="button" class="btn-contato-flutuante" data-bs-toggle="modal" data-bs-target="#contatoModal" title="Entre em contato conosco">
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <!-- Modal de Contato -->
+  <div class="modal fade" id="contatoModal" tabindex="-1" aria-labelledby="contatoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4 py-1">
+        <!-- Botão de Fechar no canto superior direito -->
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        <!-- Imagem e texto no topo do modal -->
+        <div class="d-flex align-items-center justify-content-center mt-3 mb-3">
+          <img src="img/logo-pp2.png" alt="Logo Startplay" class="logo-startplay" style="max-width: 40px; margin-right: 10px;">
+          <h1 class="fs-5 mb-0">StartPlay</h1>
+        </div>
+        <!-- Título do modal -->
+        <h2 class="modal-title fs-4 text-center mt-3" id="contatoModalLabel">Entre em Contato</h2>
+        <p class="text-center fs-6">Preencha o formulário abaixo e entraremos em contato em breve.</p>
+        <div class="modal-body">
+          <!-- Formulário de Contato -->
+          <form action="enviar_email.php" method="POST" id="contato-form">
+            <div class="mb-3">
+              <label for="nome_contato" class="form-label">Nome:</label>
+              <input type="text" id="nome_contato" name="nome" class="form-control" placeholder="Digite seu nome" required>
+            </div>
+            <div class="mb-3">
+              <label for="email_contato" class="form-label">E-mail:</label>
+              <input type="email" id="email_contato" name="email" class="form-control" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="mb-3">
+              <label for="mensagem_contato" class="form-label">Mensagem:</label>
+              <textarea id="mensagem_contato" name="mensagem" class="form-control" rows="3" placeholder="Digite sua mensagem" required></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="reset" class="btn btn-outline-secondary w-50 me-2">Limpar</button>
+              <button type="submit" class="btn btn-outline-primary w-50">Enviar</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

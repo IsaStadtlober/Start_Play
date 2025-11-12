@@ -155,6 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contato.css">
   <link rel="stylesheet" href="dark_mode.css">
 </head>
 
@@ -585,7 +586,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
             </div>
             <div class="d-flex justify-content-between">
               <button type="reset" class="btn btn-outline-secondary w-50 me-2">Limpar</button>
-              <button type="submit" class="btn btn-outline-primary w-50">Enviar Mensagem</button>
+              <button type="submit" class="btn btn-outline-primary w-50">Enviar</button>
             </div>
           </form>
         </div>
@@ -621,51 +622,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
 </body>
 
 </html>
-
-<style>
-  /* Botão Flutuante de Contato */
-  .btn-contato-flutuante {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #0d6efd;
-    color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 1000;
-  }
-
-  .btn-contato-flutuante:hover {
-    background-color: #0b5ed7;
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .btn-contato-flutuante:active {
-    transform: scale(0.95);
-  }
-
-  @media (max-width: 768px) {
-    .btn-contato-flutuante {
-      width: 55px;
-      height: 55px;
-      bottom: 20px;
-      right: 20px;
-      font-size: 20px;
-    }
-  }
-
-  .logo-startplay {
-    max-width: 40px;
-    margin-right: 10px;
-  }
-</style>
