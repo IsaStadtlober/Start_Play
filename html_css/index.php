@@ -619,6 +619,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nova_senha'])) {
       });
     <?php endif; ?>
   </script>
+
+  <!-- teste -->
 </body>
 
 </html>
