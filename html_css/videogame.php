@@ -153,6 +153,9 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container10">
         <img src="img/polystation5.png" alt="Polystation5">
       </div>
+      <div class="data1_10">
+        <p>2020</p> <!-- Alterar para o novo ano -->
+      </div>
 
       <!-- Final -->
       <h1 class="cons_final mt-5 pt-5">CONSIDERAÇÕES FINAIS</h1>
