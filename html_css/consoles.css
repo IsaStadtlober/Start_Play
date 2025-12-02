@@ -235,24 +235,6 @@ body {
   top: -15px;
 }
 
-.linhadata {
-  width: 3px; /* Espessura da linha */
-  height: 615%; /* Altura relativa à altura da viewport */
-  background-color: black;
-  position: absolute; /* Para posicionamento livre */
-  right: 10%; /* Margem direita relativa ao tamanho da tela */
-  top: 25%;
-}
-
-.linhaver {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 50%;
-}
-
 .data1 {
   position: absolute;
   right: 18%;
@@ -285,19 +267,10 @@ body {
   width: 280px;
 }
 
-.linhaver2 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 112%;
-}
-
 .data1_2 {
   position: absolute;
   right: 18%;
-  top: 103%; /* Ajuste para posicionar o texto do ano */
+  top: 96%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_2 p {
@@ -325,19 +298,10 @@ body {
   left: 15px;
 }
 
-.linhaver3 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 174%;
-}
-
 .data1_3 {
   position: absolute;
   right: 18%;
-  top: 165%; /* Ajuste para posicionar o texto do ano */
+  top: 153%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_3 p {
@@ -365,19 +329,10 @@ body {
   top: -170px;
 }
 
-.linhaver4 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 236%;
-}
-
 .data1_4 {
   position: absolute;
   right: 18%;
-  top: 227%; /* Ajuste para posicionar o texto do ano */
+  top: 210%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_4 p {
@@ -403,19 +358,10 @@ body {
   width: 250px;
 }
 
-.linhaver5 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 298%;
-}
-
 .data1_5 {
   position: absolute;
   right: 18%;
-  top: 289%; /* Ajuste para posicionar o texto do ano */
+  top: 260%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_5 p {
@@ -445,19 +391,10 @@ body {
   width: 250px;
 }
 
-.linhaver6 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 360%;
-}
-
 .data1_6 {
   position: absolute;
   right: 18%;
-  top: 351%; /* Ajuste para posicionar o texto do ano */
+  top: 316%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_6 p {
@@ -485,19 +422,10 @@ body {
   right: 10px;
 }
 
-.linhaver7 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 422%;
-}
-
 .data1_7 {
   position: absolute;
   right: 18%;
-  top: 413%; /* Ajuste para posicionar o texto do ano */
+  top: 375%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_7 p {
@@ -526,19 +454,10 @@ body {
   width: 220px;
 }
 
-.linhaver8 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 484%;
-}
-
 .data1_8 {
   position: absolute;
   right: 18%;
-  top: 475%; /* Ajuste para posicionar o texto do ano */
+  top: 430%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_8 p {
@@ -566,19 +485,10 @@ body {
   width: 220px;
 }
 
-.linhaver9 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 546%;
-}
-
 .data1_9 {
   position: absolute;
   right: 18%;
-  top: 537%; /* Ajuste para posicionar o texto do ano */
+  top: 490%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_9 p {
@@ -604,19 +514,10 @@ body {
   width: 250px;
 }
 
-.linhaver10 {
-  width: 100px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  right: 10%;
-  top: 608%;
-}
-
 .data1_10 {
   position: absolute;
   right: 18%;
-  top: 599%; /* Ajuste para posicionar o texto do ano */
+  top: 545%; /* Ajuste para posicionar o texto do ano */
 }
 
 .data1_10 p {

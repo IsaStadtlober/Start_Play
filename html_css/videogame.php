@@ -56,13 +56,9 @@ if (!isset($_SESSION["usuario_logado"])) {
       <h1 class="primeiro_h1">BITWAVE</h1>
       <h2>ODYSSEY</h2>
       <p>Em 1968, o Bitwave Odyssey revolucionou o entretenimento, sendo o primeiro console doméstico. Criado por Ralph Baer, o console permitia jogos simples, como tênis e labirintos. Apesar dos gráficos básicos, vendeu mais de 100 mil unidades, inspirando futuras gerações de consoles.</p>
-      <div class="linhaver"></div>
-      <div class="linhahor"></div>
       <div class="containerV">
         <img src="img/image__12_-removebg-preview.png" alt="Bitwave">
       </div>
-      <div class="linhadata"></div>
-      <div class="linhaver"></div>
       <div class="data1">
         <p>1968</p>
       </div>
@@ -74,7 +70,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container2">
         <img src="img/krypt.png" alt="Krypt">
       </div>
-      <div class="linhaver linhaver2"></div>
       <div class="data1_2">
         <p class=>1977</p> <!-- Alterar para o novo ano -->
       </div>
@@ -86,7 +81,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container3">
         <img src="img/sega-removebg-preview.png" alt="Spectra">
       </div>
-      <div class="linhaver linhaver3"></div>
       <div class="data1_3">
         <p>1985</p> <!-- Alterar para o novo ano -->
       </div>
@@ -98,7 +92,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container4">
         <img src="img/e-removebg-preview.png" alt="Nippon">
       </div>
-      <div class="linhaver linhaver4"></div>
       <div class="data1_4">
         <p>1990</p> <!-- Alterar para o novo ano -->
       </div>
@@ -109,7 +102,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container5">
         <img src="img/1742321026536-removebg-preview.png" alt="Polystation">
       </div>
-      <div class="linhaver linhaver5"></div>
       <div class="data1_5">
         <p>1994</p> <!-- Alterar para o novo ano -->
       </div>
@@ -120,7 +112,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container6">
         <img src="img/Adobe_Express_-_file__5_-removebg-preview.png" alt="polystation2">
       </div>
-      <div class="linhaver linhaver6"></div>
       <div class="data1_6">
         <p>2000</p> <!-- Alterar para o novo ano -->
       </div>
@@ -132,7 +123,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container7">
         <img src="img/Gemini_Generated_Image_8imnca8imnca8imn-removebg-preview.png" alt="Xbox">
       </div>
-      <div class="linhaver linhaver7"></div>
       <div class="data1_7">
         <p>2005</p> <!-- Alterar para o novo ano -->
       </div>
@@ -143,7 +133,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container8">
         <img src="img/polystation4.png" alt="polystation4">
       </div>
-      <div class="linhaver linhaver8"></div>
       <div class="data1_8">
         <p>2013</p> <!-- Alterar para o novo ano -->
       </div>
@@ -155,7 +144,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container9">
         <img src="img/nippon.png" alt="NipponSwitch">
       </div>
-      <div class="linhaver linhaver9"></div>
       <div class="data1_9">
         <p>2017</p> <!-- Alterar para o novo ano -->
       </div>
@@ -165,7 +153,6 @@ if (!isset($_SESSION["usuario_logado"])) {
       <div class="container10">
         <img src="img/polystation5.png" alt="Polystation5">
       </div>
-      <div class="linhaver linhaver10"></div>
       <div class="data1_10">
         <p>2020</p> <!-- Alterar para o novo ano -->
       </div>
